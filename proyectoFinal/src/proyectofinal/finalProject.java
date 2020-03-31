@@ -1,6 +1,7 @@
 package proyectofinal;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 /**
@@ -69,6 +70,11 @@ public class finalProject extends javax.swing.JFrame {
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
+            }
+        });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
             }
         });
 
@@ -155,13 +161,43 @@ public class finalProject extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
             password.setFocusable(true);
         }
-        
+
     }//GEN-LAST:event_loginActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            datos(usuario, contrasena);
+            if (usuario.equals(user.getText()) && contrasena.equals(password.getText())) {
+                menu st = new menu();
+                st.setVisible(true);
+                this.dispose();
+            } else if (user.getText().equals("") && password.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña estan vacios\nIngrese los por favor.");
+                user.setFocusable(true);
+            } else if (user.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Usuario está vacio\nIngrese lo por favor.");
+                user.setFocusable(true);
+            } else if (password.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Contraseña está vacio\nIngrese lo por favor.");
+                password.setFocusable(true);
+            } else if (user.getText().compareTo(usuario) != 0 && password.getText().compareTo(contrasena) != 0) {
+                JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos\nIngrese nuevamente.");
+                user.setFocusable(true);
+            } else if (user.getText().compareTo(usuario) != 0) {
+                JOptionPane.showMessageDialog(this, "Usuario no válido\nIngrese nuevamente.");
+                user.setFocusable(true);
+            } else if (password.getText().compareTo(contrasena) != 0) {
+                JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
+                password.setFocusable(true);
+            }
+        }
+    }//GEN-LAST:event_passwordKeyPressed
 
     /**
      * @param args the command line arguments
