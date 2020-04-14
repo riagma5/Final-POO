@@ -1,23 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package JFrames;
 
-/**
- *
- * @author ricardo
- */
+import java.util.ArrayList;
+
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form menu
-     */
+        protected static ArrayList<String> habitatList; //Habitat container
+    protected static ArrayList<String> locationList; //Location container
+    protected static ArrayList<String> specieList; //specie container
+    protected static ArrayList<String> zoneList; // zone container
+    protected static ArrayList<String> itineraryList; //itinerary container
+    protected static ArrayList<String> routeList; //Route container
+    protected static ArrayList<String> guideList; //Guide container
+    protected static ArrayList<String> carerList; //Carer /cuidador container
+    protected static ArrayList<String> guidedRouteList; //recorrido guiado
+    //guided route container
+    protected static ArrayList<String> carerSpecieList; //Carer + Specie
+    //container
+    
     public Menu() {
+        habitatList = new ArrayList<String>();
         initComponents();
         setLocationRelativeTo(null);
-        
     }
 
     /**
