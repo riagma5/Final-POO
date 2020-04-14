@@ -22,9 +22,11 @@ public class Person {
     }
     
     Person(Person person){
-        this(person.getFullName(), person.getCellPhone(), person.getAddress(),
-                person.getHireDate(), person.getFireDate(), 
-                person.getStartTime(), person.getStatus());
+        this(
+            person.getFullName(), person.getCellPhone(), person.getAddress(),
+            person.getHireDate(), person.getFireDate(), 
+            person.getStartTime(), person.getStatus()
+        );
     }    
     
     public String getFullName() {
