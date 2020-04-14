@@ -95,7 +95,7 @@ public class finalProject extends javax.swing.JFrame {
                             .addComponent(user)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                             .addComponent(password))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,62 +112,22 @@ public class finalProject extends javax.swing.JFrame {
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(login)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
-        datos(usuario, contrasena);
-        if (usuario.equals(user.getText()) && contrasena.equals(password.getText())) {
-            menu st = new menu();
-            st.setVisible(true);
-            this.dispose();
-        } else if (user.getText().equals("") && password.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña estan vacios\nIngrese los por favor.");
-            user.setFocusable(true);
-        } else if (user.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Usuario está vacio\nIngrese lo por favor.");
-            user.setFocusable(true);
-        } else if (password.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Contraseña está vacio\nIngrese lo por favor.");
-            password.setFocusable(true);
-        } else if (user.getText().compareTo(usuario) != 0 && password.getText().compareTo(contrasena) != 0) {
-            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos\nIngrese nuevamente.");
-            user.setFocusable(true);
-        } else if (user.getText().compareTo(usuario) != 0) {
-            JOptionPane.showMessageDialog(this, "Usuario no válido\nIngrese nuevamente.");
-            user.setFocusable(true);
-        } else if (password.getText().compareTo(contrasena) != 0) {
-            JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
-            password.setFocusable(true);
-        }
-
-    }//GEN-LAST:event_loginActionPerformed
-
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_passwordActionPerformed
 
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         // TODO add your handling code here:
@@ -198,6 +158,38 @@ public class finalProject extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_passwordKeyPressed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+        datos(usuario, contrasena);
+        if (usuario.equals(user.getText()) && contrasena.equals(password.getText())) {
+            menu st = new menu();
+            st.setVisible(true);
+            this.dispose();
+        } else if (user.getText().equals("") && password.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña estan vacios\nIngrese los por favor.");
+            user.setFocusable(true);
+        } else if (user.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Usuario está vacio\nIngrese lo por favor.");
+            user.setFocusable(true);
+        } else if (password.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Contraseña está vacio\nIngrese lo por favor.");
+            password.setFocusable(true);
+        } else if (user.getText().compareTo(usuario) != 0 && password.getText().compareTo(contrasena) != 0) {
+            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos\nIngrese nuevamente.");
+            user.setFocusable(true);
+        } else if (user.getText().compareTo(usuario) != 0) {
+            JOptionPane.showMessageDialog(this, "Usuario no válido\nIngrese nuevamente.");
+            user.setFocusable(true);
+        } else if (password.getText().compareTo(contrasena) != 0) {
+            JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
+            password.setFocusable(true);
+        }
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments
