@@ -28,6 +28,39 @@ public class Login extends javax.swing.JFrame {
         user.setText("");
         password.setText("");
     }
+    
+    private void validateData(){
+        datos(usuario, contrasena);
+            if (usuario.equals(user.getText()) && contrasena.equals(password.getText())) {
+                Menu menu = new Menu();
+                menu.setVisible(true);
+                this.dispose();
+            } else if (user.getText().equals("") && password.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña estan vacios\nIngrese los por favor.");
+                cleanField();
+                user.setFocusable(true);
+            } else if (user.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Usuario está vacio\nIngrese lo por favor.");
+                cleanField();
+                user.setFocusable(true);
+            } else if (password.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Contraseña está vacio\nIngrese lo por favor.");
+                cleanField();
+                password.setFocusable(true);
+            } else if (user.getText().compareTo(usuario) != 0 && password.getText().compareTo(contrasena) != 0) {
+                JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos\nIngrese nuevamente.");
+                cleanField();
+                user.setFocusable(true);
+            } else if (user.getText().compareTo(usuario) != 0) {
+                JOptionPane.showMessageDialog(this, "Usuario no válido\nIngrese nuevamente.");
+                cleanField();
+                user.setFocusable(true);
+            } else if (password.getText().compareTo(contrasena) != 0) {
+                JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
+                cleanField();
+                password.setFocusable(true);
+            }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -137,36 +170,7 @@ public class Login extends javax.swing.JFrame {
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            datos(usuario, contrasena);
-            if (usuario.equals(user.getText()) && contrasena.equals(password.getText())) {
-                Menu menu = new Menu();
-                menu.setVisible(true);
-                this.dispose();
-            } else if (user.getText().equals("") && password.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña estan vacios\nIngrese los por favor.");
-                cleanField();
-                user.setFocusable(true);
-            } else if (user.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Usuario está vacio\nIngrese lo por favor.");
-                cleanField();
-                user.setFocusable(true);
-            } else if (password.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Contraseña está vacio\nIngrese lo por favor.");
-                cleanField();
-                password.setFocusable(true);
-            } else if (user.getText().compareTo(usuario) != 0 && password.getText().compareTo(contrasena) != 0) {
-                JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos\nIngrese nuevamente.");
-                cleanField();
-                user.setFocusable(true);
-            } else if (user.getText().compareTo(usuario) != 0) {
-                JOptionPane.showMessageDialog(this, "Usuario no válido\nIngrese nuevamente.");
-                cleanField();
-                user.setFocusable(true);
-            } else if (password.getText().compareTo(contrasena) != 0) {
-                JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
-                cleanField();
-                password.setFocusable(true);
-            }
+            validateData();
         }
     }//GEN-LAST:event_passwordKeyPressed
 
@@ -176,35 +180,9 @@ public class Login extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        datos(usuario, contrasena);
-        if (usuario.equals(user.getText()) && contrasena.equals(password.getText())) {
-            Menu menu = new Menu();
-            menu.setVisible(true);
-            this.dispose();
-        } else if (user.getText().equals("") && password.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña estan vacios\nIngrese los por favor.");
-            user.setFocusable(true);
-        } else if (user.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Usuario está vacio\nIngrese lo por favor.");
-            user.setFocusable(true);
-        } else if (password.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Contraseña está vacio\nIngrese lo por favor.");
-            password.setFocusable(true);
-        } else if (user.getText().compareTo(usuario) != 0 && password.getText().compareTo(contrasena) != 0) {
-            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos\nIngrese nuevamente.");
-            user.setFocusable(true);
-        } else if (user.getText().compareTo(usuario) != 0) {
-            JOptionPane.showMessageDialog(this, "Usuario no válido\nIngrese nuevamente.");
-            user.setFocusable(true);
-        } else if (password.getText().compareTo(contrasena) != 0) {
-            JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
-            password.setFocusable(true);
-        }
+        validateData();
     }//GEN-LAST:event_loginActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
