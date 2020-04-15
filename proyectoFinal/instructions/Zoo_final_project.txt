@@ -1,0 +1,66 @@
+Zoológico
+
+Un zoo necesita una aplicación informática para llevar su organización respecto
+a las especies que posee, los empleados (cuidadores y guías), y los distintos 
+itinerarios de visita que ofrece. La información está estructurada de la siguiente
+manera:
+
+* Especies: 
+
+De las epecies, interesa saber el nombre en español, el nombre científico
+y una descripción general. Hay que tener en cuenta que una especia puede
+vivir en diferentes hábitats naturales y que un hábitat puede estar ocupado
+por diferentes especies. Las especies se encuentran en distintas zonas
+del parque de manera que, cada especie está en una zona y en una zona hay
+varias especies.
+
+* Hábitats:
+Los diferentes hábitats naturales vienen definidos por el nombre, el clima
+y el tipo de vegetación predominantes, así como el continente(s) en los que
+se encuentan.
+
+* Zonas:
+
+Las zonas del parque en las que se encuentran las distintas especies vienen
+definidas por el nombre y la extensión que ocupan.
+
+* Itinerarios:
+
+Los itinerarios discurren por distintas zonas del parque. La información
+de interés para los itinerarios es:
+	- Código de itinerario,
+	- Duración del recorrido,
+	- Longitud del itinerario,
+	- Máximo número de visitantes autorizado y,
+	- Número de distintas especies que visita.
+
+Hay que tener en cuenta que un itinerario recorre distintas zonas del
+parque, y que una zona puede ser recorrida por diferentes itinerarios.
+
+*Guías:
+
+Los guías del parque vienen definidos por:
+	- Nombre,
+	- Dirección,
+	- teléfono,
+	- fecha en la que comenzaron a trabajar en el zoo y,
+	- hora de asignación de itinerario.
+
+Interesa saber qué guías llevan varios itinerarios y que un itinerario
+puede ser asignador a diferentes guías en diferentes horas, siendo éstas
+un dato de interés.
+
+* Cuidadores:
+
+Los cuidadores vienen definidos por el:
+
+	- Nombre,
+	- Dirección,
+	- teléfono,
+	- fecha de ingreso en el parque,
+	- fecha en la que el cuidador se hace cargo de una especie.
+
+Hay que tener en cuenta que un cuidador puede estar a cargo de varias
+especies y que una especie puede ser atendida por varios cuidadores, siendo
+de interés la fecha en la que un cuidador se hace cargo de una especie.
+

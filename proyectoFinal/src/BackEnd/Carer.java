@@ -1,23 +1,22 @@
 package BackEnd;
 
 public class Carer extends Person{
-    
-    private int idCarer;
+
     private String speciesCared;
     
     public Carer(){}
     
     public Carer(
-            String fullName, int cellPhone, String address, String hireDate,
-            String fireDate, String startTime, int status, int idCarer,
+            int id, String fullName, int cellPhone, String address, 
+            String hireDate, String fireDate, String startTime, int status,
             String speciesCared){
         super();
-        this.idCarer = idCarer;
         this.speciesCared = speciesCared;
     }
     
     public Carer(Carer carer){
         this(
+                carer.getId(),
                 carer.getFullName(),
                 carer.getCellPhone(),
                 carer.getAddress(),
@@ -25,17 +24,16 @@ public class Carer extends Person{
                 carer.getFireDate(),
                 carer.getStartTime(),
                 carer.getStatus(),
-                carer.getIdCarer(),
                 carer.getSpeciesCared()
         );
     }
     
-     public int getIdCarer() {
-        return idCarer;
+     public int getId() {
+        return id;
     }
 
-    public void setIdCarer(int idCarer) {
-        this.idCarer = idCarer;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSpeciesCared() {

@@ -1,17 +1,19 @@
 package BackEnd;
 
 public class Person {
-    private String fullName;
-    private int cellPhone;
-    private String address;
-    private String hireDate; // yyyy-mm-dd
-    private String fireDate; // yyyy-mm-dd
-    private String startTime; // 
-    private int status; //0 inactive, 1 active
+    protected int id;
+    protected String fullName;
+    protected int cellPhone;
+    protected String address;
+    protected String hireDate; // yyyy-mm-dd
+    protected String fireDate; // yyyy-mm-dd
+    protected String startTime; // 
+    protected int status; //0 inactive, 1 active
     
-    Person(){}
-    Person(String fullName, int cellPhone, String address, String hireDate,
+    public Person(){}
+    public Person(int id, String fullName, int cellPhone, String address, String hireDate,
             String fireDate, String startTime, int status){
+        this.id = id;
         this.fullName = fullName;
         this.cellPhone = cellPhone;
         this.address = address;
@@ -21,13 +23,21 @@ public class Person {
         this.status = status;
     }
     
-    Person(Person person){
+    public Person(Person person){
         this(
-            person.getFullName(), person.getCellPhone(), person.getAddress(),
-            person.getHireDate(), person.getFireDate(), 
+            person.getId(),person.getFullName(), person.getCellPhone(), 
+            person.getAddress(), person.getHireDate(), person.getFireDate(), 
             person.getStartTime(), person.getStatus()
         );
     }    
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
     public String getFullName() {
         return fullName;
