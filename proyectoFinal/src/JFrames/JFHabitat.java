@@ -26,20 +26,20 @@ public class JFHabitat extends javax.swing.JFrame {
     private void initComponents() {
 
         Registro = new javax.swing.JFrame();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        registerPanel = new javax.swing.JPanel();
+        registerTxt = new javax.swing.JLabel();
+        RegisterGoBack_button = new javax.swing.JButton();
+        registerOK_button = new javax.swing.JButton();
+        registerWeatherField = new javax.swing.JTextField();
+        registerVegetationField = new javax.swing.JTextField();
+        registerContinentField = new javax.swing.JTextField();
+        registerNameField = new javax.swing.JTextField();
+        registerNameTxt = new javax.swing.JLabel();
+        registerWeatherTxt = new javax.swing.JLabel();
+        registerVegetationTxt = new javax.swing.JLabel();
+        registerContinentTxt = new javax.swing.JLabel();
+        habitatPanel = new javax.swing.JPanel();
+        habitatTxt = new javax.swing.JLabel();
         habitatRegister_Button = new javax.swing.JButton();
         habitatShow_Button = new javax.swing.JButton();
         habitatModify_Button = new javax.swing.JButton();
@@ -49,121 +49,121 @@ public class JFHabitat extends javax.swing.JFrame {
 
         Registro.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(102, 204, 255));
+        registerPanel.setBackground(new java.awt.Color(102, 204, 255));
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Registro");
+        registerTxt.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        registerTxt.setForeground(new java.awt.Color(255, 255, 255));
+        registerTxt.setText("Registro");
 
-        jButton7.setBackground(new java.awt.Color(102, 153, 255));
-        jButton7.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Regresar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        RegisterGoBack_button.setBackground(new java.awt.Color(102, 153, 255));
+        RegisterGoBack_button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        RegisterGoBack_button.setForeground(new java.awt.Color(255, 255, 255));
+        RegisterGoBack_button.setText("Regresar");
+        RegisterGoBack_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                RegisterGoBack_buttonActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(102, 153, 255));
-        jButton8.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("OK");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        registerOK_button.setBackground(new java.awt.Color(102, 153, 255));
+        registerOK_button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        registerOK_button.setForeground(new java.awt.Color(255, 255, 255));
+        registerOK_button.setText("OK");
+        registerOK_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                registerOK_buttonActionPerformed(evt);
             }
         });
 
-        jTextField1.setBackground(new java.awt.Color(102, 153, 255));
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        registerWeatherField.setBackground(new java.awt.Color(102, 153, 255));
+        registerWeatherField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        registerWeatherField.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextField2.setBackground(new java.awt.Color(102, 153, 255));
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        registerVegetationField.setBackground(new java.awt.Color(102, 153, 255));
+        registerVegetationField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        registerVegetationField.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextField3.setBackground(new java.awt.Color(102, 153, 255));
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
+        registerContinentField.setBackground(new java.awt.Color(102, 153, 255));
+        registerContinentField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        registerContinentField.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextField4.setBackground(new java.awt.Color(102, 153, 255));
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
+        registerNameField.setBackground(new java.awt.Color(102, 153, 255));
+        registerNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        registerNameField.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nombre");
+        registerNameTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        registerNameTxt.setForeground(new java.awt.Color(255, 255, 255));
+        registerNameTxt.setText("Nombre");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Clima");
+        registerWeatherTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        registerWeatherTxt.setForeground(new java.awt.Color(255, 255, 255));
+        registerWeatherTxt.setText("Clima");
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Vegetación");
+        registerVegetationTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        registerVegetationTxt.setForeground(new java.awt.Color(255, 255, 255));
+        registerVegetationTxt.setText("Vegetación");
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Continente");
+        registerContinentTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        registerContinentTxt.setForeground(new java.awt.Color(255, 255, 255));
+        registerContinentTxt.setText("Continente");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
+        registerPanel.setLayout(registerPanelLayout);
+        registerPanelLayout.setHorizontalGroup(
+            registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton7)
+                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(registerPanelLayout.createSequentialGroup()
+                        .addComponent(RegisterGoBack_button)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
                         .addGap(0, 138, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(registerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(122, 122, 122))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(registerPanelLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField4)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)))
+                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(registerContinentTxt)
+                    .addComponent(registerVegetationTxt)
+                    .addComponent(registerWeatherTxt)
+                    .addComponent(registerNameTxt)
+                    .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(registerNameField)
+                        .addComponent(registerWeatherField)
+                        .addComponent(registerVegetationField)
+                        .addComponent(registerContinentField, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton8)
+                .addComponent(registerOK_button)
                 .addGap(166, 166, 166))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        registerPanelLayout.setVerticalGroup(
+            registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registerPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel2)
+                .addComponent(registerTxt)
                 .addGap(15, 15, 15)
-                .addComponent(jLabel3)
+                .addComponent(registerNameTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(registerWeatherTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerWeatherField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(registerVegetationTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerVegetationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addComponent(registerContinentTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerContinentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton8)
+                .addComponent(registerOK_button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7)
+                .addComponent(RegisterGoBack_button)
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -171,23 +171,23 @@ public class JFHabitat extends javax.swing.JFrame {
         Registro.getContentPane().setLayout(RegistroLayout);
         RegistroLayout.setHorizontalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(registerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         RegistroLayout.setVerticalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegistroLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        habitatPanel.setBackground(new java.awt.Color(102, 204, 255));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Habitat");
+        habitatTxt.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        habitatTxt.setForeground(new java.awt.Color(255, 255, 255));
+        habitatTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        habitatTxt.setText("Habitat");
 
         habitatRegister_Button.setBackground(new java.awt.Color(102, 153, 255));
         habitatRegister_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
@@ -229,15 +229,15 @@ public class JFHabitat extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout habitatPanelLayout = new javax.swing.GroupLayout(habitatPanel);
+        habitatPanel.setLayout(habitatPanelLayout);
+        habitatPanelLayout.setHorizontalGroup(
+            habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(habitatPanelLayout.createSequentialGroup()
                 .addGap(222, 222, 222)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(habitatTxt)
+                    .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(habitatRegister_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(habitatShow_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(habitatModify_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -249,11 +249,11 @@ public class JFHabitat extends javax.swing.JFrame {
                 .addComponent(habitatGoBack_Button)
                 .addGap(56, 56, 56))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        habitatPanelLayout.setVerticalGroup(
+            habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(habitatPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(habitatTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(habitatRegister_Button)
                 .addGap(18, 18, 18)
@@ -275,12 +275,16 @@ public class JFHabitat extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+=======
+                .addComponent(habitatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> ab43f5c04585b7c2c779f1ca11cc5512746f716c
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(habitatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -299,15 +303,15 @@ public class JFHabitat extends javax.swing.JFrame {
 
     }//GEN-LAST:event_habitatRegister_ButtonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void registerOK_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerOK_buttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_registerOK_buttonActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void RegisterGoBack_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterGoBack_buttonActionPerformed
         Registro.setVisible(false);
         this.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+        
+    }//GEN-LAST:event_RegisterGoBack_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,26 +356,26 @@ public class JFHabitat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton RegisterGoBack_button;
     private javax.swing.JFrame Registro;
     private javax.swing.JButton habitatDelete_Button;
     private javax.swing.JButton habitatGoBack_Button;
     private javax.swing.JButton habitatModify_Button;
+    private javax.swing.JPanel habitatPanel;
     private javax.swing.JButton habitatRegister_Button;
     private javax.swing.JButton habitatSearch_Button;
     private javax.swing.JButton habitatShow_Button;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel habitatTxt;
+    private javax.swing.JTextField registerContinentField;
+    private javax.swing.JLabel registerContinentTxt;
+    private javax.swing.JTextField registerNameField;
+    private javax.swing.JLabel registerNameTxt;
+    private javax.swing.JButton registerOK_button;
+    private javax.swing.JPanel registerPanel;
+    private javax.swing.JLabel registerTxt;
+    private javax.swing.JTextField registerVegetationField;
+    private javax.swing.JLabel registerVegetationTxt;
+    private javax.swing.JTextField registerWeatherField;
+    private javax.swing.JLabel registerWeatherTxt;
     // End of variables declaration//GEN-END:variables
 }
