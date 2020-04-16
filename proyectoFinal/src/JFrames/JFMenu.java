@@ -1,28 +1,36 @@
 package JFrames;
 
 import java.util.ArrayList;
+import BackEnd.*;
 
-public class Menu extends javax.swing.JFrame {
+public class JFMenu extends javax.swing.JFrame {
 
-    protected static ArrayList<String> habitatList; //Habitat container
+    protected static ArrayList<Habitat> habitatList; //Habitat container
     protected static ArrayList<Integer> locationList; //Location container
     //Self id, zone id, habitat id, specie id
-    protected static ArrayList<String> specieList; //specie container
-    protected static ArrayList<String> zoneList; // zone container
-    protected static ArrayList<String> itineraryList; //itinerary container
-    protected static ArrayList<String> routeList; //Route container
+    protected static ArrayList<Specie> specieList; //specie container
+    protected static ArrayList<Zone> zoneList; // zone container
+    protected static ArrayList<Itinerary> itineraryList; //itinerary container
+    /////////MISSING TO MODIFY ROUTELIST
+    protected static ArrayList<Integer> routeList; //Route container
     //self id, zone id, itinerary id
-    protected static ArrayList<String> guideList; //Guide container
-    protected static ArrayList<String> carerList; //Carer /cuidador container
+    protected static ArrayList<Guide> guideList; //Guide container
+    protected static ArrayList<Carer> carerList; //Carer /cuidador container
     protected static ArrayList<Integer> guidedRouteList; //recorrido guiado
     //guided route container. Will include self id, zone id and itinerary id
-    protected static ArrayList<String> carerSpecieList; //self id +
+    protected static ArrayList<Integer> carerSpecieList; //self id +
     //Carer id + Specie id 
+    protected JFHabitat habitat;
     
-    public Menu() {
-        habitatList = new ArrayList<String>();
+    public JFMenu() {
         initComponents();
         setLocationRelativeTo(null);
+        habitat = new JFHabitat(this, habitatList);
+        //INSERT OTHER FRAME OBJECTS
+    }
+    
+    private void showHabitat(){
+        habitat.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -158,9 +166,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Habitat st = new Habitat();
-        st.setVisible(true);
+        showHabitat();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -181,21 +187,23 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new JFMenu().setVisible(true);
             }
         });
     }
