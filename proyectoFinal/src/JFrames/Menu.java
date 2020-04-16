@@ -23,10 +23,6 @@ public class Menu extends javax.swing.JFrame {
         habitatList = new ArrayList<String>();
         initComponents();
         setLocationRelativeTo(null);
-<<<<<<< HEAD
-=======
-
->>>>>>> ricardo
     }
 
     /**
