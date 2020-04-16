@@ -1,13 +1,14 @@
 
 package JFrames;
 
+import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Habitat;
 
 public class JFHabitat extends javax.swing.JFrame {
 
     protected JFMenu menu;
-    
+        
     public JFHabitat(){
         initComponents();
     }
@@ -17,27 +18,8 @@ public class JFHabitat extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.menu = menu;
-        menu.habitatList = habitatList;
+        menu.habitatList = habitatList;    
     }
-    
-    protected void addHabitat(String habitatName, String weather, 
-            String vegetation, String continent){
-        
-        int tempHabitatId = menu.habitatList.size() + 1;
-        menu.habitatList
-                .add(new Habitat(tempHabitatId, habitatName,weather,vegetation,
-                    continent));
-    }
-    
-    
-    protected void searchHabitat(){
-    
-    }
-    /*MISSING TO ADD SEARCH, DELETE, MODIFY AND SHOW METHODS
-    protected void deleteHabitat(){}
-    protected void modifyHabitat(){}
-    protected void showHabitat(){}
-    */
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -261,7 +243,7 @@ public class JFHabitat extends javax.swing.JFrame {
                         .addComponent(habitatModify_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(habitatDelete_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(habitatSearch_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(habitatGoBack_Button)
@@ -294,7 +276,7 @@ public class JFHabitat extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(75, 75, 75))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
