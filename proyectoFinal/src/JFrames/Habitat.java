@@ -80,19 +80,23 @@ public class Habitat extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(102, 153, 255));
         jTextField1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
 
         jTextField2.setBackground(new java.awt.Color(102, 153, 255));
         jTextField2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
 
         jTextField3.setBackground(new java.awt.Color(102, 153, 255));
         jTextField3.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
 
         jTextField4.setBackground(new java.awt.Color(102, 153, 255));
         jTextField4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Habitat");
+        jLabel3.setText("Nombre");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
