@@ -29,8 +29,11 @@ public class JFHabitat extends javax.swing.JFrame {
                     continent));
     }
     
-    /*MISSING TO ADD DELETE, SEARCH, MODIFY AND SHOW METHODS
-    protected void searchHabitat(){}
+    
+    protected void searchHabitat(){
+    
+    }
+    /*MISSING TO ADD SEARCH, DELETE, MODIFY AND SHOW METHODS
     protected void deleteHabitat(){}
     protected void modifyHabitat(){}
     protected void showHabitat(){}
@@ -258,7 +261,7 @@ public class JFHabitat extends javax.swing.JFrame {
                         .addComponent(habitatModify_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(habitatDelete_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(habitatSearch_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(habitatGoBack_Button)
@@ -288,7 +291,10 @@ public class JFHabitat extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
