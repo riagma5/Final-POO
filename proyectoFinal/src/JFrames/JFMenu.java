@@ -43,7 +43,6 @@ public class JFMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
         menuPanel = new javax.swing.JPanel();
         menuTxt = new javax.swing.JLabel();
         habitat_button = new javax.swing.JButton();
@@ -53,8 +52,6 @@ public class JFMenu extends javax.swing.JFrame {
         guide_button = new javax.swing.JButton();
         carer_button = new javax.swing.JButton();
         exit_button = new javax.swing.JButton();
-
-        jButton2.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -217,7 +214,6 @@ public class JFMenu extends javax.swing.JFrame {
     private javax.swing.JButton guide_button;
     private javax.swing.JButton habitat_button;
     private javax.swing.JButton itinerary_button;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JLabel menuTxt;
     private javax.swing.JButton species_button;
