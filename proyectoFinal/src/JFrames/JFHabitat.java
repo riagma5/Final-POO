@@ -90,7 +90,13 @@ public class JFHabitat extends javax.swing.JFrame {
         Mostrar = new javax.swing.JDialog();
         mostrarPanel = new javax.swing.JPanel();
         showTxt = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        Delete = new javax.swing.JFrame();
+        deletePanel = new javax.swing.JPanel();
+        deleteTxt = new javax.swing.JLabel();
+        nameDeleteField = new javax.swing.JTextField();
+        nameDeleteTxt = new javax.swing.JLabel();
+        delete_button = new javax.swing.JButton();
+        goBackDelete_Button = new javax.swing.JButton();
         habitatPanel = new javax.swing.JPanel();
         habitatTxt = new javax.swing.JLabel();
         habitatRegister_Button = new javax.swing.JButton();
@@ -272,15 +278,88 @@ public class JFHabitat extends javax.swing.JFrame {
             .addComponent(mostrarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        deletePanel.setBackground(new java.awt.Color(102, 204, 255));
+
+        deleteTxt.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        deleteTxt.setForeground(new java.awt.Color(255, 255, 255));
+        deleteTxt.setText("Borrar");
+
+        nameDeleteField.setBackground(new java.awt.Color(102, 153, 255));
+        nameDeleteField.setForeground(new java.awt.Color(255, 255, 255));
+
+        nameDeleteTxt.setBackground(new java.awt.Color(102, 204, 255));
+        nameDeleteTxt.setForeground(new java.awt.Color(255, 255, 255));
+        nameDeleteTxt.setText("Nombre");
+
+        delete_button.setBackground(new java.awt.Color(102, 153, 255));
+        delete_button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        delete_button.setForeground(new java.awt.Color(255, 255, 255));
+        delete_button.setText("Delete");
+        delete_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_buttonActionPerformed(evt);
+            }
+        });
+
+        goBackDelete_Button.setBackground(new java.awt.Color(102, 153, 255));
+        goBackDelete_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        goBackDelete_Button.setForeground(new java.awt.Color(255, 255, 255));
+        goBackDelete_Button.setText("Regresar");
+        goBackDelete_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goBackDelete_ButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout deletePanelLayout = new javax.swing.GroupLayout(deletePanel);
+        deletePanel.setLayout(deletePanelLayout);
+        deletePanelLayout.setHorizontalGroup(
+            deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deletePanelLayout.createSequentialGroup()
+                .addContainerGap(94, Short.MAX_VALUE)
+                .addGroup(deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(nameDeleteTxt)
+                        .addGroup(deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePanelLayout.createSequentialGroup()
+                                .addComponent(deleteTxt)
+                                .addGap(157, 157, 157))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePanelLayout.createSequentialGroup()
+                                .addComponent(nameDeleteField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(86, 86, 86))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePanelLayout.createSequentialGroup()
+                        .addComponent(delete_button)
+                        .addGap(163, 163, 163))))
+            .addGroup(deletePanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(goBackDelete_Button)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        deletePanelLayout.setVerticalGroup(
+            deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deletePanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(deleteTxt)
+                .addGap(17, 17, 17)
+                .addComponent(nameDeleteTxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameDeleteField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(delete_button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(goBackDelete_Button)
+                .addGap(29, 29, 29))
+        );
+
+        javax.swing.GroupLayout DeleteLayout = new javax.swing.GroupLayout(Delete.getContentPane());
+        Delete.getContentPane().setLayout(DeleteLayout);
+        DeleteLayout.setHorizontalGroup(
+            DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(deletePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        DeleteLayout.setVerticalGroup(
+            DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(deletePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -321,6 +400,11 @@ public class JFHabitat extends javax.swing.JFrame {
         habitatDelete_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
         habitatDelete_Button.setForeground(new java.awt.Color(255, 255, 255));
         habitatDelete_Button.setText("Borrar");
+        habitatDelete_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                habitatDelete_ButtonActionPerformed(evt);
+            }
+        });
 
         habitatSearch_Button.setBackground(new java.awt.Color(102, 153, 255));
         habitatSearch_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
@@ -426,6 +510,23 @@ public class JFHabitat extends javax.swing.JFrame {
         Mostrar.setLocationRelativeTo(null);
     }//GEN-LAST:event_habitatShow_ButtonActionPerformed
 
+    private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_delete_buttonActionPerformed
+
+    private void goBackDelete_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackDelete_ButtonActionPerformed
+        Delete.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_goBackDelete_ButtonActionPerformed
+
+    private void habitatDelete_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatDelete_ButtonActionPerformed
+        Delete.setVisible(true);
+        nameDeleteField.setFocusable(true);
+        Delete.setSize(400, 300);
+        Delete.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_habitatDelete_ButtonActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -466,9 +567,14 @@ public class JFHabitat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame Delete;
     private javax.swing.JDialog Mostrar;
     private javax.swing.JButton RegisterGoBack_button;
     private javax.swing.JFrame Registro;
+    private javax.swing.JPanel deletePanel;
+    private javax.swing.JLabel deleteTxt;
+    private javax.swing.JButton delete_button;
+    private javax.swing.JButton goBackDelete_Button;
     private javax.swing.JButton habitatDelete_Button;
     private javax.swing.JButton habitatGoBack_Button;
     private javax.swing.JButton habitatModify_Button;
@@ -477,8 +583,9 @@ public class JFHabitat extends javax.swing.JFrame {
     private javax.swing.JButton habitatSearch_Button;
     private javax.swing.JButton habitatShow_Button;
     private javax.swing.JLabel habitatTxt;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mostrarPanel;
+    private javax.swing.JTextField nameDeleteField;
+    private javax.swing.JLabel nameDeleteTxt;
     private javax.swing.JTextField registerContinentField;
     private javax.swing.JLabel registerContinentTxt;
     private javax.swing.JTextField registerNameField;
