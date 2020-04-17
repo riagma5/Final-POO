@@ -74,293 +74,21 @@ public class JFHabitat extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Registro = new javax.swing.JFrame();
-        registerPanel = new javax.swing.JPanel();
-        registerTxt = new javax.swing.JLabel();
-        RegisterGoBack_button = new javax.swing.JButton();
-        registerOK_button = new javax.swing.JButton();
-        registerWeatherField = new javax.swing.JTextField();
-        registerVegetationField = new javax.swing.JTextField();
-        registerContinentField = new javax.swing.JTextField();
-        registerNameField = new javax.swing.JTextField();
-        registerNameTxt = new javax.swing.JLabel();
-        registerWeatherTxt = new javax.swing.JLabel();
-        registerVegetationTxt = new javax.swing.JLabel();
-        registerContinentTxt = new javax.swing.JLabel();
-        Mostrar = new javax.swing.JDialog();
-        mostrarPanel = new javax.swing.JPanel();
-        showTxt = new javax.swing.JLabel();
-        Delete = new javax.swing.JFrame();
-        deletePanel = new javax.swing.JPanel();
-        deleteTxt = new javax.swing.JLabel();
-        nameDeleteField = new javax.swing.JTextField();
-        nameDeleteTxt = new javax.swing.JLabel();
-        delete_button = new javax.swing.JButton();
-        goBackDelete_Button = new javax.swing.JButton();
         habitatPanel = new javax.swing.JPanel();
         habitatTxt = new javax.swing.JLabel();
-        habitatRegister_Button = new javax.swing.JButton();
-        habitatShow_Button = new javax.swing.JButton();
-        habitatModify_Button = new javax.swing.JButton();
-        habitatDelete_Button = new javax.swing.JButton();
-        habitatSearch_Button = new javax.swing.JButton();
-        habitatGoBack_Button = new javax.swing.JButton();
-
-        Registro.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        registerPanel.setBackground(new java.awt.Color(102, 204, 255));
-
-        registerTxt.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        registerTxt.setForeground(new java.awt.Color(255, 255, 255));
-        registerTxt.setText("Registro");
-
-        RegisterGoBack_button.setBackground(new java.awt.Color(102, 153, 255));
-        RegisterGoBack_button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        RegisterGoBack_button.setForeground(new java.awt.Color(255, 255, 255));
-        RegisterGoBack_button.setText("Regresar");
-        RegisterGoBack_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterGoBack_buttonActionPerformed(evt);
-            }
-        });
-
-        registerOK_button.setBackground(new java.awt.Color(102, 153, 255));
-        registerOK_button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        registerOK_button.setForeground(new java.awt.Color(255, 255, 255));
-        registerOK_button.setText("OK");
-        registerOK_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerOK_buttonActionPerformed(evt);
-            }
-        });
-
-        registerWeatherField.setBackground(new java.awt.Color(102, 153, 255));
-        registerWeatherField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        registerWeatherField.setForeground(new java.awt.Color(255, 255, 255));
-
-        registerVegetationField.setBackground(new java.awt.Color(102, 153, 255));
-        registerVegetationField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        registerVegetationField.setForeground(new java.awt.Color(255, 255, 255));
-
-        registerContinentField.setBackground(new java.awt.Color(102, 153, 255));
-        registerContinentField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        registerContinentField.setForeground(new java.awt.Color(255, 255, 255));
-
-        registerNameField.setBackground(new java.awt.Color(102, 153, 255));
-        registerNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        registerNameField.setForeground(new java.awt.Color(255, 255, 255));
-        registerNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerNameFieldActionPerformed(evt);
-            }
-        });
-
-        registerNameTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        registerNameTxt.setForeground(new java.awt.Color(255, 255, 255));
-        registerNameTxt.setText("Nombre");
-
-        registerWeatherTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        registerWeatherTxt.setForeground(new java.awt.Color(255, 255, 255));
-        registerWeatherTxt.setText("Clima");
-
-        registerVegetationTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        registerVegetationTxt.setForeground(new java.awt.Color(255, 255, 255));
-        registerVegetationTxt.setText("Vegetación");
-
-        registerContinentTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        registerContinentTxt.setForeground(new java.awt.Color(255, 255, 255));
-        registerContinentTxt.setText("Continente");
-
-        javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
-        registerPanel.setLayout(registerPanelLayout);
-        registerPanelLayout.setHorizontalGroup(
-            registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(registerPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(registerPanelLayout.createSequentialGroup()
-                        .addComponent(RegisterGoBack_button)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
-                        .addGap(0, 138, Short.MAX_VALUE)
-                        .addComponent(registerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(122, 122, 122))))
-            .addGroup(registerPanelLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registerContinentTxt)
-                    .addComponent(registerVegetationTxt)
-                    .addComponent(registerWeatherTxt)
-                    .addComponent(registerNameTxt)
-                    .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(registerNameField)
-                        .addComponent(registerWeatherField)
-                        .addComponent(registerVegetationField)
-                        .addComponent(registerContinentField, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(registerOK_button)
-                .addGap(166, 166, 166))
-        );
-        registerPanelLayout.setVerticalGroup(
-            registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(registerPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(registerTxt)
-                .addGap(15, 15, 15)
-                .addComponent(registerNameTxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(registerWeatherTxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerWeatherField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(registerVegetationTxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerVegetationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(registerContinentTxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerContinentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(registerOK_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RegisterGoBack_button)
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro.getContentPane());
-        Registro.getContentPane().setLayout(RegistroLayout);
-        RegistroLayout.setHorizontalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        RegistroLayout.setVerticalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistroLayout.createSequentialGroup()
-                .addComponent(registerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        mostrarPanel.setBackground(new java.awt.Color(102, 204, 255));
-
-        showTxt.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        showTxt.setForeground(new java.awt.Color(255, 255, 255));
-        showTxt.setText("Mostrar");
-
-        javax.swing.GroupLayout mostrarPanelLayout = new javax.swing.GroupLayout(mostrarPanel);
-        mostrarPanel.setLayout(mostrarPanelLayout);
-        mostrarPanelLayout.setHorizontalGroup(
-            mostrarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mostrarPanelLayout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
-                .addComponent(showTxt)
-                .addGap(144, 144, 144))
-        );
-        mostrarPanelLayout.setVerticalGroup(
-            mostrarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mostrarPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(showTxt)
-                .addContainerGap(259, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout MostrarLayout = new javax.swing.GroupLayout(Mostrar.getContentPane());
-        Mostrar.getContentPane().setLayout(MostrarLayout);
-        MostrarLayout.setHorizontalGroup(
-            MostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mostrarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        MostrarLayout.setVerticalGroup(
-            MostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mostrarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        deletePanel.setBackground(new java.awt.Color(102, 204, 255));
-
-        deleteTxt.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        deleteTxt.setForeground(new java.awt.Color(255, 255, 255));
-        deleteTxt.setText("Borrar");
-
-        nameDeleteField.setBackground(new java.awt.Color(102, 153, 255));
-        nameDeleteField.setForeground(new java.awt.Color(255, 255, 255));
-
-        nameDeleteTxt.setBackground(new java.awt.Color(102, 204, 255));
-        nameDeleteTxt.setForeground(new java.awt.Color(255, 255, 255));
-        nameDeleteTxt.setText("Nombre");
-
-        delete_button.setBackground(new java.awt.Color(102, 153, 255));
-        delete_button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        delete_button.setForeground(new java.awt.Color(255, 255, 255));
-        delete_button.setText("Delete");
-        delete_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delete_buttonActionPerformed(evt);
-            }
-        });
-
-        goBackDelete_Button.setBackground(new java.awt.Color(102, 153, 255));
-        goBackDelete_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        goBackDelete_Button.setForeground(new java.awt.Color(255, 255, 255));
-        goBackDelete_Button.setText("Regresar");
-        goBackDelete_Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goBackDelete_ButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout deletePanelLayout = new javax.swing.GroupLayout(deletePanel);
-        deletePanel.setLayout(deletePanelLayout);
-        deletePanelLayout.setHorizontalGroup(
-            deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deletePanelLayout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addGroup(deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nameDeleteTxt)
-                        .addGroup(deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePanelLayout.createSequentialGroup()
-                                .addComponent(deleteTxt)
-                                .addGap(157, 157, 157))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePanelLayout.createSequentialGroup()
-                                .addComponent(nameDeleteField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(86, 86, 86))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePanelLayout.createSequentialGroup()
-                        .addComponent(delete_button)
-                        .addGap(163, 163, 163))))
-            .addGroup(deletePanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(goBackDelete_Button)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        deletePanelLayout.setVerticalGroup(
-            deletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deletePanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(deleteTxt)
-                .addGap(17, 17, 17)
-                .addComponent(nameDeleteTxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameDeleteField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(delete_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(goBackDelete_Button)
-                .addGap(29, 29, 29))
-        );
-
-        javax.swing.GroupLayout DeleteLayout = new javax.swing.GroupLayout(Delete.getContentPane());
-        Delete.getContentPane().setLayout(DeleteLayout);
-        DeleteLayout.setHorizontalGroup(
-            DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(deletePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        DeleteLayout.setVerticalGroup(
-            DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(deletePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        habitatGoBackButton = new javax.swing.JButton();
+        habitatSaveButton = new javax.swing.JButton();
+        habitatDeleteButton = new javax.swing.JButton();
+        habitatChangeButton = new javax.swing.JButton();
+        habitatSearchButton = new javax.swing.JButton();
+        habitatNameTxt = new javax.swing.JLabel();
+        habitatNameField = new javax.swing.JTextField();
+        registerWeatherField1 = new javax.swing.JTextField();
+        habitatWeatherTxt = new javax.swing.JLabel();
+        habitatVegetationTxt = new javax.swing.JLabel();
+        habitatVegetationField1 = new javax.swing.JTextField();
+        habitatContinentTxt1 = new javax.swing.JLabel();
+        habitatContinentField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -371,94 +99,162 @@ public class JFHabitat extends javax.swing.JFrame {
         habitatTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         habitatTxt.setText("Habitat");
 
-        habitatRegister_Button.setBackground(new java.awt.Color(102, 153, 255));
-        habitatRegister_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatRegister_Button.setForeground(new java.awt.Color(255, 255, 255));
-        habitatRegister_Button.setText("Registro");
-        habitatRegister_Button.addActionListener(new java.awt.event.ActionListener() {
+        habitatGoBackButton.setBackground(new java.awt.Color(102, 153, 255));
+        habitatGoBackButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        habitatGoBackButton.setForeground(new java.awt.Color(255, 255, 255));
+        habitatGoBackButton.setText("Regresar");
+        habitatGoBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatRegister_ButtonActionPerformed(evt);
+                habitatGoBackButtonActionPerformed(evt);
             }
         });
 
-        habitatShow_Button.setBackground(new java.awt.Color(102, 153, 255));
-        habitatShow_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatShow_Button.setForeground(new java.awt.Color(255, 255, 255));
-        habitatShow_Button.setText("Mostrar");
-        habitatShow_Button.addActionListener(new java.awt.event.ActionListener() {
+        habitatSaveButton.setBackground(new java.awt.Color(102, 153, 255));
+        habitatSaveButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        habitatSaveButton.setForeground(new java.awt.Color(255, 255, 255));
+        habitatSaveButton.setText("Guardar");
+        habitatSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatShow_ButtonActionPerformed(evt);
+                habitatSaveButtonActionPerformed(evt);
             }
         });
 
-        habitatModify_Button.setBackground(new java.awt.Color(102, 153, 255));
-        habitatModify_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatModify_Button.setForeground(new java.awt.Color(255, 255, 255));
-        habitatModify_Button.setText("Modificar");
-
-        habitatDelete_Button.setBackground(new java.awt.Color(102, 153, 255));
-        habitatDelete_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatDelete_Button.setForeground(new java.awt.Color(255, 255, 255));
-        habitatDelete_Button.setText("Borrar");
-        habitatDelete_Button.addActionListener(new java.awt.event.ActionListener() {
+        habitatDeleteButton.setBackground(new java.awt.Color(102, 153, 255));
+        habitatDeleteButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        habitatDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        habitatDeleteButton.setText("Eliminar");
+        habitatDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatDelete_ButtonActionPerformed(evt);
+                habitatDeleteButtonActionPerformed(evt);
             }
         });
 
-        habitatSearch_Button.setBackground(new java.awt.Color(102, 153, 255));
-        habitatSearch_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatSearch_Button.setForeground(new java.awt.Color(255, 255, 255));
-        habitatSearch_Button.setText("Buscar");
-
-        habitatGoBack_Button.setBackground(new java.awt.Color(102, 153, 255));
-        habitatGoBack_Button.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatGoBack_Button.setForeground(new java.awt.Color(255, 255, 255));
-        habitatGoBack_Button.setText("Regresar");
-        habitatGoBack_Button.addActionListener(new java.awt.event.ActionListener() {
+        habitatChangeButton.setBackground(new java.awt.Color(102, 153, 255));
+        habitatChangeButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        habitatChangeButton.setForeground(new java.awt.Color(255, 255, 255));
+        habitatChangeButton.setText("Modificar");
+        habitatChangeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatGoBack_ButtonActionPerformed(evt);
+                habitatChangeButtonActionPerformed(evt);
             }
         });
+
+        habitatSearchButton.setBackground(new java.awt.Color(102, 153, 255));
+        habitatSearchButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        habitatSearchButton.setForeground(new java.awt.Color(255, 255, 255));
+        habitatSearchButton.setText("Buscar");
+        habitatSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                habitatSearchButtonActionPerformed(evt);
+            }
+        });
+
+        habitatNameTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatNameTxt.setForeground(new java.awt.Color(255, 255, 255));
+        habitatNameTxt.setText("Nombre");
+
+        habitatNameField.setBackground(new java.awt.Color(102, 153, 255));
+        habitatNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatNameField.setForeground(new java.awt.Color(255, 255, 255));
+        habitatNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                habitatNameFieldActionPerformed(evt);
+            }
+        });
+
+        registerWeatherField1.setBackground(new java.awt.Color(102, 153, 255));
+        registerWeatherField1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        registerWeatherField1.setForeground(new java.awt.Color(255, 255, 255));
+
+        habitatWeatherTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatWeatherTxt.setForeground(new java.awt.Color(255, 255, 255));
+        habitatWeatherTxt.setText("Clima");
+
+        habitatVegetationTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatVegetationTxt.setForeground(new java.awt.Color(255, 255, 255));
+        habitatVegetationTxt.setText("Vegetación");
+
+        habitatVegetationField1.setBackground(new java.awt.Color(102, 153, 255));
+        habitatVegetationField1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatVegetationField1.setForeground(new java.awt.Color(255, 255, 255));
+
+        habitatContinentTxt1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatContinentTxt1.setForeground(new java.awt.Color(255, 255, 255));
+        habitatContinentTxt1.setText("Continente");
+
+        habitatContinentField1.setBackground(new java.awt.Color(102, 153, 255));
+        habitatContinentField1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatContinentField1.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout habitatPanelLayout = new javax.swing.GroupLayout(habitatPanel);
         habitatPanel.setLayout(habitatPanelLayout);
         habitatPanelLayout.setHorizontalGroup(
-            habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(habitatPanelLayout.createSequentialGroup()
-                .addGap(222, 222, 222)
-                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(habitatTxt)
-                    .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(habitatRegister_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(habitatShow_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(habitatModify_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(habitatDelete_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(habitatSearch_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(190, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, habitatPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(habitatGoBack_Button)
-                .addGap(56, 56, 56))
+                .addContainerGap(89, Short.MAX_VALUE)
+                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(habitatPanelLayout.createSequentialGroup()
+                        .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(registerWeatherField1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(habitatWeatherTxt)
+                            .addComponent(habitatVegetationTxt)
+                            .addComponent(habitatVegetationField1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(habitatContinentTxt1)
+                            .addComponent(habitatContinentField1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(habitatPanelLayout.createSequentialGroup()
+                                .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(habitatChangeButton))
+                            .addComponent(habitatNameTxt))
+                        .addGap(105, 105, 105))
+                    .addGroup(habitatPanelLayout.createSequentialGroup()
+                        .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(habitatSearchButton)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, habitatPanelLayout.createSequentialGroup()
+                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, habitatPanelLayout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(habitatTxt))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, habitatPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(habitatGoBackButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         habitatPanelLayout.setVerticalGroup(
             habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(habitatPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(habitatTxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(habitatRegister_Button)
-                .addGap(18, 18, 18)
-                .addComponent(habitatShow_Button)
+                .addGap(40, 40, 40)
+                .addComponent(habitatNameTxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(habitatSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(habitatModify_Button)
+                .addComponent(habitatWeatherTxt)
+                .addGap(11, 11, 11)
+                .addComponent(registerWeatherField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(habitatDelete_Button)
+                .addComponent(habitatVegetationTxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(habitatVegetationField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(habitatSearch_Button)
-                .addGap(35, 35, 35)
-                .addComponent(habitatGoBack_Button)
-                .addGap(57, 57, 57))
+                .addComponent(habitatContinentTxt1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(habitatContinentField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(habitatChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(habitatGoBackButton)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -475,57 +271,30 @@ public class JFHabitat extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void habitatGoBack_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatGoBack_ButtonActionPerformed
+    private void habitatGoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatGoBackButtonActionPerformed
         this.dispose();
         menu.setVisible(true);
-    }//GEN-LAST:event_habitatGoBack_ButtonActionPerformed
+    }//GEN-LAST:event_habitatGoBackButtonActionPerformed
 
-    private void habitatRegister_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatRegister_ButtonActionPerformed
-        
-        Registro.setVisible(true);
-        registerNameField.setFocusable(true);
-        Registro.setSize(399, 433);
-        Registro.setLocationRelativeTo(null);
-        dispose();
-
-    }//GEN-LAST:event_habitatRegister_ButtonActionPerformed
-
-    private void registerOK_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerOK_buttonActionPerformed
+    private void habitatSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSaveButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_registerOK_buttonActionPerformed
+    }//GEN-LAST:event_habitatSaveButtonActionPerformed
 
-    private void RegisterGoBack_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterGoBack_buttonActionPerformed
-        Registro.setVisible(false);
-        this.setVisible(true);
-        
-    }//GEN-LAST:event_RegisterGoBack_buttonActionPerformed
-
-    private void registerNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerNameFieldActionPerformed
+    private void habitatDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatDeleteButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_registerNameFieldActionPerformed
+    }//GEN-LAST:event_habitatDeleteButtonActionPerformed
 
-    private void habitatShow_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatShow_ButtonActionPerformed
-        Mostrar.setVisible(true);
-        Mostrar.setSize(400,300);
-        Mostrar.setLocationRelativeTo(null);
-    }//GEN-LAST:event_habitatShow_ButtonActionPerformed
-
-    private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
+    private void habitatChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatChangeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_delete_buttonActionPerformed
+    }//GEN-LAST:event_habitatChangeButtonActionPerformed
 
-    private void goBackDelete_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackDelete_ButtonActionPerformed
-        Delete.setVisible(false);
-        this.setVisible(true);
-    }//GEN-LAST:event_goBackDelete_ButtonActionPerformed
+    private void habitatSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSearchButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_habitatSearchButtonActionPerformed
 
-    private void habitatDelete_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatDelete_ButtonActionPerformed
-        Delete.setVisible(true);
-        nameDeleteField.setFocusable(true);
-        Delete.setSize(400, 300);
-        Delete.setLocationRelativeTo(null);
-        dispose();
-    }//GEN-LAST:event_habitatDelete_ButtonActionPerformed
+    private void habitatNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_habitatNameFieldActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -567,36 +336,20 @@ public class JFHabitat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFrame Delete;
-    private javax.swing.JDialog Mostrar;
-    private javax.swing.JButton RegisterGoBack_button;
-    private javax.swing.JFrame Registro;
-    private javax.swing.JPanel deletePanel;
-    private javax.swing.JLabel deleteTxt;
-    private javax.swing.JButton delete_button;
-    private javax.swing.JButton goBackDelete_Button;
-    private javax.swing.JButton habitatDelete_Button;
-    private javax.swing.JButton habitatGoBack_Button;
-    private javax.swing.JButton habitatModify_Button;
+    private javax.swing.JButton habitatChangeButton;
+    private javax.swing.JTextField habitatContinentField1;
+    private javax.swing.JLabel habitatContinentTxt1;
+    private javax.swing.JButton habitatDeleteButton;
+    private javax.swing.JButton habitatGoBackButton;
+    private javax.swing.JTextField habitatNameField;
+    private javax.swing.JLabel habitatNameTxt;
     private javax.swing.JPanel habitatPanel;
-    private javax.swing.JButton habitatRegister_Button;
-    private javax.swing.JButton habitatSearch_Button;
-    private javax.swing.JButton habitatShow_Button;
+    private javax.swing.JButton habitatSaveButton;
+    private javax.swing.JButton habitatSearchButton;
     private javax.swing.JLabel habitatTxt;
-    private javax.swing.JPanel mostrarPanel;
-    private javax.swing.JTextField nameDeleteField;
-    private javax.swing.JLabel nameDeleteTxt;
-    private javax.swing.JTextField registerContinentField;
-    private javax.swing.JLabel registerContinentTxt;
-    private javax.swing.JTextField registerNameField;
-    private javax.swing.JLabel registerNameTxt;
-    private javax.swing.JButton registerOK_button;
-    private javax.swing.JPanel registerPanel;
-    private javax.swing.JLabel registerTxt;
-    private javax.swing.JTextField registerVegetationField;
-    private javax.swing.JLabel registerVegetationTxt;
-    private javax.swing.JTextField registerWeatherField;
-    private javax.swing.JLabel registerWeatherTxt;
-    private javax.swing.JLabel showTxt;
+    private javax.swing.JTextField habitatVegetationField1;
+    private javax.swing.JLabel habitatVegetationTxt;
+    private javax.swing.JLabel habitatWeatherTxt;
+    private javax.swing.JTextField registerWeatherField1;
     // End of variables declaration//GEN-END:variables
 }
