@@ -19,7 +19,8 @@ public class JFMenu extends javax.swing.JFrame {
     protected static ArrayList<Integer> guidedRouteList; //recorrido guiado
     //guided route container. Will include self id, zone id and itinerary id
     protected static ArrayList<Integer> carerSpecieList; //self id +
-    //Carer id + Specie id 
+    //Carer id + Specie id
+        
     protected JFHabitat habitat;
     
     public JFMenu() {
@@ -32,7 +33,12 @@ public class JFMenu extends javax.swing.JFrame {
     private void showHabitat(){
         habitat.setVisible(true);
     }
-
+    
+    /*MISSING TO ADD SEARCH, DELETE, MODIFY AND SHOW METHODS
+    
+    protected void showHabitat(){}
+    */
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -170,9 +176,6 @@ public class JFMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_habitat_buttonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

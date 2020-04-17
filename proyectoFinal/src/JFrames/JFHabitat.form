@@ -269,15 +269,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-=======
-              <Component id="habitatPanel" max="32767" attributes="0"/>
->>>>>>> ab43f5c04585b7c2c779f1ca11cc5512746f716c
-          </Group>
+          <Component id="habitatPanel" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -309,11 +301,7 @@
                           <Component id="habitatSearch_Button" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace pref="174" max="32767" attributes="0"/>
-=======
-                  <EmptySpace pref="184" max="32767" attributes="0"/>
->>>>>>> ab43f5c04585b7c2c779f1ca11cc5512746f716c
+                  <EmptySpace pref="190" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
