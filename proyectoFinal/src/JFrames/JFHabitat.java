@@ -1,13 +1,16 @@
 
 package JFrames;
 
+import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Habitat;
 
 public class JFHabitat extends javax.swing.JFrame {
 
     protected JFMenu menu;
-    
+    private String searchHabitat;
+    private int j;
+
     public JFHabitat(){
         initComponents();
     }
@@ -17,27 +20,55 @@ public class JFHabitat extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.menu = menu;
-        menu.habitatList = habitatList;
+        menu.habitatList = habitatList; 
+        searchHabitat = "";
+        j = 0;
     }
     
-    protected void addHabitat(String habitatName, String weather, 
-            String vegetation, String continent){
+    protected int search(String dummy){ //searches value in list
+        for(int i = 0; i < menu.habitatList.size(); i++){
+            if(!menu.habitatList.contains(dummy)){
+                searchHabitat =  menu.habitatList.get(i).getHabitatName();
+                j = 1;
+                break;
+            } else {searchHabitat = ""; j = 0;}
+        }
+        JOptionPane.showMessageDialog(this, "Habitat inexistente");
         
-        int tempHabitatId = menu.habitatList.size() + 1;
-        menu.habitatList
-                .add(new Habitat(tempHabitatId, habitatName,weather,vegetation,
-                    continent));
+        return j;
+    }
+    
+    //adds values to list given values
+    protected void addValues(String habitatName, String weather, 
+            String vegetation, String continent){
+        search(habitatName);
+        if(searchHabitat.equals("")){
+            int tempHabitatId = menu.habitatList.size() + 1;
+            menu.habitatList
+                    .add(new Habitat(tempHabitatId, habitatName,weather,vegetation,
+                        continent));
+        } else {
+                JOptionPane.showMessageDialog(this, "El habitat ya existe");
+        }
     }
     
     
-    protected void searchHabitat(){
-    
+    protected void deleteValues(String dummy){ //deletes value in list givent int
+        search(dummy);
+        if(searchHabitat.equals("")){
+            menu.habitatList.remove(j);
+        } else {
+                JOptionPane.showMessageDialog(this, "El habitat no existe");
+        }
     }
-    /*MISSING TO ADD SEARCH, DELETE, MODIFY AND SHOW METHODS
-    protected void deleteHabitat(){}
-    protected void modifyHabitat(){}
-    protected void showHabitat(){}
-    */
+    
+    protected void modifyValues(int dummy){ //modifies values in list given int
+        
+    }
+    
+    protected void showValues(){ //shows arraylist values in list
+        
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -261,7 +292,7 @@ public class JFHabitat extends javax.swing.JFrame {
                         .addComponent(habitatModify_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(habitatDelete_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(habitatSearch_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, habitatPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(habitatGoBack_Button)
@@ -291,9 +322,7 @@ public class JFHabitat extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(habitatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(habitatPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,9 +355,6 @@ public class JFHabitat extends javax.swing.JFrame {
         
     }//GEN-LAST:event_RegisterGoBack_buttonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -2,7 +2,7 @@ package BackEnd;
 
 public class Habitat {
 
-    private int habitatId;
+    private int id;
     private String habitatName;
     private String weather;
     private String vegetation;
@@ -10,9 +10,9 @@ public class Habitat {
     
     public Habitat(){}
     
-    public Habitat(int habitatId, String habitatName, String weather, 
+    public Habitat(int id, String habitatName, String weather, 
            String vegetation, String continent){
-        this.habitatId = habitatId;
+        this.id = id;
         this.habitatName = habitatName;
         this.weather = weather;
         this.vegetation = vegetation;
@@ -20,16 +20,16 @@ public class Habitat {
     }
     
     public Habitat(Habitat habitat){
-        this(habitat.getHabitatId(), habitat.getHabitatName(), 
+        this(habitat.getId(), habitat.getHabitatName(), 
             habitat.getWeather(), habitat.getVegetation(), habitat.getContinent());
     }
     
-    public int getHabitatId() {
-        return habitatId;
+    public int getId() {
+        return id;
     }
 
-    public void setHabitatId(int habitatId) {
-        this.habitatId = habitatId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getHabitatName() {
