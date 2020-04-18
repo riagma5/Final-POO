@@ -22,11 +22,22 @@ public class JFMenu extends javax.swing.JFrame {
     //Carer id + Specie id
         
     protected JFHabitat habitat;
+    protected JFItinerario itinerario;
+    protected JFEspecie especie;
+    protected JFZona zona;
+    protected JFGuia guia;   
+    protected JFCuidador cuidador;
     
     public JFMenu() {
         initComponents();
         setLocationRelativeTo(null);
         habitat = new JFHabitat(this, habitatList);
+        itinerario = new JFItinerario(this,itineraryList);
+        especie = new JFEspecie(this,specieList);
+        zona = new JFZona(this,zoneList);
+        guia = new JFGuia(this, guideList);
+        cuidador = new JFCuidador(this, carerList);
+        
         //INSERT OTHER FRAME OBJECTS
     }
     
@@ -34,6 +45,25 @@ public class JFMenu extends javax.swing.JFrame {
         habitat.setVisible(true);
     }
     
+    private void showItinerario(){
+        itinerario.setVisible(true);
+    }
+    
+    private void showEspecie(){
+        especie.setVisible(true);
+    }
+    
+    private void showZona(){
+        zona.setVisible(true);
+    }
+    
+    private void showGuia(){
+        guia.setVisible(true);
+    }
+    
+    private void showCuidador(){
+        cuidador.setVisible(true);
+    }
     /*MISSING TO ADD SEARCH, DELETE, MODIFY AND SHOW METHODS
     
     protected void showHabitat(){}
@@ -43,7 +73,6 @@ public class JFMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
         menuPanel = new javax.swing.JPanel();
         menuTxt = new javax.swing.JLabel();
         habitat_button = new javax.swing.JButton();
@@ -53,8 +82,6 @@ public class JFMenu extends javax.swing.JFrame {
         guide_button = new javax.swing.JButton();
         carer_button = new javax.swing.JButton();
         exit_button = new javax.swing.JButton();
-
-        jButton2.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,26 +105,51 @@ public class JFMenu extends javax.swing.JFrame {
         itinerary_button.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         itinerary_button.setForeground(new java.awt.Color(255, 255, 255));
         itinerary_button.setText("Itinerario");
+        itinerary_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itinerary_buttonActionPerformed(evt);
+            }
+        });
 
         species_button.setBackground(new java.awt.Color(102, 153, 255));
         species_button.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         species_button.setForeground(new java.awt.Color(255, 255, 255));
         species_button.setText("Especie");
+        species_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                species_buttonActionPerformed(evt);
+            }
+        });
 
         zone_button.setBackground(new java.awt.Color(102, 153, 255));
         zone_button.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         zone_button.setForeground(new java.awt.Color(255, 255, 255));
         zone_button.setText("Zona");
+        zone_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zone_buttonActionPerformed(evt);
+            }
+        });
 
         guide_button.setBackground(new java.awt.Color(102, 153, 255));
         guide_button.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         guide_button.setForeground(new java.awt.Color(255, 255, 255));
         guide_button.setText("Guía");
+        guide_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guide_buttonActionPerformed(evt);
+            }
+        });
 
         carer_button.setBackground(new java.awt.Color(102, 153, 255));
         carer_button.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         carer_button.setForeground(new java.awt.Color(255, 255, 255));
         carer_button.setText("Cuidador");
+        carer_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carer_buttonActionPerformed(evt);
+            }
+        });
 
         exit_button.setBackground(new java.awt.Color(102, 153, 255));
         exit_button.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
@@ -176,6 +228,31 @@ public class JFMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_habitat_buttonActionPerformed
 
+    private void itinerary_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerary_buttonActionPerformed
+        showItinerario();
+        this.dispose();
+    }//GEN-LAST:event_itinerary_buttonActionPerformed
+
+    private void species_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_species_buttonActionPerformed
+        showEspecie();
+        this.dispose();
+    }//GEN-LAST:event_species_buttonActionPerformed
+
+    private void zone_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zone_buttonActionPerformed
+        showZona();
+        this.dispose();
+    }//GEN-LAST:event_zone_buttonActionPerformed
+
+    private void guide_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guide_buttonActionPerformed
+       showGuia();
+       this.dispose();
+    }//GEN-LAST:event_guide_buttonActionPerformed
+
+    private void carer_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carer_buttonActionPerformed
+        showCuidador();
+        this.dispose();
+    }//GEN-LAST:event_carer_buttonActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -217,7 +294,6 @@ public class JFMenu extends javax.swing.JFrame {
     private javax.swing.JButton guide_button;
     private javax.swing.JButton habitat_button;
     private javax.swing.JButton itinerary_button;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JLabel menuTxt;
     private javax.swing.JButton species_button;
