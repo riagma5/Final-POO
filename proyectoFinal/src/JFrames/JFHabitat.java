@@ -45,8 +45,8 @@ public class JFHabitat extends javax.swing.JFrame {
         if(searchHabitat.equals("")){
             int tempHabitatId = menu.habitatList.size() + 1;
             menu.habitatList
-                    .add(new Habitat(tempHabitatId, habitatName,weather,vegetation,
-                        continent));
+                .add(new Habitat(tempHabitatId, habitatName,weather,vegetation,
+                    continent));
         } else {
                 JOptionPane.showMessageDialog(this, "El habitat ya existe");
         }
