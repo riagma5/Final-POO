@@ -31,14 +31,13 @@ public class JFMenu extends javax.swing.JFrame {
     public JFMenu() {
         initComponents();
         setLocationRelativeTo(null);
-        habitat = new JFHabitat(this, habitatList);
-        itinerario = new JFItinerario(this,itineraryList);
-        especie = new JFEspecie(this,specieList);
-        zona = new JFZona(this,zoneList);
-        guia = new JFGuia(this, guideList);
-        cuidador = new JFCuidador(this, carerList);
+        habitat = new JFHabitat(this);
+        //itinerario = new JFItinerario(this);
+        //especie = new JFEspecie(this);
+        //zona = new JFZona(this);
+        //guia = new JFGuia(this);
+        //cuidador = new JFCuidador(this);
         
-        //INSERT OTHER FRAME OBJECTS
     }
     
     private void showHabitat(){

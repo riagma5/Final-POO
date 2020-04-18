@@ -48,12 +48,12 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="registerWeatherField1" min="-2" pref="302" max="-2" attributes="0"/>
+                              <Component id="habitatWeatherField" min="-2" pref="302" max="-2" attributes="0"/>
                               <Component id="habitatWeatherTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="habitatVegetationTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="habitatVegetationField1" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
+                              <Component id="habitatVegetationField" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                               <Component id="habitatContinentTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="habitatContinentField1" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
+                              <Component id="habitatContinentField" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="habitatSaveButton" min="-2" pref="89" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -103,15 +103,15 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="habitatWeatherTxt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                  <Component id="registerWeatherField1" min="-2" max="-2" attributes="0"/>
+                  <Component id="habitatWeatherField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="habitatVegetationTxt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="habitatVegetationField1" min="-2" max="-2" attributes="0"/>
+                  <Component id="habitatVegetationField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="habitatContinentTxt1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="habitatContinentField1" min="-2" max="-2" attributes="0"/>
+                  <Component id="habitatContinentField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="28" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="habitatSaveButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
@@ -250,7 +250,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="habitatNameFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="registerWeatherField1">
+        <Component class="javax.swing.JTextField" name="habitatWeatherField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -262,6 +262,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="habitatWeatherFieldActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="habitatWeatherTxt">
           <Properties>
@@ -285,7 +288,7 @@
             <Property name="text" type="java.lang.String" value="Vegetaci&#xf3;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="habitatVegetationField1">
+        <Component class="javax.swing.JTextField" name="habitatVegetationField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -297,6 +300,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="habitatVegetationFieldActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="habitatContinentTxt1">
           <Properties>
@@ -309,7 +315,7 @@
             <Property name="text" type="java.lang.String" value="Continente"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="habitatContinentField1">
+        <Component class="javax.swing.JTextField" name="habitatContinentField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
