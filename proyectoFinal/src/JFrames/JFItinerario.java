@@ -164,17 +164,17 @@ public class JFItinerario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(itinerarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, itinerarioPanelLayout.createSequentialGroup()
-                        .addGap(0, 83, Short.MAX_VALUE)
+                        .addGap(0, 77, Short.MAX_VALUE)
                         .addGroup(itinerarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(itinerarioDurationTxt)
                             .addComponent(itinerarioLongTxt)
                             .addComponent(itinerarioVisiterTxt)
                             .addComponent(itinerarioVisiterField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(itinerarioPanelLayout.createSequentialGroup()
-                                .addComponent(itinerarioSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(itinerarioDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(itinerarioSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(itinerarioDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(itinerarioChangeButton))
                             .addComponent(itinerarioCodeTxt)
                             .addGroup(itinerarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -212,7 +212,7 @@ public class JFItinerario extends javax.swing.JFrame {
                 .addComponent(itinerarioVisiterTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(itinerarioVisiterField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(itinerarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itinerarioSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(itinerarioDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -301,49 +301,7 @@ public class JFItinerario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton habitatChangeButton;
-    private javax.swing.JButton habitatChangeButton1;
-    private javax.swing.JButton habitatChangeButton2;
-    private javax.swing.JTextField habitatContinentField1;
-    private javax.swing.JTextField habitatContinentField2;
-    private javax.swing.JTextField habitatContinentField3;
-    private javax.swing.JLabel habitatContinentTxt1;
-    private javax.swing.JLabel habitatContinentTxt2;
-    private javax.swing.JLabel habitatContinentTxt3;
-    private javax.swing.JButton habitatDeleteButton;
-    private javax.swing.JButton habitatDeleteButton1;
-    private javax.swing.JButton habitatDeleteButton2;
-    private javax.swing.JButton habitatGoBackButton;
-    private javax.swing.JButton habitatGoBackButton1;
-    private javax.swing.JButton habitatGoBackButton2;
-    private javax.swing.JTextField habitatNameField;
-    private javax.swing.JTextField habitatNameField1;
-    private javax.swing.JTextField habitatNameField2;
     private javax.swing.JTextField habitatNameField3;
-    private javax.swing.JLabel habitatNameTxt;
-    private javax.swing.JLabel habitatNameTxt1;
-    private javax.swing.JLabel habitatNameTxt2;
-    private javax.swing.JPanel habitatPanel;
-    private javax.swing.JPanel habitatPanel1;
-    private javax.swing.JPanel habitatPanel2;
-    private javax.swing.JButton habitatSaveButton;
-    private javax.swing.JButton habitatSaveButton1;
-    private javax.swing.JButton habitatSaveButton2;
-    private javax.swing.JButton habitatSearchButton;
-    private javax.swing.JButton habitatSearchButton1;
-    private javax.swing.JButton habitatSearchButton2;
-    private javax.swing.JLabel habitatTxt;
-    private javax.swing.JLabel habitatTxt1;
-    private javax.swing.JLabel habitatTxt2;
-    private javax.swing.JTextField habitatVegetationField1;
-    private javax.swing.JTextField habitatVegetationField2;
-    private javax.swing.JTextField habitatVegetationField3;
-    private javax.swing.JLabel habitatVegetationTxt;
-    private javax.swing.JLabel habitatVegetationTxt1;
-    private javax.swing.JLabel habitatVegetationTxt2;
-    private javax.swing.JLabel habitatWeatherTxt;
-    private javax.swing.JLabel habitatWeatherTxt1;
-    private javax.swing.JLabel habitatWeatherTxt2;
     private javax.swing.JButton itinerarioChangeButton;
     private javax.swing.JLabel itinerarioCodeTxt;
     private javax.swing.JButton itinerarioDeleteButton;
@@ -358,8 +316,5 @@ public class JFItinerario extends javax.swing.JFrame {
     private javax.swing.JTextField itinerarioVisiterField;
     private javax.swing.JLabel itinerarioVisiterTxt;
     private javax.swing.JFormattedTextField itirenarioDuratiionFormattedTextField;
-    private javax.swing.JTextField registerWeatherField1;
-    private javax.swing.JTextField registerWeatherField2;
-    private javax.swing.JTextField registerWeatherField3;
     // End of variables declaration//GEN-END:variables
 }

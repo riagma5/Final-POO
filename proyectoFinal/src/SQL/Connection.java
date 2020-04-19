@@ -1,29 +1,37 @@
-package JFrames;
+package SQL;
 
+import javax.swing.JOptionPane;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+//import java.sql.Connection;
 
 public class Connection extends javax.swing.JFrame {
 
-    public static final String URL = "jdbc:sqlserver://localhost:1433/zoo";
+    //public static final String URL = "jdbc:sqlserver://localhost:1433/zoo";
+    public static final String URL = "jdbc:sqlserver://localhost;user=adminSQL;password=admin";
     public static final String USERNAME = "adminSQL";
     public static final String PASSWORD = "admin1";
-    
+    public static PreparedStatement ps;
+    public static ResultSet rs;
+        
     public Connection() {
         initComponents();
     }
     
     public static Connection getConnection(){
-        Connection con = null;
+        Connection connection = null;
+        
         try{
+            Class.forName(URL);
+            connection = (Connection) DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            JOptionPane.showMessageDialog(null, "Connection successfull");
             
-        }catch(Exception e){
-            
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Connection to DB failed");
+            System.err.println(e);
         }
-        
-        
-        return con;
+        return connection;
     }
 
     @SuppressWarnings("unchecked")
@@ -62,7 +70,7 @@ public class Connection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Connection_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Connection_ButtonActionPerformed
-        
+        getConnection();
     }//GEN-LAST:event_Connection_ButtonActionPerformed
 
     public static void main(String args[]) {

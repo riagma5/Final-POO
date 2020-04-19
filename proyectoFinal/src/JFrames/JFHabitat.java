@@ -2,20 +2,12 @@
 package JFrames;
 
 import javax.swing.JOptionPane;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
+import SQL.Connection;
+
 
 public class JFHabitat extends javax.swing.JFrame {
 
     protected JFMenu menu;
-    public static final String URL = "jdbc:sql://localhost:3306/Zoo";
-    public static final String USERNAME = "root";
-    public static final String PASSWORD = "1234";
-    
-    PreparedStatement ps;
-    ResultSet rs;
 
     public JFHabitat(){
         initComponents();
@@ -26,20 +18,6 @@ public class JFHabitat extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.menu = menu;
-    }
-    
-    public static Connection getConnection(){
-        Connection con = null;
-        
-        try{
-            Class.forName(URL);
-            con = (Connection) DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            JOptionPane.showMessageDialog(null, "Connection successfull");
-            
-        } catch(Exception e) {
-            System.err.println(e);
-        }
-        return con;
     }
     
     private void cleanField(){
@@ -180,7 +158,7 @@ public class JFHabitat extends javax.swing.JFrame {
         habitatPanelLayout.setHorizontalGroup(
             habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(habitatPanelLayout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap(80, Short.MAX_VALUE)
                 .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(habitatPanelLayout.createSequentialGroup()
                         .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,13 +168,13 @@ public class JFHabitat extends javax.swing.JFrame {
                             .addComponent(habitatVegetationField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(habitatContinentTxt1)
                             .addComponent(habitatContinentField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(habitatNameTxt)
                             .addGroup(habitatPanelLayout.createSequentialGroup()
-                                .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(habitatSaveButton)
+                                .addGap(20, 20, 20)
                                 .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(habitatChangeButton))
-                            .addComponent(habitatNameTxt))
+                                .addComponent(habitatChangeButton)))
                         .addGap(105, 105, 105))
                     .addGroup(habitatPanelLayout.createSequentialGroup()
                         .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,18 +245,18 @@ public class JFHabitat extends javax.swing.JFrame {
 //For saving dates = ps.setString(x, Date.ValueOf(y.getText()));
 //For saving dates = ps.setString(x, cbxGenero.getSelectedItem().toString());
     private void habitatSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSaveButtonActionPerformed
-        Connection con = null;
+        Connection connect = null;
         try{
-            con = getConnection();
-            ps = con.prepareCall(
+            connect = Connection.getConnection();
+            Connection.rs = Connection.ps.executeQuery(
                     "INSERT INTO habitat (nombreHabitat, clima, vegetacion,"
                             + " continente) VALUES(?,?,?,?)");
-            ps.setString(1, habitatNameField.getText());
-            ps.setString(2, habitatWeatherField.getText());
-            ps.setString(3, habitatVegetationField.getText());
-            ps.setString(4, habitatContinentField.getText());
+            Connection.ps.setString(1, habitatNameField.getText());
+            Connection.ps.setString(2, habitatWeatherField.getText());
+            Connection.ps.setString(3, habitatVegetationField.getText());
+            Connection.ps.setString(4, habitatContinentField.getText());
             
-            int res = ps.executeUpdate();
+            int res = Connection.ps.executeUpdate();
             if(res > 0 ){
                 JOptionPane.showMessageDialog(null, "Habitat guardado");
                 cleanField();
@@ -286,7 +264,7 @@ public class JFHabitat extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error al guardar Habitat");
                 cleanField();
             }
-            con.close();
+            connect.ps.close();
             
         }catch(Exception e){
             System.err.println(e);
@@ -302,7 +280,18 @@ public class JFHabitat extends javax.swing.JFrame {
     }//GEN-LAST:event_habitatChangeButtonActionPerformed
 
     private void habitatSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSearchButtonActionPerformed
-        // TODO add your handling code here:
+        
+        /*Connection connect = null;
+        try{
+            connect = Connection.getConnection();
+            connect.ps = connect.preprareStatement(
+                    "Select * FROM habitat WHERE habitatId=");
+            
+  
+        } catch(Exception e){
+            System.err.println(e);
+        }
+        */
     }//GEN-LAST:event_habitatSearchButtonActionPerformed
 
     private void habitatNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatNameFieldActionPerformed
@@ -325,7 +314,7 @@ public class JFHabitat extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -341,14 +330,7 @@ public class JFHabitat extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFHabitat().setVisible(true);

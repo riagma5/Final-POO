@@ -44,7 +44,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="1" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="89" max="32767" attributes="0"/>
+                  <EmptySpace pref="80" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -54,14 +54,14 @@
                               <Component id="habitatVegetationField" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                               <Component id="habitatContinentTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="habitatContinentField" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
+                              <Component id="habitatNameTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="habitatSaveButton" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="habitatSaveButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="habitatDeleteButton" min="-2" pref="94" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="habitatChangeButton" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="habitatNameTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                       </Group>
