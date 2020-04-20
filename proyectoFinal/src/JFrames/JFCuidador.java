@@ -1,16 +1,35 @@
-
 package JFrames;
 
-import javax.swing.JOptionPane;
+
 import java.util.ArrayList;
 import BackEnd.Carer;
 import BackEnd.Habitat;
+import static JFrames.JFLogin.getConection;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import javax.swing.*;
 
 public class JFCuidador extends javax.swing.JFrame {
 
+    PreparedStatement ps;
+    ResultSet sr;
     protected JFMenu menu;
     private String searchCarer;
     private int j;
+
+    private void cleanBox() {
+        carerNameField.setText(null);
+        carerDirectionField.setText(null);
+        carerStartDateField.setText(null);
+        carerHourField.setText(null);
+    }
     
     public JFCuidador() {
         initComponents();
@@ -21,29 +40,30 @@ public class JFCuidador extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.menu = menu;
-        menu.carerList = carerList; 
+        menu.carerList = carerList;
         searchCarer = "";
         j = 0;
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         carerPanel = new javax.swing.JPanel();
         carerTxt = new javax.swing.JLabel();
-        habitatGoBackButton = new javax.swing.JButton();
-        habitatSaveButton = new javax.swing.JButton();
-        habitatDeleteButton = new javax.swing.JButton();
-        habitatChangeButton = new javax.swing.JButton();
+        carerGoBackButton = new javax.swing.JButton();
+        carerSaveButton = new javax.swing.JButton();
+        carerDeleteButton = new javax.swing.JButton();
+        carerChangeButton = new javax.swing.JButton();
         carerSearchButton = new javax.swing.JButton();
         carerNameTxt = new javax.swing.JLabel();
         carerNameField = new javax.swing.JTextField();
         carerDirectionField = new javax.swing.JTextField();
         carerDirectionTxt = new javax.swing.JLabel();
         carerStartDateTxt = new javax.swing.JLabel();
-        carerStartDateFormattedTextField = new javax.swing.JFormattedTextField();
         carerHourTxt = new javax.swing.JLabel();
-        carerHourFormattedTextField = new javax.swing.JFormattedTextField();
+        carerStartDateField = new javax.swing.JFormattedTextField();
+        carerHourField = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,43 +74,43 @@ public class JFCuidador extends javax.swing.JFrame {
         carerTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         carerTxt.setText("Cuidador");
 
-        habitatGoBackButton.setBackground(new java.awt.Color(102, 153, 255));
-        habitatGoBackButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatGoBackButton.setForeground(new java.awt.Color(255, 255, 255));
-        habitatGoBackButton.setText("Regresar");
-        habitatGoBackButton.addActionListener(new java.awt.event.ActionListener() {
+        carerGoBackButton.setBackground(new java.awt.Color(102, 153, 255));
+        carerGoBackButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        carerGoBackButton.setForeground(new java.awt.Color(255, 255, 255));
+        carerGoBackButton.setText("Regresar");
+        carerGoBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatGoBackButtonActionPerformed(evt);
+                carerGoBackButtonActionPerformed(evt);
             }
         });
 
-        habitatSaveButton.setBackground(new java.awt.Color(102, 153, 255));
-        habitatSaveButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatSaveButton.setForeground(new java.awt.Color(255, 255, 255));
-        habitatSaveButton.setText("Guardar");
-        habitatSaveButton.addActionListener(new java.awt.event.ActionListener() {
+        carerSaveButton.setBackground(new java.awt.Color(102, 153, 255));
+        carerSaveButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        carerSaveButton.setForeground(new java.awt.Color(255, 255, 255));
+        carerSaveButton.setText("Guardar");
+        carerSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatSaveButtonActionPerformed(evt);
+                carerSaveButtonActionPerformed(evt);
             }
         });
 
-        habitatDeleteButton.setBackground(new java.awt.Color(102, 153, 255));
-        habitatDeleteButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
-        habitatDeleteButton.setText("Eliminar");
-        habitatDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+        carerDeleteButton.setBackground(new java.awt.Color(102, 153, 255));
+        carerDeleteButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        carerDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        carerDeleteButton.setText("Eliminar");
+        carerDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatDeleteButtonActionPerformed(evt);
+                carerDeleteButtonActionPerformed(evt);
             }
         });
 
-        habitatChangeButton.setBackground(new java.awt.Color(102, 153, 255));
-        habitatChangeButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatChangeButton.setForeground(new java.awt.Color(255, 255, 255));
-        habitatChangeButton.setText("Modificar");
-        habitatChangeButton.addActionListener(new java.awt.event.ActionListener() {
+        carerChangeButton.setBackground(new java.awt.Color(102, 153, 255));
+        carerChangeButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        carerChangeButton.setForeground(new java.awt.Color(255, 255, 255));
+        carerChangeButton.setText("Modificar");
+        carerChangeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatChangeButtonActionPerformed(evt);
+                carerChangeButtonActionPerformed(evt);
             }
         });
 
@@ -129,21 +149,25 @@ public class JFCuidador extends javax.swing.JFrame {
         carerStartDateTxt.setForeground(new java.awt.Color(255, 255, 255));
         carerStartDateTxt.setText("Fecha de Contratación");
 
-        carerStartDateFormattedTextField.setBackground(new java.awt.Color(102, 153, 255));
-        carerStartDateFormattedTextField.setForeground(new java.awt.Color(255, 255, 255));
-        carerStartDateFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        carerStartDateFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carerStartDateFormattedTextFieldActionPerformed(evt);
-            }
-        });
-
         carerHourTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         carerHourTxt.setForeground(new java.awt.Color(255, 255, 255));
         carerHourTxt.setText("Hora");
 
-        carerHourFormattedTextField.setBackground(new java.awt.Color(102, 153, 255));
-        carerHourFormattedTextField.setForeground(new java.awt.Color(255, 255, 255));
+        carerStartDateField.setBackground(new java.awt.Color(102, 153, 255));
+        carerStartDateField.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            carerStartDateField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        carerHourField.setBackground(new java.awt.Color(102, 153, 255));
+        carerHourField.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            carerHourField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout carerPanelLayout = new javax.swing.GroupLayout(carerPanel);
         carerPanel.setLayout(carerPanelLayout);
@@ -156,33 +180,33 @@ public class JFCuidador extends javax.swing.JFrame {
                         .addComponent(carerTxt))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, carerPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(habitatGoBackButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(carerGoBackButton)))
+                .addContainerGap(170, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, carerPanelLayout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(carerHourField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(carerHourTxt)
-                    .addComponent(carerHourFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(carerStartDateTxt)
-                    .addComponent(carerStartDateFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(carerPanelLayout.createSequentialGroup()
                             .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(carerDirectionField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(carerDirectionTxt)
                                 .addGroup(carerPanelLayout.createSequentialGroup()
-                                    .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(carerSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(carerDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(habitatChangeButton))
+                                    .addComponent(carerChangeButton))
                                 .addComponent(carerNameTxt))
                             .addGap(105, 105, 105))
                         .addGroup(carerPanelLayout.createSequentialGroup()
                             .addComponent(carerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(carerSearchButton)
-                            .addContainerGap()))))
+                            .addContainerGap()))
+                    .addComponent(carerStartDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         carerPanelLayout.setVerticalGroup(
             carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,18 +226,18 @@ public class JFCuidador extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(carerStartDateTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(carerStartDateFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(carerStartDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(carerHourTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(carerHourFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(carerHourField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(habitatChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(carerSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carerDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carerChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(habitatGoBackButton)
+                .addComponent(carerGoBackButton)
                 .addGap(16, 16, 16))
         );
 
@@ -235,22 +259,48 @@ public class JFCuidador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void habitatGoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatGoBackButtonActionPerformed
+    private void carerGoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerGoBackButtonActionPerformed
         this.dispose();
         menu.setVisible(true);
-    }//GEN-LAST:event_habitatGoBackButtonActionPerformed
+    }//GEN-LAST:event_carerGoBackButtonActionPerformed
 
-    private void habitatSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSaveButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_habitatSaveButtonActionPerformed
+    
 
-    private void habitatDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatDeleteButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_habitatDeleteButtonActionPerformed
+    private void carerSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerSaveButtonActionPerformed
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("INSERT INTO cuidador (nombre, direccion, start_date, hora) VALUES(?,?,?,?) ");
+            ps.setString(1, carerNameField.getText());
+            ps.setString(2, carerDirectionField.getText());
+            ps.setDate(3, Date.valueOf(carerStartDateField.getText()));
+            ps.setTime(4, Time.valueOf(carerHourField.getText()));
+           
 
-    private void habitatChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatChangeButtonActionPerformed
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Persona Guardada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar persona");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_carerSaveButtonActionPerformed
+
+    private void carerDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerDeleteButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_habitatChangeButtonActionPerformed
+    }//GEN-LAST:event_carerDeleteButtonActionPerformed
+
+    private void carerChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerChangeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carerChangeButtonActionPerformed
 
     private void carerSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerSearchButtonActionPerformed
         // TODO add your handling code here:
@@ -259,10 +309,6 @@ public class JFCuidador extends javax.swing.JFrame {
     private void carerNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerNameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_carerNameFieldActionPerformed
-
-    private void carerStartDateFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerStartDateFormattedTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_carerStartDateFormattedTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,20 +346,20 @@ public class JFCuidador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton carerChangeButton;
+    private javax.swing.JButton carerDeleteButton;
     private javax.swing.JTextField carerDirectionField;
     private javax.swing.JLabel carerDirectionTxt;
-    private javax.swing.JFormattedTextField carerHourFormattedTextField;
+    private javax.swing.JButton carerGoBackButton;
+    private javax.swing.JFormattedTextField carerHourField;
     private javax.swing.JLabel carerHourTxt;
     private javax.swing.JTextField carerNameField;
     private javax.swing.JLabel carerNameTxt;
     private javax.swing.JPanel carerPanel;
+    private javax.swing.JButton carerSaveButton;
     private javax.swing.JButton carerSearchButton;
-    private javax.swing.JFormattedTextField carerStartDateFormattedTextField;
+    private javax.swing.JFormattedTextField carerStartDateField;
     private javax.swing.JLabel carerStartDateTxt;
     private javax.swing.JLabel carerTxt;
-    private javax.swing.JButton habitatChangeButton;
-    private javax.swing.JButton habitatDeleteButton;
-    private javax.swing.JButton habitatGoBackButton;
-    private javax.swing.JButton habitatSaveButton;
     // End of variables declaration//GEN-END:variables
 }
