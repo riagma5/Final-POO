@@ -1,7 +1,9 @@
 package JFrames;
 
+
 import java.util.ArrayList;
 import BackEnd.*;
+
 
 public class JFMenu extends javax.swing.JFrame {
 
@@ -27,6 +29,8 @@ public class JFMenu extends javax.swing.JFrame {
     protected JFZona zona;
     protected JFGuia guia;   
     protected JFCuidador cuidador;
+    
+    
     
     public JFMenu() {
         initComponents();

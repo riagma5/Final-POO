@@ -1,7 +1,11 @@
 package JFrames;
 
+import com.mysql.jdbc.Connection;
 import java.awt.event.KeyEvent;
+import java.sql.DriverManager;
+
 import javax.swing.*;
+import javax.swing.JOptionPane;
 
 /**
  * @author Ricardo Aguilera Martin & Armando Del Rio
@@ -9,14 +13,34 @@ import javax.swing.*;
  * Finished on 2020/04/21*
  */
 public class JFLogin extends javax.swing.JFrame {
-    
+    //Data Base//
+    public static final String  URL ="jdbc:mysql://localhost:3306/Zoo";
+    public static final String  USERNAME ="root";
+    public static final String  PASSWORD ="root1234";
     private String usuario;
     private String contrasena;
 
+    
+    public static java.sql.Connection getConection(){
+        java.sql.Connection con = null;
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = (java.sql.Connection) DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            System.out.println("Conexion exitosa");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return con;
+    }
+    
     public JFLogin() {
         initComponents();
         setLocationRelativeTo(null);
         userField.setFocusable(true);
+        
     }
 
     public void datos(String us, String pas) {
@@ -32,6 +56,7 @@ public class JFLogin extends javax.swing.JFrame {
     private void validateData(){
         datos(usuario, contrasena);
             if (usuario.equals(userField.getText()) && contrasena.equals(passwordField.getText())) {
+                getConection();
                 JFMenu menu = new JFMenu();
                 menu.setVisible(true);
                 this.dispose();
