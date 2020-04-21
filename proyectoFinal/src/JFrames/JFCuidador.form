@@ -66,7 +66,7 @@
                                   <Component id="carerDirectionField" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                                   <Component id="carerDirectionTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="carerSaveButton" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <Component id="carerSaveButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="carerDeleteButton" min="-2" pref="94" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -124,7 +124,7 @@
                   <Component id="carerHourField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="50" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="carerSaveButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="carerSaveButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="carerDeleteButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="carerChangeButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>

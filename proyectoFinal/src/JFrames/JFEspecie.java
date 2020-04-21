@@ -262,7 +262,31 @@ public class JFEspecie extends javax.swing.JFrame {
     }//GEN-LAST:event_especieSaveButtonActionPerformed
 
     private void especieDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieDeleteButtonActionPerformed
-        // TODO add your handling code here:
+         Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM especie WHERE nombreEspanol=?");
+            ps.setString(1, especieNameField.getText());
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Especie eliminada");
+                cleanBox();
+                especieSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al eliminar especie");
+                 cleanBox();
+                 especieSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_especieDeleteButtonActionPerformed
 
     private void especieChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieChangeButtonActionPerformed
@@ -280,9 +304,11 @@ public class JFEspecie extends javax.swing.JFrame {
             if(res > 0){
                 JOptionPane.showMessageDialog(null, "Especie modificada");
                 cleanBox();
+                especieSaveButton.setEnabled(true);
             } else {
                  JOptionPane.showMessageDialog(null, "Error al modificar especie");
                  cleanBox();
+                 especieSaveButton.setEnabled(true);
             }
             
             con.close();
@@ -293,6 +319,7 @@ public class JFEspecie extends javax.swing.JFrame {
     }//GEN-LAST:event_especieChangeButtonActionPerformed
 
     private void especieSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieSearchButtonActionPerformed
+         especieSaveButton.setEnabled(false);
         com.mysql.jdbc.Connection con = null;
         
         try{

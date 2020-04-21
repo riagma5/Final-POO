@@ -193,7 +193,7 @@ public class JFCuidador extends javax.swing.JFrame {
                                 .addComponent(carerDirectionField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(carerDirectionTxt)
                                 .addGroup(carerPanelLayout.createSequentialGroup()
-                                    .addComponent(carerSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(carerSaveButton)
                                     .addGap(18, 18, 18)
                                     .addComponent(carerDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
@@ -240,7 +240,7 @@ public class JFCuidador extends javax.swing.JFrame {
                 .addComponent(carerHourField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(carerSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carerSaveButton)
                     .addComponent(carerDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(carerChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
@@ -274,6 +274,7 @@ public class JFCuidador extends javax.swing.JFrame {
     
 
     private void carerSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerSaveButtonActionPerformed
+        
         Connection con = null;
         try {
             con = getConection();
@@ -302,7 +303,30 @@ public class JFCuidador extends javax.swing.JFrame {
     }//GEN-LAST:event_carerSaveButtonActionPerformed
 
     private void carerDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerDeleteButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM cuidador WHERE nombre=?");
+            ps.setString(1, carerNameField.getText());
+            
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Persona eliminada");
+                cleanBox();
+                carerSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al eliminar persona");
+                 cleanBox();
+                 carerSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_carerDeleteButtonActionPerformed
 
     private void carerChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerChangeButtonActionPerformed
@@ -321,9 +345,11 @@ public class JFCuidador extends javax.swing.JFrame {
             if(res > 0){
                 JOptionPane.showMessageDialog(null, "Persona Modificada");
                 cleanBox();
+                carerSaveButton.setEnabled(true);
             } else {
                  JOptionPane.showMessageDialog(null, "Error al Modificar persona");
                  cleanBox();
+                 carerSaveButton.setEnabled(true);
             }
             
             con.close();
@@ -334,6 +360,7 @@ public class JFCuidador extends javax.swing.JFrame {
     }//GEN-LAST:event_carerChangeButtonActionPerformed
 
     private void carerSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerSearchButtonActionPerformed
+        carerSaveButton.setEnabled(false);
         com.mysql.jdbc.Connection con = null;
         
         try{
@@ -361,7 +388,7 @@ public class JFCuidador extends javax.swing.JFrame {
     }//GEN-LAST:event_carerSearchButtonActionPerformed
 
     private void carerNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerNameFieldActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_carerNameFieldActionPerformed
 
     /**

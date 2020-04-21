@@ -325,7 +325,32 @@ public class JFHabitat extends javax.swing.JFrame {
     }//GEN-LAST:event_habitatSaveButtonActionPerformed
 
     private void habitatDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatDeleteButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM habitat WHERE nombreHabitat=?");
+            ps.setString(1, habitatNameField.getText());
+            
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Habitat eliminada");
+                cleanBox();
+                habitatSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al eliminar el modificada");
+                 cleanBox();
+                 habitatSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_habitatDeleteButtonActionPerformed
 
     private void habitatChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatChangeButtonActionPerformed
@@ -346,9 +371,11 @@ public class JFHabitat extends javax.swing.JFrame {
             if(res > 0){
                 JOptionPane.showMessageDialog(null, "Habitat Modificada");
                 cleanBox();
+                habitatSaveButton.setEnabled(true);
             } else {
                  JOptionPane.showMessageDialog(null, "Error al Guardar el modificada");
                  cleanBox();
+                 habitatSaveButton.setEnabled(true);
             }
             
             con.close();
@@ -360,6 +387,7 @@ public class JFHabitat extends javax.swing.JFrame {
     }//GEN-LAST:event_habitatChangeButtonActionPerformed
 
     private void habitatSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSearchButtonActionPerformed
+        habitatSaveButton.setEnabled(false);
         com.mysql.jdbc.Connection con = null;
         
         try{

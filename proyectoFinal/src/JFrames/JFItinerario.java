@@ -23,6 +23,7 @@ public class JFItinerario extends javax.swing.JFrame {
         itirenarioDuratiionFormattedTextField.setText(null);
         itinerarioLongField.setText(null);
         itinerarioVisiterField.setText(null);
+        itinerarioSpeciesField.setText(null);
     }
     
     public JFItinerario() {
@@ -300,7 +301,31 @@ public class JFItinerario extends javax.swing.JFrame {
     }//GEN-LAST:event_itinerarioSaveButtonActionPerformed
 
     private void itinerarioDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioDeleteButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM itinerario WHERE codigo=?");
+            ps.setInt(1, Integer.valueOf(codeNameField.getText()));
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Itinerario eliminado");
+                cleanBox();
+                itinerarioSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al eliminar itinerario");
+                 cleanBox();
+                 itinerarioSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_itinerarioDeleteButtonActionPerformed
 
     private void itinerarioChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioChangeButtonActionPerformed
@@ -320,9 +345,11 @@ public class JFItinerario extends javax.swing.JFrame {
             if(res > 0){
                 JOptionPane.showMessageDialog(null, "Itinerario modificado");
                 cleanBox();
+                itinerarioSaveButton.setEnabled(true);
             } else {
                  JOptionPane.showMessageDialog(null, "Error al modificar itinerario");
                  cleanBox();
+                 itinerarioSaveButton.setEnabled(true);
             }
             
             con.close();
@@ -333,6 +360,7 @@ public class JFItinerario extends javax.swing.JFrame {
     }//GEN-LAST:event_itinerarioChangeButtonActionPerformed
 
     private void itinerarioSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioSearchButtonActionPerformed
+        itinerarioSaveButton.setEnabled(false);
         com.mysql.jdbc.Connection con = null;
         
         try{

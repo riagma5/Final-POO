@@ -331,7 +331,29 @@ public class JFGuia extends javax.swing.JFrame {
     }//GEN-LAST:event_guideSaveButtonActionPerformed
 
     private void guideDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideDeleteButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+            
+            try {
+                con = getConection();
+                ps = con.prepareStatement("DELETE FROM guia WHERE nombre=?");
+                ps.setString(1, guideNameField.getText());
+                
+
+                int res = ps.executeUpdate();
+
+                if (res > 0) {
+                    JOptionPane.showMessageDialog(null, "Persona eliminada");
+                    cleanBox();
+                    guideSaveButton.setEnabled(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al eliminar persona");
+                    cleanBox();
+                    guideSaveButton.setEnabled(true);
+                }
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(JFGuia.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_guideDeleteButtonActionPerformed
 
     private void guideChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideChangeButtonActionPerformed
@@ -351,9 +373,11 @@ public class JFGuia extends javax.swing.JFrame {
                 if (res > 0) {
                     JOptionPane.showMessageDialog(null, "Persona Modificada");
                     cleanBox();
+                    guideSaveButton.setEnabled(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al modificar persona");
                     cleanBox();
+                    guideSaveButton.setEnabled(true);
                 }
                 con.close();
             } catch (SQLException ex) {
@@ -362,6 +386,7 @@ public class JFGuia extends javax.swing.JFrame {
     }//GEN-LAST:event_guideChangeButtonActionPerformed
 
     private void guiaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiaSearchButtonActionPerformed
+        guideSaveButton.setEnabled(false);
         com.mysql.jdbc.Connection con = null;
         
         try{

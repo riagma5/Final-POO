@@ -244,7 +244,32 @@ public class JFZona extends javax.swing.JFrame {
     }//GEN-LAST:event_zonaSaveButtonActionPerformed
 
     private void zonaDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaDeleteButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM zona WHERE nombreZona=?");
+            ps.setString(1, zoneNameField.getText());
+           
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Zona eliminada");
+                cleanBox();
+                zonaSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al eliminar zona");
+                 cleanBox();
+                 zonaSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_zonaDeleteButtonActionPerformed
 
     private void zonaChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaChangeButtonActionPerformed
@@ -262,9 +287,11 @@ public class JFZona extends javax.swing.JFrame {
             if(res > 0){
                 JOptionPane.showMessageDialog(null, "Zona modificada");
                 cleanBox();
+                zonaSaveButton.setEnabled(true);
             } else {
                  JOptionPane.showMessageDialog(null, "Error al modificar zona");
                  cleanBox();
+                 zonaSaveButton.setEnabled(true);
             }
             
             con.close();
@@ -275,6 +302,7 @@ public class JFZona extends javax.swing.JFrame {
     }//GEN-LAST:event_zonaChangeButtonActionPerformed
 
     private void zonaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaSearchButtonActionPerformed
+        zonaSaveButton.setEnabled(false);
         com.mysql.jdbc.Connection con = null;
         
         try{
