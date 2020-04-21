@@ -308,7 +308,31 @@ public class JFItinerario extends javax.swing.JFrame {
     }//GEN-LAST:event_itinerarioChangeButtonActionPerformed
 
     private void itinerarioSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioSearchButtonActionPerformed
-        // TODO add your handling code here:
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM itinerario WHERE codigo = ?");
+            ps.setString(1, codeNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                codeNameField.setText(rs.getString("codigo"));
+                itirenarioDuratiionFormattedTextField.setText(rs.getString("duracion"));
+                itinerarioLongField.setText(rs.getString("longitud"));
+                itinerarioVisiterField.setText(rs.getString("maxVisitante"));
+                itinerarioSpeciesField.setText(rs.getString("especiesVisita"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_itinerarioSearchButtonActionPerformed
 
     private void codeNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeNameFieldActionPerformed

@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFLogin.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFEspecie.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFHabitat.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFGuia.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFItinerario.java</file>
             <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFCuidador.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFZona.java</file>
         </group>
     </open-files>
 </project-private>

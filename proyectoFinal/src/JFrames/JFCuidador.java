@@ -1,6 +1,7 @@
 package JFrames;
 
 
+
 import java.util.ArrayList;
 import BackEnd.Carer;
 
@@ -125,7 +126,7 @@ public class JFCuidador extends javax.swing.JFrame {
 
         carerNameTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         carerNameTxt.setForeground(new java.awt.Color(255, 255, 255));
-        carerNameTxt.setText("Nombre");
+        carerNameTxt.setText("Nombre y Apellido");
 
         carerNameField.setBackground(new java.awt.Color(102, 153, 255));
         carerNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
@@ -272,7 +273,7 @@ public class JFCuidador extends javax.swing.JFrame {
             ps = con.prepareStatement("INSERT INTO cuidador (nombre, direccionCuidador, inicioCuidador, horaCuidador) VALUES(?,?,?,?) ");
             ps.setString(1, carerNameField.getText());
             ps.setString(2, carerDirectionField.getText());
-            ps.setDate(3, Date.valueOf(carerStartDateField.getText()));
+            ps.setDate(3,Date.valueOf(carerStartDateField.getText()));
             ps.setTime(4, Time.valueOf(carerHourField.getText()));
            
 
@@ -302,7 +303,30 @@ public class JFCuidador extends javax.swing.JFrame {
     }//GEN-LAST:event_carerChangeButtonActionPerformed
 
     private void carerSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerSearchButtonActionPerformed
-        // TODO add your handling code here:
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM cuidador WHERE nombre = ?");
+            ps.setString(1, carerNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                carerNameField.setText(rs.getString("nombre"));
+                carerDirectionField.setText(rs.getString("direccionCuidador"));
+                carerStartDateField.setText(rs.getString("inicioCuidador"));
+                carerHourField.setText(rs.getString("horaCuidador"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_carerSearchButtonActionPerformed
 
     private void carerNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerNameFieldActionPerformed

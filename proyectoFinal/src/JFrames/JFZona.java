@@ -252,7 +252,29 @@ public class JFZona extends javax.swing.JFrame {
     }//GEN-LAST:event_zonaChangeButtonActionPerformed
 
     private void zonaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaSearchButtonActionPerformed
-        // TODO add your handling code here:
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM zona WHERE nombreZona = ?");
+            ps.setString(1, zoneNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                zoneNameField.setText(rs.getString("nombreZona"));
+                zonaExtensionField.setText(rs.getString("extension"));
+                
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_zonaSearchButtonActionPerformed
 
     private void zoneNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoneNameFieldActionPerformed

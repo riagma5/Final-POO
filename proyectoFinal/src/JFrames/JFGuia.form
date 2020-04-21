@@ -251,7 +251,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nombre"/>
+            <Property name="text" type="java.lang.String" value="Nombre y Apellido"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="guideNameField">
@@ -338,7 +338,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="####/##/##" subtype="-1" type="5"/>
+              <Format format="####-##-##" subtype="-1" type="5"/>
             </Property>
           </Properties>
           <Events>
@@ -368,6 +368,9 @@
               <Format format="##:##:##" subtype="-1" type="5"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guiaHourFormattedTextFieldActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

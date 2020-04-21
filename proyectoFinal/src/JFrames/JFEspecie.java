@@ -270,7 +270,30 @@ public class JFEspecie extends javax.swing.JFrame {
     }//GEN-LAST:event_especieChangeButtonActionPerformed
 
     private void especieSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieSearchButtonActionPerformed
-        // TODO add your handling code here:
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM especie WHERE nombreEspanol = ?");
+            ps.setString(1, especieNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                especieNameField.setText(rs.getString("nombreEspanol"));
+                especieScientificNameField.setText(rs.getString("nombreCientifico"));
+                especieDescriptionField.setText(rs.getString("descripcion"));
+                
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una especie con este nombre");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_especieSearchButtonActionPerformed
 
     private void especieNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieNameFieldActionPerformed

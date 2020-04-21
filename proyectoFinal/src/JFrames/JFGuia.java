@@ -1,5 +1,7 @@
 package JFrames;
 
+import java.sql.DriverManager;
+
 import java.util.ArrayList;
 import BackEnd.Guide;
 import java.util.ArrayList;
@@ -11,8 +13,11 @@ import java.sql.Date;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import java.sql.Time;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.*;
 
@@ -47,8 +52,6 @@ public class JFGuia extends javax.swing.JFrame {
         j = 0;
     }
 
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -132,7 +135,7 @@ public class JFGuia extends javax.swing.JFrame {
 
         guiaNameTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         guiaNameTxt.setForeground(new java.awt.Color(255, 255, 255));
-        guiaNameTxt.setText("Nombre");
+        guiaNameTxt.setText("Nombre y Apellido");
 
         guideNameField.setBackground(new java.awt.Color(102, 153, 255));
         guideNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
@@ -166,7 +169,7 @@ public class JFGuia extends javax.swing.JFrame {
         guiaStartDateFormattedTextField.setBackground(new java.awt.Color(102, 153, 255));
         guiaStartDateFormattedTextField.setForeground(new java.awt.Color(255, 255, 255));
         try {
-            guiaStartDateFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
+            guiaStartDateFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -187,6 +190,11 @@ public class JFGuia extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        guiaHourFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiaHourFormattedTextFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout guiaPanelLayout = new javax.swing.GroupLayout(guiaPanel);
         guiaPanel.setLayout(guiaPanelLayout);
@@ -294,32 +302,32 @@ public class JFGuia extends javax.swing.JFrame {
     }//GEN-LAST:event_guideGoBackButtonActionPerformed
 
     private void guideSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideSaveButtonActionPerformed
-Connection con = null;
-        try {
-            con = getConection();
-            ps = con.prepareStatement("INSERT INTO guia(nombreGuia, direccionGuia, telGuia, inicioGuia, horaGuia) VALUES(?,?,?,?,?) ");
-            ps.setString(1, guideNameField.getText());
-            ps.setString(2, guiaDirectionField.getText());
-            ps.setInt(3, Integer.valueOf(guiaPhoneField.getText()));
-            ps.setDate(4,Date.valueOf(guiaStartDateFormattedTextField.getText()));
-            ps.setTime(5,Time.valueOf(guiaHourFormattedTextField.getText()));
-           
+        Connection con = null;
+            
+            try {
+                con = getConection();
+                ps = con.prepareStatement("INSERT INTO guia (nombre, direccion, telefono, start_date, horario) VALUES(?,?,?,?,?) ");
+                ps.setString(1, guideNameField.getText());
+                ps.setString(2, guiaDirectionField.getText());
+                ps.setString(3, guiaPhoneField.getText());
+                ps.setDate(4, Date.valueOf(guiaStartDateFormattedTextField.getText()));
+                ps.setTime(5, Time.valueOf(guiaHourFormattedTextField.getText()));
 
-            int res = ps.executeUpdate();
-            
-            if(res > 0){
-                JOptionPane.showMessageDialog(null, "Zona Guardada");
-                cleanBox();
-            } else {
-                 JOptionPane.showMessageDialog(null, "Error al Guardar zona");
-                 cleanBox();
+                int res = ps.executeUpdate();
+
+                if (res > 0) {
+                    JOptionPane.showMessageDialog(null, "Persona Guardada");
+                    cleanBox();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al Guardar persona");
+                    cleanBox();
+                }
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(JFGuia.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            con.close();
-            
-        } catch(Exception e){
-            System.out.println(e);
-        }
+
+        
     }//GEN-LAST:event_guideSaveButtonActionPerformed
 
     private void guideDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideDeleteButtonActionPerformed
@@ -331,7 +339,31 @@ Connection con = null;
     }//GEN-LAST:event_guideChangeButtonActionPerformed
 
     private void guiaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiaSearchButtonActionPerformed
-        // TODO add your handling code here:
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM guia WHERE nombre = ?");
+            ps.setString(1, guideNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                guideNameField.setText(rs.getString("nombre"));
+                guiaDirectionField.setText(rs.getString("direccion"));
+                guiaPhoneField.setText(rs.getString("telefono"));
+                guiaStartDateFormattedTextField.setText(rs.getString("start_date"));
+                guiaHourFormattedTextField.setText(rs.getString("horario"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_guiaSearchButtonActionPerformed
 
     private void guideNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideNameFieldActionPerformed
@@ -341,6 +373,10 @@ Connection con = null;
     private void guiaStartDateFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiaStartDateFormattedTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_guiaStartDateFormattedTextFieldActionPerformed
+
+    private void guiaHourFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiaHourFormattedTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guiaHourFormattedTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

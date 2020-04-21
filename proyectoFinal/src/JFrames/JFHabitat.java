@@ -331,7 +331,30 @@ public class JFHabitat extends javax.swing.JFrame {
     }//GEN-LAST:event_habitatChangeButtonActionPerformed
 
     private void habitatSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSearchButtonActionPerformed
-        // TODO add your handling code here:
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM habitat WHERE nombreHabitat = ?");
+            ps.setString(1, habitatNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                habitatNameField.setText(rs.getString("nombreHabitat"));
+                registerWeatherField1.setText(rs.getString("clima"));
+                habitatVegetationField1.setText(rs.getString("vegetacion"));
+                habitatContinentField1.setText(rs.getString("continente"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_habitatSearchButtonActionPerformed
 
     private void habitatNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatNameFieldActionPerformed
