@@ -4,6 +4,7 @@ package JFrames;
 import javax.swing.JOptionPane;
 <<<<<<< HEAD
 import BackEnd.Habitat;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import com.mysql.jdbc.Connection;
 //import java.sql.Statement;
@@ -12,9 +13,20 @@ import java.sql.*;
 import SQL.Connection;
 
 >>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
+=======
+import static JFrames.JFLogin.getConection;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Time;
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37
 
 public class JFHabitat extends javax.swing.JFrame {
-
+    PreparedStatement ps;
+    ResultSet sr;
     protected JFMenu menu;
 <<<<<<< HEAD
     private static ArrayList<Habitat> habitatList;
@@ -22,6 +34,15 @@ public class JFHabitat extends javax.swing.JFrame {
 =======
 >>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
 
+    
+    private void cleanBox() {
+        habitatNameField.setText(null);
+        registerWeatherField1.setText(null);
+        habitatVegetationField1.setText(null);
+        habitatContinentField1.setText(null);
+        
+    }
+    
     public JFHabitat(){
         initComponents();
     }
@@ -487,6 +508,7 @@ public class JFHabitat extends javax.swing.JFrame {
 //For saving dates = ps.setString(x, Date.ValueOf(y.getText()));
 //For saving dates = ps.setString(x, cbxGenero.getSelectedItem().toString());
     private void habitatSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSaveButtonActionPerformed
+<<<<<<< HEAD
         Connection connect = null;
         try{
             connect = Connection.getConnection();
@@ -511,17 +533,101 @@ public class JFHabitat extends javax.swing.JFrame {
         }catch(Exception e){
             System.err.println(e);
         }
+=======
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("INSERT INTO habitat (nombreHabitat, clima, vegetacion, continente) VALUES(?,?,?,?) ");
+            ps.setString(1, habitatNameField.getText());
+            ps.setString(2, registerWeatherField1.getText());
+            ps.setString(3, habitatVegetationField1.getText());
+            ps.setString(4, habitatContinentField1.getText());
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Habitat Guardada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar el Habitat");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37
     }//GEN-LAST:event_habitatSaveButtonActionPerformed
 
     private void habitatDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatDeleteButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM habitat WHERE nombreHabitat=?");
+            ps.setString(1, habitatNameField.getText());
+            
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Habitat eliminada");
+                cleanBox();
+                habitatSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al eliminar el modificada");
+                 cleanBox();
+                 habitatSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_habitatDeleteButtonActionPerformed
 
     private void habitatChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatChangeButtonActionPerformed
-        // TODO add your handling code here:
+       
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("UPDATE habitat SET nombreHabitat=?, clima=?, vegetacion=? WHERE continente=? ");
+            ps.setString(1, habitatNameField.getText());
+            ps.setString(2, registerWeatherField1.getText());
+            ps.setString(3, habitatVegetationField1.getText());
+            ps.setString(4, habitatContinentField1.getText());
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Habitat Modificada");
+                cleanBox();
+                habitatSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar el modificada");
+                 cleanBox();
+                 habitatSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    
     }//GEN-LAST:event_habitatChangeButtonActionPerformed
 
     private void habitatSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSearchButtonActionPerformed
+<<<<<<< HEAD
         
         /*Connection connect = null;
         try{
@@ -534,6 +640,33 @@ public class JFHabitat extends javax.swing.JFrame {
             System.err.println(e);
         }
         */
+=======
+        habitatSaveButton.setEnabled(false);
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM habitat WHERE nombreHabitat = ?");
+            ps.setString(1, habitatNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                habitatNameField.setText(rs.getString("nombreHabitat"));
+                registerWeatherField1.setText(rs.getString("clima"));
+                habitatVegetationField1.setText(rs.getString("vegetacion"));
+                habitatContinentField1.setText(rs.getString("continente"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37
     }//GEN-LAST:event_habitatSearchButtonActionPerformed
 
     private void habitatNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatNameFieldActionPerformed

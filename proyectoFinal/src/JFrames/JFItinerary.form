@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="itinerarioPanel" alignment="0" max="32767" attributes="0"/>
+          <Component id="itinerarioPanel" alignment="0" pref="507" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -74,10 +74,12 @@
                                   <Component id="itinerarioLongField" alignment="0" pref="302" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="habitatNameField3" min="-2" pref="302" max="-2" attributes="0"/>
+                                  <Component id="codeNameField" min="-2" pref="302" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="itinerarioSearchButton" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="itinerarioSpeciesField" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
+                              <Component id="itinerarioVisiterTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -98,7 +100,7 @@
                   <Component id="itinerarioCodeTxt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="habitatNameField3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="codeNameField" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="itinerarioSearchButton" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -113,7 +115,15 @@
                   <Component id="itinerarioVisiterTxt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="itinerarioVisiterField" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFItinerary.form
                   <EmptySpace pref="34" max="32767" attributes="0"/>
+=======
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="itinerarioVisiterTxt1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="itinerarioSpeciesField" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFItinerario.form
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="itinerarioSaveButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="itinerarioDeleteButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
@@ -235,7 +245,7 @@
             <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="habitatNameField3">
+        <Component class="javax.swing.JTextField" name="codeNameField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -248,7 +258,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="habitatNameField3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codeNameFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="itinerarioDurationTxt">
@@ -319,12 +329,36 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="###:##" subtype="-1" type="5"/>
+              <Format format="##:##:##" subtype="-1" type="5"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itirenarioDuratiionFormattedTextFieldActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="itinerarioSpeciesField">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="66" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="13" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="itinerarioVisiterTxt1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="13" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Especies vistas"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

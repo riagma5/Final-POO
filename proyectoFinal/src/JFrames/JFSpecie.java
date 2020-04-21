@@ -4,12 +4,31 @@ package JFrames;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Specie;
+import static JFrames.JFLogin.getConection;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Time;
 
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFSpecie.java
 public class JFSpecie extends javax.swing.JFrame {
+=======
+public class JFEspecie extends javax.swing.JFrame {
+    PreparedStatement ps;
+    ResultSet sr;
+    
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFEspecie.java
     protected JFMenu menu;
     private String searchSpecie;
     private int j;
 
+    private void cleanBox() {
+        especieNameField.setText(null);
+        especieScientificNameField.setText(null);
+        especieDescriptionField.setText(null);
+        
+    }
    
     public JFSpecie() {
         initComponents();
@@ -220,19 +239,115 @@ public class JFSpecie extends javax.swing.JFrame {
     }//GEN-LAST:event_especieGoBackButtonActionPerformed
 
     private void especieSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieSaveButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("INSERT INTO especie (nombreEspanol, nombreCientifico, descripcion) VALUES(?,?,?) ");
+            ps.setString(1, especieNameField.getText());
+            ps.setString(2, especieScientificNameField.getText());
+            ps.setString(3, especieDescriptionField.getText());
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Especie Guardada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar especie");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_especieSaveButtonActionPerformed
 
     private void especieDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieDeleteButtonActionPerformed
-        // TODO add your handling code here:
+         Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM especie WHERE nombreEspanol=?");
+            ps.setString(1, especieNameField.getText());
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Especie eliminada");
+                cleanBox();
+                especieSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al eliminar especie");
+                 cleanBox();
+                 especieSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_especieDeleteButtonActionPerformed
 
     private void especieChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieChangeButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("UPDATE especie SET nombreEspanol=?, nombreCientifico=? WHERE descripcion=?");
+            ps.setString(1, especieNameField.getText());
+            ps.setString(2, especieScientificNameField.getText());
+            ps.setString(3, especieDescriptionField.getText());
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Especie modificada");
+                cleanBox();
+                especieSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al modificar especie");
+                 cleanBox();
+                 especieSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_especieChangeButtonActionPerformed
 
     private void especieSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieSearchButtonActionPerformed
-        // TODO add your handling code here:
+         especieSaveButton.setEnabled(false);
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM especie WHERE nombreEspanol = ?");
+            ps.setString(1, especieNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                especieNameField.setText(rs.getString("nombreEspanol"));
+                especieScientificNameField.setText(rs.getString("nombreCientifico"));
+                especieDescriptionField.setText(rs.getString("descripcion"));
+                
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una especie con este nombre");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_especieSearchButtonActionPerformed
 
     private void especieNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieNameFieldActionPerformed

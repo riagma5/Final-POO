@@ -57,18 +57,26 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="habitatGoBackButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="guideGoBackButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFGuide.form
                   <Component id="habitatSaveButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Component id="habitatDeleteButton" min="-2" pref="103" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="habitatChangeButton" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="guideSaveButton" min="-2" pref="89" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="guideDeleteButton" min="-2" pref="94" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="guideChangeButton" min="-2" max="-2" attributes="0"/>
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFGuia.form
                   <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -91,7 +99,7 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="habitatNameField" min="-2" pref="302" max="-2" attributes="0"/>
+                                      <Component id="guideNameField" min="-2" pref="302" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="guiaSearchButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -113,7 +121,7 @@
                   <Component id="guiaNameTxt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="habitatNameField" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="guideNameField" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="guiaSearchButton" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -134,12 +142,12 @@
                   <Component id="guiaHourFormattedTextField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="13" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="habitatSaveButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="habitatDeleteButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="habitatChangeButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="guideSaveButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="guideDeleteButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="guideChangeButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="habitatGoBackButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="guideGoBackButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -158,7 +166,7 @@
             <Property name="text" type="java.lang.String" value="Guia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="habitatGoBackButton">
+        <Component class="javax.swing.JButton" name="guideGoBackButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -172,10 +180,10 @@
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="habitatGoBackButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guideGoBackButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="habitatSaveButton">
+        <Component class="javax.swing.JButton" name="guideSaveButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -189,10 +197,10 @@
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="habitatSaveButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guideSaveButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="habitatDeleteButton">
+        <Component class="javax.swing.JButton" name="guideDeleteButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -206,10 +214,10 @@
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="habitatDeleteButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guideDeleteButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="habitatChangeButton">
+        <Component class="javax.swing.JButton" name="guideChangeButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -223,7 +231,7 @@
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="habitatChangeButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guideChangeButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="guiaSearchButton">
@@ -251,10 +259,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nombre"/>
+            <Property name="text" type="java.lang.String" value="Nombre y Apellido"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="habitatNameField">
+        <Component class="javax.swing.JTextField" name="guideNameField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -267,7 +275,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="habitatNameFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guideNameFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="guiaDirectionField">
@@ -337,8 +345,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="dd/MM/yyyy" subtype="-1" type="1"/>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="####-##-##" subtype="-1" type="5"/>
             </Property>
           </Properties>
           <Events>
@@ -364,7 +372,13 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="##:##:##" subtype="-1" type="5"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guiaHourFormattedTextFieldActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

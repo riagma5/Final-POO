@@ -5,14 +5,37 @@ import BackEnd.Habitat;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Itinerary;
+import static JFrames.JFLogin.getConection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Time;
 
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFItinerary.java
 public class JFItinerary extends javax.swing.JFrame {
 
+=======
+public class JFItinerario extends javax.swing.JFrame {
+    PreparedStatement ps;
+    ResultSet sr;
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFItinerario.java
     protected JFMenu menu;
     private String searchItinerary;
     private int j;
     
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFItinerary.java
     public JFItinerary() {
+=======
+    private void cleanBox() {
+        codeNameField.setText(null);
+        itirenarioDuratiionFormattedTextField.setText(null);
+        itinerarioLongField.setText(null);
+        itinerarioVisiterField.setText(null);
+        itinerarioSpeciesField.setText(null);
+    }
+    
+    public JFItinerario() {
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFItinerario.java
         initComponents();
     }
 
@@ -38,13 +61,15 @@ public class JFItinerary extends javax.swing.JFrame {
         itinerarioChangeButton = new javax.swing.JButton();
         itinerarioSearchButton = new javax.swing.JButton();
         itinerarioCodeTxt = new javax.swing.JLabel();
-        habitatNameField3 = new javax.swing.JTextField();
+        codeNameField = new javax.swing.JTextField();
         itinerarioDurationTxt = new javax.swing.JLabel();
         itinerarioLongTxt = new javax.swing.JLabel();
         itinerarioLongField = new javax.swing.JTextField();
         itinerarioVisiterTxt = new javax.swing.JLabel();
         itinerarioVisiterField = new javax.swing.JTextField();
         itirenarioDuratiionFormattedTextField = new javax.swing.JFormattedTextField();
+        itinerarioSpeciesField = new javax.swing.JTextField();
+        itinerarioVisiterTxt1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,12 +135,12 @@ public class JFItinerary extends javax.swing.JFrame {
         itinerarioCodeTxt.setForeground(new java.awt.Color(255, 255, 255));
         itinerarioCodeTxt.setText("Código");
 
-        habitatNameField3.setBackground(new java.awt.Color(102, 153, 255));
-        habitatNameField3.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        habitatNameField3.setForeground(new java.awt.Color(255, 255, 255));
-        habitatNameField3.addActionListener(new java.awt.event.ActionListener() {
+        codeNameField.setBackground(new java.awt.Color(102, 153, 255));
+        codeNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        codeNameField.setForeground(new java.awt.Color(255, 255, 255));
+        codeNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatNameField3ActionPerformed(evt);
+                codeNameFieldActionPerformed(evt);
             }
         });
 
@@ -142,7 +167,7 @@ public class JFItinerary extends javax.swing.JFrame {
         itirenarioDuratiionFormattedTextField.setBackground(new java.awt.Color(102, 153, 255));
         itirenarioDuratiionFormattedTextField.setForeground(new java.awt.Color(255, 255, 255));
         try {
-            itirenarioDuratiionFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###:##")));
+            itirenarioDuratiionFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -151,6 +176,14 @@ public class JFItinerary extends javax.swing.JFrame {
                 itirenarioDuratiionFormattedTextFieldActionPerformed(evt);
             }
         });
+
+        itinerarioSpeciesField.setBackground(new java.awt.Color(102, 153, 255));
+        itinerarioSpeciesField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        itinerarioSpeciesField.setForeground(new java.awt.Color(255, 255, 255));
+
+        itinerarioVisiterTxt1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        itinerarioVisiterTxt1.setForeground(new java.awt.Color(255, 255, 255));
+        itinerarioVisiterTxt1.setText("Especies vistas");
 
         javax.swing.GroupLayout itinerarioPanelLayout = new javax.swing.GroupLayout(itinerarioPanel);
         itinerarioPanel.setLayout(itinerarioPanelLayout);
@@ -181,9 +214,11 @@ public class JFItinerary extends javax.swing.JFrame {
                                 .addComponent(itirenarioDuratiionFormattedTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(itinerarioLongField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE))
                             .addGroup(itinerarioPanelLayout.createSequentialGroup()
-                                .addComponent(habitatNameField3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(codeNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
-                                .addComponent(itinerarioSearchButton))))
+                                .addComponent(itinerarioSearchButton))
+                            .addComponent(itinerarioSpeciesField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(itinerarioVisiterTxt1)))
                     .addGroup(itinerarioPanelLayout.createSequentialGroup()
                         .addComponent(itinerarioGoBackButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -198,7 +233,7 @@ public class JFItinerary extends javax.swing.JFrame {
                 .addComponent(itinerarioCodeTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(itinerarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(habitatNameField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codeNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(itinerarioSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(itinerarioDurationTxt)
@@ -212,7 +247,15 @@ public class JFItinerary extends javax.swing.JFrame {
                 .addComponent(itinerarioVisiterTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(itinerarioVisiterField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFItinerary.java
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(itinerarioVisiterTxt1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(itinerarioSpeciesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFItinerario.java
                 .addGroup(itinerarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itinerarioSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(itinerarioDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,7 +273,7 @@ public class JFItinerary extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(itinerarioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(itinerarioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
         );
 
         pack();
@@ -242,24 +285,125 @@ public class JFItinerary extends javax.swing.JFrame {
     }//GEN-LAST:event_itinerarioGoBackButtonActionPerformed
 
     private void itinerarioSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioSaveButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("INSERT INTO itinerario (codigo, duracion, longitud, maxVisitante, especiesVisita) VALUES(?,?,?,?,?) ");
+            ps.setInt(1, Integer.valueOf(codeNameField.getText()));
+            ps.setTime(2, Time.valueOf(itirenarioDuratiionFormattedTextField.getText()));
+            ps.setDouble(3, Double.valueOf(itinerarioLongField.getText()));
+            ps.setInt(4,Integer.valueOf(itinerarioVisiterField.getText()));
+            ps.setInt(5,Integer.valueOf(itinerarioSpeciesField.getText()));
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Itinerario Guardado");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar itinerario");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_itinerarioSaveButtonActionPerformed
 
     private void itinerarioDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioDeleteButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM itinerario WHERE codigo=?");
+            ps.setInt(1, Integer.valueOf(codeNameField.getText()));
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Itinerario eliminado");
+                cleanBox();
+                itinerarioSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al eliminar itinerario");
+                 cleanBox();
+                 itinerarioSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_itinerarioDeleteButtonActionPerformed
 
     private void itinerarioChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioChangeButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("UPDATE itinerario SET codigo=?, duracion=?, longitud=?, maxVisitante=? WHERE especiesVisita=? ");
+            ps.setInt(1, Integer.valueOf(codeNameField.getText()));
+            ps.setTime(2, Time.valueOf(itirenarioDuratiionFormattedTextField.getText()));
+            ps.setDouble(3, Double.valueOf(itinerarioLongField.getText()));
+            ps.setInt(4,Integer.valueOf(itinerarioVisiterField.getText()));
+            ps.setInt(5,Integer.valueOf(itinerarioSpeciesField.getText()));
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Itinerario modificado");
+                cleanBox();
+                itinerarioSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al modificar itinerario");
+                 cleanBox();
+                 itinerarioSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_itinerarioChangeButtonActionPerformed
 
     private void itinerarioSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioSearchButtonActionPerformed
-        // TODO add your handling code here:
+        itinerarioSaveButton.setEnabled(false);
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM itinerario WHERE codigo = ?");
+            ps.setString(1, codeNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                codeNameField.setText(rs.getString("codigo"));
+                itirenarioDuratiionFormattedTextField.setText(rs.getString("duracion"));
+                itinerarioLongField.setText(rs.getString("longitud"));
+                itinerarioVisiterField.setText(rs.getString("maxVisitante"));
+                itinerarioSpeciesField.setText(rs.getString("especiesVisita"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_itinerarioSearchButtonActionPerformed
 
-    private void habitatNameField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatNameField3ActionPerformed
+    private void codeNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_habitatNameField3ActionPerformed
+    }//GEN-LAST:event_codeNameFieldActionPerformed
 
     private void itirenarioDuratiionFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itirenarioDuratiionFormattedTextFieldActionPerformed
         // TODO add your handling code here:
@@ -302,7 +446,11 @@ public class JFItinerary extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFItinerary.java
     private javax.swing.JTextField habitatNameField3;
+=======
+    private javax.swing.JTextField codeNameField;
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFItinerario.java
     private javax.swing.JButton itinerarioChangeButton;
     private javax.swing.JLabel itinerarioCodeTxt;
     private javax.swing.JButton itinerarioDeleteButton;
@@ -313,9 +461,11 @@ public class JFItinerary extends javax.swing.JFrame {
     private javax.swing.JPanel itinerarioPanel;
     private javax.swing.JButton itinerarioSaveButton;
     private javax.swing.JButton itinerarioSearchButton;
+    private javax.swing.JTextField itinerarioSpeciesField;
     private javax.swing.JLabel itinerarioTxt;
     private javax.swing.JTextField itinerarioVisiterField;
     private javax.swing.JLabel itinerarioVisiterTxt;
+    private javax.swing.JLabel itinerarioVisiterTxt1;
     private javax.swing.JFormattedTextField itirenarioDuratiionFormattedTextField;
     // End of variables declaration//GEN-END:variables
 }

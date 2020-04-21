@@ -4,14 +4,36 @@ package JFrames;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Zone;
+import static JFrames.JFLogin.getConection;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Time;
 
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFZone.java
 public class JFZone extends javax.swing.JFrame {
 
+=======
+public class JFZona extends javax.swing.JFrame {
+    PreparedStatement ps;
+    ResultSet sr;
+    
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFZona.java
     protected JFMenu menu;
     private String searchZone;
     private int j;
     
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFZone.java
     public JFZone() {
+=======
+    private void cleanBox() {
+        zoneNameField.setText(null);
+        zonaExtensionField.setText(null);
+    }
+    
+    public JFZona() {
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFZona.java
         initComponents();
     }
 
@@ -37,7 +59,7 @@ public class JFZone extends javax.swing.JFrame {
         zonaChangeButton = new javax.swing.JButton();
         zonaSearchButton = new javax.swing.JButton();
         zonaNameTxt = new javax.swing.JLabel();
-        habitatNameField = new javax.swing.JTextField();
+        zoneNameField = new javax.swing.JTextField();
         zonaExtensionField = new javax.swing.JTextField();
         zonaExtensionTxt = new javax.swing.JLabel();
 
@@ -104,12 +126,12 @@ public class JFZone extends javax.swing.JFrame {
         zonaNameTxt.setForeground(new java.awt.Color(255, 255, 255));
         zonaNameTxt.setText("Nombre");
 
-        habitatNameField.setBackground(new java.awt.Color(102, 153, 255));
-        habitatNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        habitatNameField.setForeground(new java.awt.Color(255, 255, 255));
-        habitatNameField.addActionListener(new java.awt.event.ActionListener() {
+        zoneNameField.setBackground(new java.awt.Color(102, 153, 255));
+        zoneNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        zoneNameField.setForeground(new java.awt.Color(255, 255, 255));
+        zoneNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatNameFieldActionPerformed(evt);
+                zoneNameFieldActionPerformed(evt);
             }
         });
 
@@ -141,7 +163,7 @@ public class JFZone extends javax.swing.JFrame {
                             .addComponent(zonaNameTxt))
                         .addGap(105, 105, 105))
                     .addGroup(zonaPanelLayout.createSequentialGroup()
-                        .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(zoneNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(zonaSearchButton)
                         .addContainerGap())))
@@ -164,7 +186,7 @@ public class JFZone extends javax.swing.JFrame {
                 .addComponent(zonaNameTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(zonaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zoneNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(zonaSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
                 .addComponent(zonaExtensionTxt)
@@ -204,24 +226,120 @@ public class JFZone extends javax.swing.JFrame {
     }//GEN-LAST:event_zonaGoBackButtonActionPerformed
 
     private void zonaSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaSaveButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("INSERT INTO zona (nombreZona, extension) VALUES(?,?) ");
+            ps.setString(1, zoneNameField.getText());
+            ps.setDouble(2, Double.valueOf(zonaExtensionField.getText()));
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Zona Guardada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar zona");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_zonaSaveButtonActionPerformed
 
     private void zonaDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaDeleteButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM zona WHERE nombreZona=?");
+            ps.setString(1, zoneNameField.getText());
+           
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Zona eliminada");
+                cleanBox();
+                zonaSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al eliminar zona");
+                 cleanBox();
+                 zonaSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_zonaDeleteButtonActionPerformed
 
     private void zonaChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaChangeButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("UPDATE zona SET nombreZona=?, extension=?");
+            ps.setString(1, zoneNameField.getText());
+            ps.setDouble(2, Double.valueOf(zonaExtensionField.getText()));
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Zona modificada");
+                cleanBox();
+                zonaSaveButton.setEnabled(true);
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al modificar zona");
+                 cleanBox();
+                 zonaSaveButton.setEnabled(true);
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_zonaChangeButtonActionPerformed
 
     private void zonaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaSearchButtonActionPerformed
-        // TODO add your handling code here:
+        zonaSaveButton.setEnabled(false);
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM zona WHERE nombreZona = ?");
+            ps.setString(1, zoneNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                zoneNameField.setText(rs.getString("nombreZona"));
+                zonaExtensionField.setText(rs.getString("extension"));
+                
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_zonaSearchButtonActionPerformed
 
-    private void habitatNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatNameFieldActionPerformed
+    private void zoneNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoneNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_habitatNameFieldActionPerformed
+    }//GEN-LAST:event_zoneNameFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,7 +378,6 @@ public class JFZone extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField habitatNameField;
     private javax.swing.JButton zonaChangeButton;
     private javax.swing.JButton zonaDeleteButton;
     private javax.swing.JTextField zonaExtensionField;
@@ -271,5 +388,6 @@ public class JFZone extends javax.swing.JFrame {
     private javax.swing.JButton zonaSaveButton;
     private javax.swing.JButton zonaSearchButton;
     private javax.swing.JLabel zonaTxt;
+    private javax.swing.JTextField zoneNameField;
     // End of variables declaration//GEN-END:variables
 }

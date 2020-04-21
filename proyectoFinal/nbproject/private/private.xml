@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFLogin.java</file>
             <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFCuidador.java</file>
 =======
@@ -11,6 +12,14 @@
             <file>file:/C:/Users/Armando/Desktop/Final-POO/proyectoFinal/src/JFrames/JFHabitat.java</file>
             <file>file:/C:/Users/Armando/Desktop/Final-POO/proyectoFinal/src/BackEnd/Habitat.java</file>
 >>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
+=======
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFEspecie.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFHabitat.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFGuia.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFItinerario.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFCuidador.java</file>
+            <file>file:/Users/ricardo/Documents/Univa/ProyectoFinalPOO/proyectoFinal/src/JFrames/JFZona.java</file>
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37
         </group>
     </open-files>
 </project-private>

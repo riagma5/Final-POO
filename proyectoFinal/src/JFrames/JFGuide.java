@@ -1,18 +1,49 @@
-
 package JFrames;
 
-import javax.swing.JOptionPane;
+import java.sql.DriverManager;
+
 import java.util.ArrayList;
 import BackEnd.Guide;
-import BackEnd.Habitat;
+import java.util.ArrayList;
+import BackEnd.Carer;
+
+import static JFrames.JFLogin.getConection;
+import java.sql.Connection;
+import java.sql.Date;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import java.sql.Time;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.*;
 
 public class JFGuide extends javax.swing.JFrame {
+
+    PreparedStatement ps;
+    ResultSet sr;
 
     protected JFMenu menu;
     private String searchGuide;
     private int j;
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFGuide.java
     
     public JFGuide() {
+=======
+
+    private void cleanBox() {
+        guideNameField.setText(null);
+        guiaDirectionField.setText(null);
+        guiaPhoneField.setText(null);
+        guiaStartDateFormattedTextField.setText(null);
+        guiaHourFormattedTextField.setText(null);
+    }
+
+    public JFGuia() {
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFGuia.java
         initComponents();
     }
 
@@ -21,24 +52,24 @@ public class JFGuide extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.menu = menu;
-        menu.guideList = guideList; 
+        menu.guideList = guideList;
         searchGuide = "";
         j = 0;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         guiaPanel = new javax.swing.JPanel();
         habitatTxt = new javax.swing.JLabel();
-        habitatGoBackButton = new javax.swing.JButton();
-        habitatSaveButton = new javax.swing.JButton();
-        habitatDeleteButton = new javax.swing.JButton();
-        habitatChangeButton = new javax.swing.JButton();
+        guideGoBackButton = new javax.swing.JButton();
+        guideSaveButton = new javax.swing.JButton();
+        guideDeleteButton = new javax.swing.JButton();
+        guideChangeButton = new javax.swing.JButton();
         guiaSearchButton = new javax.swing.JButton();
         guiaNameTxt = new javax.swing.JLabel();
-        habitatNameField = new javax.swing.JTextField();
+        guideNameField = new javax.swing.JTextField();
         guiaDirectionField = new javax.swing.JTextField();
         guiaDirectionTxt = new javax.swing.JLabel();
         guiaPhoneTxt = new javax.swing.JLabel();
@@ -57,43 +88,43 @@ public class JFGuide extends javax.swing.JFrame {
         habitatTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         habitatTxt.setText("Guia");
 
-        habitatGoBackButton.setBackground(new java.awt.Color(102, 153, 255));
-        habitatGoBackButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatGoBackButton.setForeground(new java.awt.Color(255, 255, 255));
-        habitatGoBackButton.setText("Regresar");
-        habitatGoBackButton.addActionListener(new java.awt.event.ActionListener() {
+        guideGoBackButton.setBackground(new java.awt.Color(102, 153, 255));
+        guideGoBackButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        guideGoBackButton.setForeground(new java.awt.Color(255, 255, 255));
+        guideGoBackButton.setText("Regresar");
+        guideGoBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatGoBackButtonActionPerformed(evt);
+                guideGoBackButtonActionPerformed(evt);
             }
         });
 
-        habitatSaveButton.setBackground(new java.awt.Color(102, 153, 255));
-        habitatSaveButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatSaveButton.setForeground(new java.awt.Color(255, 255, 255));
-        habitatSaveButton.setText("Guardar");
-        habitatSaveButton.addActionListener(new java.awt.event.ActionListener() {
+        guideSaveButton.setBackground(new java.awt.Color(102, 153, 255));
+        guideSaveButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        guideSaveButton.setForeground(new java.awt.Color(255, 255, 255));
+        guideSaveButton.setText("Guardar");
+        guideSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatSaveButtonActionPerformed(evt);
+                guideSaveButtonActionPerformed(evt);
             }
         });
 
-        habitatDeleteButton.setBackground(new java.awt.Color(102, 153, 255));
-        habitatDeleteButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
-        habitatDeleteButton.setText("Eliminar");
-        habitatDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+        guideDeleteButton.setBackground(new java.awt.Color(102, 153, 255));
+        guideDeleteButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        guideDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        guideDeleteButton.setText("Eliminar");
+        guideDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatDeleteButtonActionPerformed(evt);
+                guideDeleteButtonActionPerformed(evt);
             }
         });
 
-        habitatChangeButton.setBackground(new java.awt.Color(102, 153, 255));
-        habitatChangeButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        habitatChangeButton.setForeground(new java.awt.Color(255, 255, 255));
-        habitatChangeButton.setText("Modificar");
-        habitatChangeButton.addActionListener(new java.awt.event.ActionListener() {
+        guideChangeButton.setBackground(new java.awt.Color(102, 153, 255));
+        guideChangeButton.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        guideChangeButton.setForeground(new java.awt.Color(255, 255, 255));
+        guideChangeButton.setText("Modificar");
+        guideChangeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatChangeButtonActionPerformed(evt);
+                guideChangeButtonActionPerformed(evt);
             }
         });
 
@@ -109,14 +140,14 @@ public class JFGuide extends javax.swing.JFrame {
 
         guiaNameTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         guiaNameTxt.setForeground(new java.awt.Color(255, 255, 255));
-        guiaNameTxt.setText("Nombre");
+        guiaNameTxt.setText("Nombre y Apellido");
 
-        habitatNameField.setBackground(new java.awt.Color(102, 153, 255));
-        habitatNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        habitatNameField.setForeground(new java.awt.Color(255, 255, 255));
-        habitatNameField.addActionListener(new java.awt.event.ActionListener() {
+        guideNameField.setBackground(new java.awt.Color(102, 153, 255));
+        guideNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        guideNameField.setForeground(new java.awt.Color(255, 255, 255));
+        guideNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatNameFieldActionPerformed(evt);
+                guideNameFieldActionPerformed(evt);
             }
         });
 
@@ -142,7 +173,11 @@ public class JFGuide extends javax.swing.JFrame {
 
         guiaStartDateFormattedTextField.setBackground(new java.awt.Color(102, 153, 255));
         guiaStartDateFormattedTextField.setForeground(new java.awt.Color(255, 255, 255));
-        guiaStartDateFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        try {
+            guiaStartDateFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         guiaStartDateFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guiaStartDateFormattedTextFieldActionPerformed(evt);
@@ -155,6 +190,16 @@ public class JFGuide extends javax.swing.JFrame {
 
         guiaHourFormattedTextField.setBackground(new java.awt.Color(102, 153, 255));
         guiaHourFormattedTextField.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            guiaHourFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        guiaHourFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiaHourFormattedTextFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout guiaPanelLayout = new javax.swing.GroupLayout(guiaPanel);
         guiaPanel.setLayout(guiaPanelLayout);
@@ -167,15 +212,23 @@ public class JFGuide extends javax.swing.JFrame {
                         .addComponent(habitatTxt))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, guiaPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(habitatGoBackButton)))
+                        .addComponent(guideGoBackButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guiaPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFGuide.java
                 .addComponent(habitatSaveButton)
                 .addGap(11, 11, 11)
                 .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(habitatChangeButton)
+=======
+                .addComponent(guideSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(guideDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(guideChangeButton)
+>>>>>>> 5782f630e4a48c7113040375e8835f0ee85fdc37:proyectoFinal/src/JFrames/JFGuia.java
                 .addGap(108, 108, 108))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guiaPanelLayout.createSequentialGroup()
                 .addContainerGap(88, Short.MAX_VALUE)
@@ -195,7 +248,7 @@ public class JFGuide extends javax.swing.JFrame {
                         .addGroup(guiaPanelLayout.createSequentialGroup()
                             .addGroup(guiaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(guiaPanelLayout.createSequentialGroup()
-                                    .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(guideNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(guiaSearchButton))
                                 .addComponent(guiaStartDateFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -210,7 +263,7 @@ public class JFGuide extends javax.swing.JFrame {
                 .addComponent(guiaNameTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(guiaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guideNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guiaSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(guiaDirectionTxt)
@@ -230,11 +283,11 @@ public class JFGuide extends javax.swing.JFrame {
                 .addComponent(guiaHourFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(guiaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(habitatChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guideSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guideDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guideChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(habitatGoBackButton)
+                .addComponent(guideGoBackButton)
                 .addGap(16, 16, 16))
         );
 
@@ -256,34 +309,135 @@ public class JFGuide extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void habitatGoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatGoBackButtonActionPerformed
+    private void guideGoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideGoBackButtonActionPerformed
         this.dispose();
         menu.setVisible(true);
-    }//GEN-LAST:event_habitatGoBackButtonActionPerformed
+    }//GEN-LAST:event_guideGoBackButtonActionPerformed
 
-    private void habitatSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSaveButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_habitatSaveButtonActionPerformed
+    private void guideSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideSaveButtonActionPerformed
+        Connection con = null;
+            
+            try {
+                con = getConection();
+                ps = con.prepareStatement("INSERT INTO guia (nombre, direccion, telefono, start_date, horario) VALUES(?,?,?,?,?) ");
+                ps.setString(1, guideNameField.getText());
+                ps.setString(2, guiaDirectionField.getText());
+                ps.setString(3, guiaPhoneField.getText());
+                ps.setDate(4, Date.valueOf(guiaStartDateFormattedTextField.getText()));
+                ps.setTime(5, Time.valueOf(guiaHourFormattedTextField.getText()));
 
-    private void habitatDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatDeleteButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_habitatDeleteButtonActionPerformed
+                int res = ps.executeUpdate();
 
-    private void habitatChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatChangeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_habitatChangeButtonActionPerformed
+                if (res > 0) {
+                    JOptionPane.showMessageDialog(null, "Persona Guardada");
+                    cleanBox();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al Guardar persona");
+                    cleanBox();
+                }
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(JFGuia.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        
+    }//GEN-LAST:event_guideSaveButtonActionPerformed
+
+    private void guideDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideDeleteButtonActionPerformed
+        Connection con = null;
+            
+            try {
+                con = getConection();
+                ps = con.prepareStatement("DELETE FROM guia WHERE nombre=?");
+                ps.setString(1, guideNameField.getText());
+                
+
+                int res = ps.executeUpdate();
+
+                if (res > 0) {
+                    JOptionPane.showMessageDialog(null, "Persona eliminada");
+                    cleanBox();
+                    guideSaveButton.setEnabled(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al eliminar persona");
+                    cleanBox();
+                    guideSaveButton.setEnabled(true);
+                }
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(JFGuia.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_guideDeleteButtonActionPerformed
+
+    private void guideChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideChangeButtonActionPerformed
+        Connection con = null;
+            
+            try {
+                con = getConection();
+                ps = con.prepareStatement("UPDATE guia SET nombre=?, direccion=?, telefono=?, start_date=? WHERE horario=? ");
+                ps.setString(1, guideNameField.getText());
+                ps.setString(2, guiaDirectionField.getText());
+                ps.setString(3, guiaPhoneField.getText());
+                ps.setDate(4, Date.valueOf(guiaStartDateFormattedTextField.getText()));
+                ps.setTime(5, Time.valueOf(guiaHourFormattedTextField.getText()));
+
+                int res = ps.executeUpdate();
+
+                if (res > 0) {
+                    JOptionPane.showMessageDialog(null, "Persona Modificada");
+                    cleanBox();
+                    guideSaveButton.setEnabled(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al modificar persona");
+                    cleanBox();
+                    guideSaveButton.setEnabled(true);
+                }
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(JFGuia.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_guideChangeButtonActionPerformed
 
     private void guiaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiaSearchButtonActionPerformed
-        // TODO add your handling code here:
+        guideSaveButton.setEnabled(false);
+        com.mysql.jdbc.Connection con = null;
+        
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM guia WHERE nombre = ?");
+            ps.setString(1, guideNameField.getText());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                guideNameField.setText(rs.getString("nombre"));
+                guiaDirectionField.setText(rs.getString("direccion"));
+                guiaPhoneField.setText(rs.getString("telefono"));
+                guiaStartDateFormattedTextField.setText(rs.getString("start_date"));
+                guiaHourFormattedTextField.setText(rs.getString("horario"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con ese nombre");
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_guiaSearchButtonActionPerformed
 
-    private void habitatNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatNameFieldActionPerformed
+    private void guideNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_habitatNameFieldActionPerformed
+    }//GEN-LAST:event_guideNameFieldActionPerformed
 
     private void guiaStartDateFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiaStartDateFormattedTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_guiaStartDateFormattedTextFieldActionPerformed
+
+    private void guiaHourFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiaHourFormattedTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guiaHourFormattedTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,11 +487,11 @@ public class JFGuide extends javax.swing.JFrame {
     private javax.swing.JButton guiaSearchButton;
     private javax.swing.JFormattedTextField guiaStartDateFormattedTextField;
     private javax.swing.JLabel guiaStartDateTxt;
-    private javax.swing.JButton habitatChangeButton;
-    private javax.swing.JButton habitatDeleteButton;
-    private javax.swing.JButton habitatGoBackButton;
-    private javax.swing.JTextField habitatNameField;
-    private javax.swing.JButton habitatSaveButton;
+    private javax.swing.JButton guideChangeButton;
+    private javax.swing.JButton guideDeleteButton;
+    private javax.swing.JButton guideGoBackButton;
+    private javax.swing.JTextField guideNameField;
+    private javax.swing.JButton guideSaveButton;
     private javax.swing.JLabel habitatTxt;
     // End of variables declaration//GEN-END:variables
 }
