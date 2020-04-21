@@ -3,12 +3,12 @@ package JFrames;
 import com.mysql.jdbc.Connection;
 import java.awt.event.KeyEvent;
 import java.sql.DriverManager;
-
 import javax.swing.*;
 import javax.swing.JOptionPane;
+import java.sql.Statement;
 
 /**
- * @author Ricardo Aguilera Martin & Armando Del Rio
+ * @author Ricardo Aguilera Martin, Armando Del Rio & Fernando Luna.
  * Started on 2020/04/14
  * Finished on 2020/04/21*
  */
