@@ -1,7 +1,7 @@
 
 package JFrames;
-
-import javax.swing.JOptionPane;
+import javax.swing.*;
+//import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Habitat;
 import static JFrames.JFLogin.getConection;
@@ -9,89 +9,72 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
+import javax.swing.table.DefaultTableModel;
 
 public class JFHabitat extends javax.swing.JFrame {
     PreparedStatement ps;
     ResultSet sr;
     protected JFMenu menu;
-    private String searchHabitat;
-    private int j;
-
+    ArrayList<Habitat> habitatList;
+    Habitat habitat;
     
     private void cleanBox() {
         habitatNameField.setText(null);
         registerWeatherField1.setText(null);
         habitatVegetationField1.setText(null);
         habitatContinentField1.setText(null);
-        
     }
     
-    public JFHabitat(){
-        initComponents();
-    }
+    public JFHabitat(){ initComponents(); }
     
     public JFHabitat(JFMenu menu, ArrayList<Habitat> habitatList) {
         super();
         initComponents();
         setLocationRelativeTo(null);
         this.menu = menu;
-        menu.habitatList = habitatList; 
-        searchHabitat = "";
-        j = 0;
+        habitatList = new ArrayList<Habitat>();
+        habitat = new Habitat();
     }
     
-    protected int search(String dummy){ //searches value in list
-        for(int i = 0; i < menu.habitatList.size(); i++){
-            if(!menu.habitatList.contains(dummy)){
-                searchHabitat =  menu.habitatList.get(i).getHabitatName();
-                j = 1;
-                break;
-            } else {searchHabitat = ""; j = 0;}
+   
+    
+    public ArrayList<Habitat> showDataDB() {
+        Connection con = null;
+
+        try{
+            con = (Connection)JFrames.JFLogin.getConection();
+            ps = con.prepareStatement("SELECT * FROM habitat WHERE nombreHabitat = ?");
+            
+            Statement st = JFrames.JFLogin.getConection().createStatement();
+            ResultSet rs = ps.executeQuery("Select * FROM habitat ");
+            while(rs.next()){
+                habitat.setId(Integer.parseInt(rs.getString("idHabitat")));
+                habitat.setHabitatName(rs.getString("nombreHabitat"));
+                habitat.setWeather(rs.getString("clima"));
+                habitat.setVegetation(rs.getString("vegetacion"));
+                habitat.setContinent(rs.getString("continente"));
+                habitatList.add(new Habitat());
+            }
+            rs.close();
+            st.close();
+                   
+        }catch(SQLException e){
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
         }
-        JOptionPane.showMessageDialog(this, "Habitat inexistente");
-        
-        return j;
-    }
-    
-    //adds values to list given values
-    protected void addValues(String habitatName, String weather, 
-            String vegetation, String continent){
-        search(habitatName);
-        if(searchHabitat.equals("")){
-            int tempHabitatId = menu.habitatList.size() + 1;
-            menu.habitatList
-                    .add(new Habitat(tempHabitatId, habitatName,weather,vegetation,
-                        continent));
-        } else {
-                JOptionPane.showMessageDialog(this, "El habitat ya existe");
-        }
-    }
-    
-    
-    protected void deleteValues(String dummy){ //deletes value in list givent int
-        search(dummy);
-        if(searchHabitat.equals("")){
-            menu.habitatList.remove(j);
-        } else {
-                JOptionPane.showMessageDialog(this, "El habitat no existe");
-        }
-    }
-    
-    protected void modifyValues(int dummy){ //modifies values in list given int
-        
-    }
-    
-    protected void showValues(){ //shows arraylist values in list
-        
+        return habitatList;
     }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        table = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         habitatPanel = new javax.swing.JPanel();
         habitatTxt = new javax.swing.JLabel();
         habitatGoBackButton = new javax.swing.JButton();
@@ -107,6 +90,20 @@ public class JFHabitat extends javax.swing.JFrame {
         habitatVegetationField1 = new javax.swing.JTextField();
         habitatContinentTxt1 = new javax.swing.JLabel();
         habitatContinentField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        table.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -204,6 +201,13 @@ public class JFHabitat extends javax.swing.JFrame {
         habitatContinentField1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         habitatContinentField1.setForeground(new java.awt.Color(255, 255, 255));
 
+        jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout habitatPanelLayout = new javax.swing.GroupLayout(habitatPanel);
         habitatPanel.setLayout(habitatPanelLayout);
         habitatPanelLayout.setHorizontalGroup(
@@ -219,13 +223,13 @@ public class JFHabitat extends javax.swing.JFrame {
                             .addComponent(habitatVegetationField1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(habitatContinentTxt1)
                             .addComponent(habitatContinentField1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(habitatNameTxt)
                             .addGroup(habitatPanelLayout.createSequentialGroup()
                                 .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(habitatChangeButton))
-                            .addComponent(habitatNameTxt))
+                                .addComponent(habitatChangeButton)))
                         .addGap(105, 105, 105))
                     .addGroup(habitatPanelLayout.createSequentialGroup()
                         .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,7 +243,9 @@ public class JFHabitat extends javax.swing.JFrame {
                         .addComponent(habitatTxt))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, habitatPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(habitatGoBackButton)))
+                        .addComponent(habitatGoBackButton)
+                        .addGap(124, 124, 124)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         habitatPanelLayout.setVerticalGroup(
@@ -263,15 +269,17 @@ public class JFHabitat extends javax.swing.JFrame {
                 .addComponent(habitatVegetationField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(habitatContinentTxt1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(habitatContinentField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(habitatChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(habitatGoBackButton)
+                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(habitatGoBackButton)
+                    .addComponent(jButton1))
                 .addGap(16, 16, 16))
         );
 
@@ -388,7 +396,7 @@ public class JFHabitat extends javax.swing.JFrame {
 
     private void habitatSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSearchButtonActionPerformed
         habitatSaveButton.setEnabled(false);
-        com.mysql.jdbc.Connection con = null;
+        Connection con = null;
         
         try{
             
@@ -418,6 +426,37 @@ public class JFHabitat extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_habitatNameFieldActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFMostrarHabitat mostrarHabitat = new JFMostrarHabitat();
+        setLocationRelativeTo(null);        
+        mostrarHabitat.setVisible(true);
+                
+                
+    }//GEN-LAST:event_jButton1ActionPerformed
+     /*private ArrayList<String> showMe(){
+          Connection con = null;
+          ArrayList<String> lista = new ArrayList<String>();
+        try{
+            
+            con = (com.mysql.jdbc.Connection) getConection();
+            ps = con.prepareStatement("SELECT * FROM habitat");
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                lista.add(
+                rs.getString("idHabitat"),
+                rs.getString("nombreHabitat"),
+                rs.getString("clima"),
+                rs.getString("vegetacion"),
+                rs.getString("continente"));
+            }
+            
+        } catch(Exception e){
+            System.err.println(e);
+        }
+        return lista;
+     }*/
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -472,6 +511,9 @@ public class JFHabitat extends javax.swing.JFrame {
     private javax.swing.JTextField habitatVegetationField1;
     private javax.swing.JLabel habitatVegetationTxt;
     private javax.swing.JLabel habitatWeatherTxt;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField registerWeatherField1;
+    private javax.swing.JScrollPane table;
     // End of variables declaration//GEN-END:variables
 }

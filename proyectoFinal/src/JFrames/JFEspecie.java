@@ -57,6 +57,7 @@ public class JFEspecie extends javax.swing.JFrame {
         especieScientificNameTxt = new javax.swing.JLabel();
         especieDescriptionTxt = new javax.swing.JLabel();
         especieDescriptionField = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,6 +147,13 @@ public class JFEspecie extends javax.swing.JFrame {
         especieDescriptionField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         especieDescriptionField.setForeground(new java.awt.Color(255, 255, 255));
 
+        jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout especiePanelLayout = new javax.swing.GroupLayout(especiePanel);
         especiePanel.setLayout(especiePanelLayout);
         especiePanelLayout.setHorizontalGroup(
@@ -159,13 +167,16 @@ public class JFEspecie extends javax.swing.JFrame {
                             .addComponent(especieScientificNameTxt)
                             .addComponent(especieDescriptionTxt)
                             .addComponent(especieDescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(especieNameTxt)
                             .addGroup(especiePanelLayout.createSequentialGroup()
                                 .addComponent(especieSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(especieDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(especieChangeButton))
-                            .addComponent(especieNameTxt))
+                                .addGroup(especiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1)
+                                    .addGroup(especiePanelLayout.createSequentialGroup()
+                                        .addComponent(especieDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(especieChangeButton)))))
                         .addGap(105, 105, 105))
                     .addGroup(especiePanelLayout.createSequentialGroup()
                         .addComponent(especieNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,7 +218,9 @@ public class JFEspecie extends javax.swing.JFrame {
                     .addComponent(especieDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(especieChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(especieGoBackButton)
+                .addGroup(especiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(especieGoBackButton)
+                    .addComponent(jButton1))
                 .addGap(16, 16, 16))
         );
 
@@ -320,7 +333,7 @@ public class JFEspecie extends javax.swing.JFrame {
 
     private void especieSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieSearchButtonActionPerformed
          especieSaveButton.setEnabled(false);
-        com.mysql.jdbc.Connection con = null;
+        Connection con = null;
         
         try{
             
@@ -349,6 +362,12 @@ public class JFEspecie extends javax.swing.JFrame {
     private void especieNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieNameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_especieNameFieldActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFMostrarEspecie mostrarEspecie = new JFMostrarEspecie();
+        setLocationRelativeTo(null);        
+        mostrarEspecie.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,5 +418,6 @@ public class JFEspecie extends javax.swing.JFrame {
     private javax.swing.JLabel especieScientificNameTxt;
     private javax.swing.JButton especieSearchButton;
     private javax.swing.JLabel especieTxt;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
