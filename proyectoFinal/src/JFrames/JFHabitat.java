@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Time;
 
 public class JFHabitat extends javax.swing.JFrame {
@@ -327,7 +329,34 @@ public class JFHabitat extends javax.swing.JFrame {
     }//GEN-LAST:event_habitatDeleteButtonActionPerformed
 
     private void habitatChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatChangeButtonActionPerformed
-        // TODO add your handling code here:
+       
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("UPDATE habitat SET nombreHabitat=?, clima=?, vegetacion=? WHERE continente=? ");
+            ps.setString(1, habitatNameField.getText());
+            ps.setString(2, registerWeatherField1.getText());
+            ps.setString(3, habitatVegetationField1.getText());
+            ps.setString(4, habitatContinentField1.getText());
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Habitat Modificada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar el modificada");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    
     }//GEN-LAST:event_habitatChangeButtonActionPerformed
 
     private void habitatSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSearchButtonActionPerformed

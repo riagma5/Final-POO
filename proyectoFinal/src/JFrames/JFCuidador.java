@@ -64,6 +64,7 @@ public class JFCuidador extends javax.swing.JFrame {
         carerHourTxt = new javax.swing.JLabel();
         carerStartDateField = new javax.swing.JFormattedTextField();
         carerHourField = new javax.swing.JFormattedTextField();
+        txtId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -169,19 +170,17 @@ public class JFCuidador extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        txtId.setBackground(new java.awt.Color(102, 204, 255));
+        txtId.setEnabled(false);
+
         javax.swing.GroupLayout carerPanelLayout = new javax.swing.GroupLayout(carerPanel);
         carerPanel.setLayout(carerPanelLayout);
         carerPanelLayout.setHorizontalGroup(
             carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(carerPanelLayout.createSequentialGroup()
-                .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, carerPanelLayout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addComponent(carerTxt))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, carerPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(carerGoBackButton)))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(carerGoBackButton)
+                .addContainerGap(407, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, carerPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,12 +206,20 @@ public class JFCuidador extends javax.swing.JFrame {
                             .addComponent(carerSearchButton)
                             .addContainerGap()))
                     .addComponent(carerStartDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(carerPanelLayout.createSequentialGroup()
+                .addGap(221, 221, 221)
+                .addComponent(carerTxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         carerPanelLayout.setVerticalGroup(
             carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(carerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(carerTxt)
+                .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(carerTxt)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(carerNameTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -299,7 +306,31 @@ public class JFCuidador extends javax.swing.JFrame {
     }//GEN-LAST:event_carerDeleteButtonActionPerformed
 
     private void carerChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerChangeButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("UPDATE cuidador SET nombre=?, direccionCuidador=?, inicioCuidador=? WHERE horaCuidador =?");
+            ps.setString(1, carerNameField.getText());
+            ps.setString(2, carerDirectionField.getText());
+            ps.setDate(3,Date.valueOf(carerStartDateField.getText()));
+            ps.setTime(4, Time.valueOf(carerHourField.getText()));
+            
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Persona Modificada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Modificar persona");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_carerChangeButtonActionPerformed
 
     private void carerSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carerSearchButtonActionPerformed
@@ -321,7 +352,7 @@ public class JFCuidador extends javax.swing.JFrame {
                 carerHourField.setText(rs.getString("horaCuidador"));
                 
             } else {
-                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+                JOptionPane.showMessageDialog(null, "No existe una persona con ese nombre");
             }
             
         } catch(Exception e){
@@ -384,5 +415,6 @@ public class JFCuidador extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField carerStartDateField;
     private javax.swing.JLabel carerStartDateTxt;
     private javax.swing.JLabel carerTxt;
+    private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }

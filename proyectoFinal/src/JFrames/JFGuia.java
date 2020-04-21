@@ -335,7 +335,30 @@ public class JFGuia extends javax.swing.JFrame {
     }//GEN-LAST:event_guideDeleteButtonActionPerformed
 
     private void guideChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideChangeButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+            
+            try {
+                con = getConection();
+                ps = con.prepareStatement("UPDATE guia SET nombre=?, direccion=?, telefono=?, start_date=? WHERE horario=? ");
+                ps.setString(1, guideNameField.getText());
+                ps.setString(2, guiaDirectionField.getText());
+                ps.setString(3, guiaPhoneField.getText());
+                ps.setDate(4, Date.valueOf(guiaStartDateFormattedTextField.getText()));
+                ps.setTime(5, Time.valueOf(guiaHourFormattedTextField.getText()));
+
+                int res = ps.executeUpdate();
+
+                if (res > 0) {
+                    JOptionPane.showMessageDialog(null, "Persona Modificada");
+                    cleanBox();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al modificar persona");
+                    cleanBox();
+                }
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(JFGuia.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_guideChangeButtonActionPerformed
 
     private void guiaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiaSearchButtonActionPerformed
@@ -358,7 +381,7 @@ public class JFGuia extends javax.swing.JFrame {
                 guiaHourFormattedTextField.setText(rs.getString("horario"));
                 
             } else {
-                JOptionPane.showMessageDialog(null, "No existe una persona con la clave");
+                JOptionPane.showMessageDialog(null, "No existe una persona con ese nombre");
             }
             
         } catch(Exception e){

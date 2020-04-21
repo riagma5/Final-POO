@@ -266,7 +266,30 @@ public class JFEspecie extends javax.swing.JFrame {
     }//GEN-LAST:event_especieDeleteButtonActionPerformed
 
     private void especieChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieChangeButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("UPDATE especie SET nombreEspanol=?, nombreCientifico=? WHERE descripcion=?");
+            ps.setString(1, especieNameField.getText());
+            ps.setString(2, especieScientificNameField.getText());
+            ps.setString(3, especieDescriptionField.getText());
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Especie modificada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al modificar especie");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_especieChangeButtonActionPerformed
 
     private void especieSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieSearchButtonActionPerformed

@@ -285,10 +285,10 @@ public class JFItinerario extends javax.swing.JFrame {
             int res = ps.executeUpdate();
             
             if(res > 0){
-                JOptionPane.showMessageDialog(null, "Zona Guardada");
+                JOptionPane.showMessageDialog(null, "Itinerario Guardado");
                 cleanBox();
             } else {
-                 JOptionPane.showMessageDialog(null, "Error al Guardar zona");
+                 JOptionPane.showMessageDialog(null, "Error al Guardar itinerario");
                  cleanBox();
             }
             
@@ -304,7 +304,32 @@ public class JFItinerario extends javax.swing.JFrame {
     }//GEN-LAST:event_itinerarioDeleteButtonActionPerformed
 
     private void itinerarioChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioChangeButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("UPDATE itinerario SET codigo=?, duracion=?, longitud=?, maxVisitante=? WHERE especiesVisita=? ");
+            ps.setInt(1, Integer.valueOf(codeNameField.getText()));
+            ps.setTime(2, Time.valueOf(itirenarioDuratiionFormattedTextField.getText()));
+            ps.setDouble(3, Double.valueOf(itinerarioLongField.getText()));
+            ps.setInt(4,Integer.valueOf(itinerarioVisiterField.getText()));
+            ps.setInt(5,Integer.valueOf(itinerarioSpeciesField.getText()));
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Itinerario modificado");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al modificar itinerario");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_itinerarioChangeButtonActionPerformed
 
     private void itinerarioSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itinerarioSearchButtonActionPerformed

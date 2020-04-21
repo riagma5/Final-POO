@@ -248,7 +248,30 @@ public class JFZona extends javax.swing.JFrame {
     }//GEN-LAST:event_zonaDeleteButtonActionPerformed
 
     private void zonaChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaChangeButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("UPDATE zona SET nombreZona=?, extension=?");
+            ps.setString(1, zoneNameField.getText());
+            ps.setDouble(2, Double.valueOf(zonaExtensionField.getText()));
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Zona modificada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al modificar zona");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_zonaChangeButtonActionPerformed
 
     private void zonaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaSearchButtonActionPerformed
