@@ -5,17 +5,17 @@ import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Zone;
 
-public class JFZona extends javax.swing.JFrame {
+public class JFZone extends javax.swing.JFrame {
 
     protected JFMenu menu;
     private String searchZone;
     private int j;
     
-    public JFZona() {
+    public JFZone() {
         initComponents();
     }
 
-    public JFZona(JFMenu menu, ArrayList<Zone> zoneList) {
+    public JFZone(JFMenu menu, ArrayList<Zone> zoneList) {
         super();
         initComponents();
         setLocationRelativeTo(null);
@@ -240,20 +240,21 @@ public class JFZona extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFZona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFZone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFZona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFZone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFZona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFZone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFZona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFZone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFZona().setVisible(true);
+                new JFZone().setVisible(true);
             }
         });
     }

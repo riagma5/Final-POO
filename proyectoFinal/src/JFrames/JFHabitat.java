@@ -3,11 +3,6 @@ package JFrames;
 
 import javax.swing.JOptionPane;
 import BackEnd.Habitat;
-import static JFrames.JFLogin.getConection;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollPane;
-import BackEnd.Habitat;
 import java.util.ArrayList;
 import com.mysql.jdbc.Connection;
 //import java.sql.Statement;
@@ -40,7 +35,7 @@ public class JFHabitat extends javax.swing.JFrame {
         ArrayList<Habitat> tempList = showDataDB();
         
         String[][] matrixInfo = new String[tempList.size()][5];
-        for(int i = 0; i<tempList.size();i++){
+        for(int i = 0; i < tempList.size();i++){
             matrixInfo[i][0] = tempList.get(i).getId()+"";
             matrixInfo[i][1] = tempList.get(i).getHabitatName();
             matrixInfo[i][2] = tempList.get(i).getWeather();
@@ -48,7 +43,7 @@ public class JFHabitat extends javax.swing.JFrame {
             matrixInfo[i][4] = tempList.get(i).getContinent();
         }
         
-        return null;
+        return matrixInfo;
     }
     
     
@@ -74,6 +69,7 @@ public class JFHabitat extends javax.swing.JFrame {
         }
         return habitatList;
     }
+    
      
    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -190,7 +186,7 @@ public class JFHabitat extends javax.swing.JFrame {
         );
 
         habitat_showTable.setModel(new javax.swing.table.DefaultTableModel(
-            matrix[][]=setMatrix(), label[]=defaultLabel()))
+            setMatrix(), defaultLabel())
     );
 
     org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, habitat_showTable, org.jdesktop.beansbinding.ObjectProperty.create(), habitat_showTable, org.jdesktop.beansbinding.BeanProperty.create("autoscrolls"));

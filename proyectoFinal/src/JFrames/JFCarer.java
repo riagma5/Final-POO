@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.*;
 
-public class JFCuidador extends javax.swing.JFrame {
+public class JFCarer extends javax.swing.JFrame {
 
     PreparedStatement ps;
     ResultSet sr;
@@ -31,11 +31,11 @@ public class JFCuidador extends javax.swing.JFrame {
         carerHourField.setText(null);
     }
     
-    public JFCuidador() {
+    public JFCarer() {
         initComponents();
     }
 
-    public JFCuidador(JFMenu menu, ArrayList<Carer> carerList) {
+    public JFCarer(JFMenu menu, ArrayList<Carer> carerList) {
         super();
         initComponents();
         setLocationRelativeTo(null);
@@ -327,20 +327,21 @@ public class JFCuidador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFCuidador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFCarer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFCuidador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFCarer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFCuidador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFCarer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFCuidador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFCarer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFCuidador().setVisible(true);
+                new JFCarer().setVisible(true);
             }
         });
     }

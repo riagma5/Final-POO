@@ -276,7 +276,7 @@
                     <Component class="javax.swing.JTable" name="habitat_showTable">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    matrix[][]=setMatrix(), label[]=defaultLabel()))&#xa;" type="code"/>
+                          <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    setMatrix(), defaultLabel())&#xa;" type="code"/>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">

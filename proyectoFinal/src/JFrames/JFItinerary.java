@@ -6,17 +6,17 @@ import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Itinerary;
 
-public class JFItinerario extends javax.swing.JFrame {
+public class JFItinerary extends javax.swing.JFrame {
 
     protected JFMenu menu;
     private String searchItinerary;
     private int j;
     
-    public JFItinerario() {
+    public JFItinerary() {
         initComponents();
     }
 
-    public JFItinerario(JFMenu menu, ArrayList<Itinerary> itineraryList) {
+    public JFItinerary(JFMenu menu, ArrayList<Itinerary> itineraryList) {
         super();
         initComponents();
         setLocationRelativeTo(null);
@@ -282,68 +282,27 @@ public class JFItinerario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFItinerario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFItinerary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFItinerario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFItinerary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFItinerario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFItinerary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFItinerario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFItinerary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFItinerario().setVisible(true);
+                new JFItinerary().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton habitatChangeButton;
-    private javax.swing.JButton habitatChangeButton1;
-    private javax.swing.JButton habitatChangeButton2;
-    private javax.swing.JTextField habitatContinentField1;
-    private javax.swing.JTextField habitatContinentField2;
-    private javax.swing.JTextField habitatContinentField3;
-    private javax.swing.JLabel habitatContinentTxt1;
-    private javax.swing.JLabel habitatContinentTxt2;
-    private javax.swing.JLabel habitatContinentTxt3;
-    private javax.swing.JButton habitatDeleteButton;
-    private javax.swing.JButton habitatDeleteButton1;
-    private javax.swing.JButton habitatDeleteButton2;
-    private javax.swing.JButton habitatGoBackButton;
-    private javax.swing.JButton habitatGoBackButton1;
-    private javax.swing.JButton habitatGoBackButton2;
-    private javax.swing.JTextField habitatNameField;
-    private javax.swing.JTextField habitatNameField1;
-    private javax.swing.JTextField habitatNameField2;
     private javax.swing.JTextField habitatNameField3;
-    private javax.swing.JLabel habitatNameTxt;
-    private javax.swing.JLabel habitatNameTxt1;
-    private javax.swing.JLabel habitatNameTxt2;
-    private javax.swing.JPanel habitatPanel;
-    private javax.swing.JPanel habitatPanel1;
-    private javax.swing.JPanel habitatPanel2;
-    private javax.swing.JButton habitatSaveButton;
-    private javax.swing.JButton habitatSaveButton1;
-    private javax.swing.JButton habitatSaveButton2;
-    private javax.swing.JButton habitatSearchButton;
-    private javax.swing.JButton habitatSearchButton1;
-    private javax.swing.JButton habitatSearchButton2;
-    private javax.swing.JLabel habitatTxt;
-    private javax.swing.JLabel habitatTxt1;
-    private javax.swing.JLabel habitatTxt2;
-    private javax.swing.JTextField habitatVegetationField1;
-    private javax.swing.JTextField habitatVegetationField2;
-    private javax.swing.JTextField habitatVegetationField3;
-    private javax.swing.JLabel habitatVegetationTxt;
-    private javax.swing.JLabel habitatVegetationTxt1;
-    private javax.swing.JLabel habitatVegetationTxt2;
-    private javax.swing.JLabel habitatWeatherTxt;
-    private javax.swing.JLabel habitatWeatherTxt1;
-    private javax.swing.JLabel habitatWeatherTxt2;
     private javax.swing.JButton itinerarioChangeButton;
     private javax.swing.JLabel itinerarioCodeTxt;
     private javax.swing.JButton itinerarioDeleteButton;
@@ -358,8 +317,5 @@ public class JFItinerario extends javax.swing.JFrame {
     private javax.swing.JTextField itinerarioVisiterField;
     private javax.swing.JLabel itinerarioVisiterTxt;
     private javax.swing.JFormattedTextField itirenarioDuratiionFormattedTextField;
-    private javax.swing.JTextField registerWeatherField1;
-    private javax.swing.JTextField registerWeatherField2;
-    private javax.swing.JTextField registerWeatherField3;
     // End of variables declaration//GEN-END:variables
 }

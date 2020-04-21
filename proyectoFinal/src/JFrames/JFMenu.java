@@ -24,11 +24,11 @@ public class JFMenu extends javax.swing.JFrame {
     //Carer id + Specie id
         
     protected JFHabitat habitat;
-    protected JFItinerario itinerario;
-    protected JFEspecie especie;
-    protected JFZona zona;
-    protected JFGuia guia;   
-    protected JFCuidador cuidador;
+    protected JFItinerary itinerario;
+    protected JFSpecie especie;
+    protected JFZone zona;
+    protected JFGuide guia;   
+    protected JFCarer cuidador;
     
     
     
@@ -36,11 +36,11 @@ public class JFMenu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         habitat = new JFHabitat(this, habitatList);
-        itinerario = new JFItinerario(this,itineraryList);
-        especie = new JFEspecie(this,specieList);
-        zona = new JFZona(this,zoneList);
-        guia = new JFGuia(this, guideList);
-        cuidador = new JFCuidador(this, carerList);
+        itinerario = new JFItinerary(this,itineraryList);
+        especie = new JFSpecie(this,specieList);
+        zona = new JFZone(this,zoneList);
+        guia = new JFGuide(this, guideList);
+        cuidador = new JFCarer(this, carerList);
         
         //INSERT OTHER FRAME OBJECTS
     }

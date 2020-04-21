@@ -5,17 +5,17 @@ import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Specie;
 
-public class JFEspecie extends javax.swing.JFrame {
+public class JFSpecie extends javax.swing.JFrame {
     protected JFMenu menu;
     private String searchSpecie;
     private int j;
 
    
-    public JFEspecie() {
+    public JFSpecie() {
         initComponents();
     }
 
-    public JFEspecie(JFMenu menu, ArrayList<Specie> specieList) {
+    public JFSpecie(JFMenu menu, ArrayList<Specie> specieList) {
         super();
         initComponents();
         setLocationRelativeTo(null);
@@ -256,20 +256,21 @@ public class JFEspecie extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFEspecie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFSpecie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFEspecie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFSpecie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFEspecie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFSpecie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFEspecie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFSpecie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFEspecie().setVisible(true);
+                new JFSpecie().setVisible(true);
             }
         });
     }
