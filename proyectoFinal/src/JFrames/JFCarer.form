@@ -74,11 +74,19 @@
                                   <Component id="carerDirectionField" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                                   <Component id="carerDirectionTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFCarer.form
                                       <Component id="carerSaveButton" min="-2" pref="89" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="carerDeleteButton" min="-2" pref="94" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="carerChangeButton" min="-2" max="-2" attributes="0"/>
+=======
+                                      <Component id="habitatSaveButton" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="habitatDeleteButton" min="-2" pref="106" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="habitatChangeButton" min="-2" max="-2" attributes="0"/>
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e:proyectoFinal/src/JFrames/JFCuidador.form
                                   </Group>
                                   <Component id="carerNameTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>

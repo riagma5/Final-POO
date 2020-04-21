@@ -194,11 +194,19 @@ public class JFCarer extends javax.swing.JFrame {
                                 .addComponent(carerDirectionField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(carerDirectionTxt)
                                 .addGroup(carerPanelLayout.createSequentialGroup()
+<<<<<<< HEAD:proyectoFinal/src/JFrames/JFCarer.java
                                     .addComponent(carerSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(carerDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(carerChangeButton))
+=======
+                                    .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(habitatChangeButton))
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e:proyectoFinal/src/JFrames/JFCuidador.java
                                 .addComponent(carerNameTxt))
                             .addGap(105, 105, 105))
                         .addGroup(carerPanelLayout.createSequentialGroup()

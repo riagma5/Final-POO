@@ -35,14 +35,22 @@ public class JFMenu extends javax.swing.JFrame {
     public JFMenu() {
         initComponents();
         setLocationRelativeTo(null);
+<<<<<<< HEAD
         habitat = new JFHabitat(this, habitatList);
         itinerario = new JFItinerary(this,itineraryList);
         especie = new JFSpecie(this,specieList);
         zona = new JFZone(this,zoneList);
         guia = new JFGuide(this, guideList);
         cuidador = new JFCarer(this, carerList);
+=======
+        habitat = new JFHabitat(this);
+        //itinerario = new JFItinerario(this);
+        //especie = new JFEspecie(this);
+        //zona = new JFZona(this);
+        //guia = new JFGuia(this);
+        //cuidador = new JFCuidador(this);
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
         
-        //INSERT OTHER FRAME OBJECTS
     }
     
     private void showHabitat(){
@@ -265,7 +273,7 @@ public class JFMenu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

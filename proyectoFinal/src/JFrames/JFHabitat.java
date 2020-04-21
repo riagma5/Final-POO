@@ -2,27 +2,36 @@
 package JFrames;
 
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
 import BackEnd.Habitat;
 import java.util.ArrayList;
 import com.mysql.jdbc.Connection;
 //import java.sql.Statement;
 import java.sql.*;
+=======
+import SQL.Connection;
+
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
 
 public class JFHabitat extends javax.swing.JFrame {
 
     protected JFMenu menu;
+<<<<<<< HEAD
     private static ArrayList<Habitat> habitatList;
     private Habitat habitat;
+=======
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
 
     public JFHabitat(){
         initComponents();
     }
     
-    public JFHabitat(JFMenu menu, ArrayList<Habitat> habitatList) {
+    public JFHabitat(JFMenu menu) {
         super();
         initComponents();
         setLocationRelativeTo(null);
         this.menu = menu;
+<<<<<<< HEAD
         habitatList = new ArrayList<Habitat>();
     }
     
@@ -72,6 +81,18 @@ public class JFHabitat extends javax.swing.JFrame {
     
      
    @SuppressWarnings("unchecked")
+=======
+    }
+    
+    private void cleanField(){
+        habitatNameField.setText(null);
+        habitatWeatherField.setText(null);
+        habitatVegetationField.setText(null);
+        habitatContinentField.setText(null);
+    }
+    
+    @SuppressWarnings("unchecked")
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
@@ -82,11 +103,16 @@ public class JFHabitat extends javax.swing.JFrame {
         JPanel_inputVariables = new javax.swing.JPanel();
         habitatNameTxt = new javax.swing.JLabel();
         habitatNameField = new javax.swing.JTextField();
+<<<<<<< HEAD
+=======
+        habitatWeatherField = new javax.swing.JTextField();
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
         habitatWeatherTxt = new javax.swing.JLabel();
         registerWeatherField1 = new javax.swing.JTextField();
         habitatVegetationTxt = new javax.swing.JLabel();
-        habitatVegetationField1 = new javax.swing.JTextField();
+        habitatVegetationField = new javax.swing.JTextField();
         habitatContinentTxt1 = new javax.swing.JLabel();
+<<<<<<< HEAD
         habitatContinentField1 = new javax.swing.JTextField();
         jScrollPane_Matrix = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -99,6 +125,9 @@ public class JFHabitat extends javax.swing.JFrame {
         habitatGoBackButton = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         habitatTxt = new javax.swing.JLabel();
+=======
+        habitatContinentField = new javax.swing.JTextField();
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -119,6 +148,18 @@ public class JFHabitat extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
+=======
+        habitatWeatherField.setBackground(new java.awt.Color(102, 153, 255));
+        habitatWeatherField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatWeatherField.setForeground(new java.awt.Color(255, 255, 255));
+        habitatWeatherField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                habitatWeatherFieldActionPerformed(evt);
+            }
+        });
+
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
         habitatWeatherTxt.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         habitatWeatherTxt.setForeground(new java.awt.Color(255, 255, 255));
         habitatWeatherTxt.setText("Clima");
@@ -131,18 +172,24 @@ public class JFHabitat extends javax.swing.JFrame {
         habitatVegetationTxt.setForeground(new java.awt.Color(255, 255, 255));
         habitatVegetationTxt.setText("Vegetación");
 
-        habitatVegetationField1.setBackground(new java.awt.Color(102, 153, 255));
-        habitatVegetationField1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        habitatVegetationField1.setForeground(new java.awt.Color(255, 255, 255));
+        habitatVegetationField.setBackground(new java.awt.Color(102, 153, 255));
+        habitatVegetationField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatVegetationField.setForeground(new java.awt.Color(255, 255, 255));
+        habitatVegetationField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                habitatVegetationFieldActionPerformed(evt);
+            }
+        });
 
         habitatContinentTxt1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         habitatContinentTxt1.setForeground(new java.awt.Color(255, 255, 255));
         habitatContinentTxt1.setText("Continente");
 
-        habitatContinentField1.setBackground(new java.awt.Color(102, 153, 255));
-        habitatContinentField1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        habitatContinentField1.setForeground(new java.awt.Color(255, 255, 255));
+        habitatContinentField.setBackground(new java.awt.Color(102, 153, 255));
+        habitatContinentField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        habitatContinentField.setForeground(new java.awt.Color(255, 255, 255));
 
+<<<<<<< HEAD
         javax.swing.GroupLayout JPanel_inputVariablesLayout = new javax.swing.GroupLayout(JPanel_inputVariables);
         JPanel_inputVariables.setLayout(JPanel_inputVariablesLayout);
         JPanel_inputVariablesLayout.setHorizontalGroup(
@@ -162,6 +209,45 @@ public class JFHabitat extends javax.swing.JFrame {
                     .addComponent(habitatVegetationTxt)
                     .addComponent(habitatContinentTxt1))
                 .addGap(0, 0, Short.MAX_VALUE))
+=======
+        javax.swing.GroupLayout habitatPanelLayout = new javax.swing.GroupLayout(habitatPanel);
+        habitatPanel.setLayout(habitatPanelLayout);
+        habitatPanelLayout.setHorizontalGroup(
+            habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(habitatPanelLayout.createSequentialGroup()
+                .addContainerGap(80, Short.MAX_VALUE)
+                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(habitatPanelLayout.createSequentialGroup()
+                        .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(habitatWeatherField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(habitatWeatherTxt)
+                            .addComponent(habitatVegetationTxt)
+                            .addComponent(habitatVegetationField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(habitatContinentTxt1)
+                            .addComponent(habitatContinentField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(habitatNameTxt)
+                            .addGroup(habitatPanelLayout.createSequentialGroup()
+                                .addComponent(habitatSaveButton)
+                                .addGap(20, 20, 20)
+                                .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(habitatChangeButton)))
+                        .addGap(105, 105, 105))
+                    .addGroup(habitatPanelLayout.createSequentialGroup()
+                        .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(habitatSearchButton)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, habitatPanelLayout.createSequentialGroup()
+                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, habitatPanelLayout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(habitatTxt))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, habitatPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(habitatGoBackButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
         );
         JPanel_inputVariablesLayout.setVerticalGroup(
             JPanel_inputVariablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,6 +258,7 @@ public class JFHabitat extends javax.swing.JFrame {
                 .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(habitatWeatherTxt)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registerWeatherField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -183,6 +270,37 @@ public class JFHabitat extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(habitatContinentField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addGap(11, 11, 11)
+                .addComponent(habitatWeatherField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(habitatVegetationTxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(habitatVegetationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(habitatContinentTxt1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(habitatContinentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(habitatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(habitatSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(habitatDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(habitatChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(habitatGoBackButton)
+                .addGap(16, 16, 16))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(habitatPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(habitatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
         );
 
         habitat_showTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -366,9 +484,33 @@ public class JFHabitat extends javax.swing.JFrame {
         this.dispose();
         menu.setVisible(true);
     }//GEN-LAST:event_habitatGoBackButtonActionPerformed
-
+//For saving dates = ps.setString(x, Date.ValueOf(y.getText()));
+//For saving dates = ps.setString(x, cbxGenero.getSelectedItem().toString());
     private void habitatSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSaveButtonActionPerformed
-        // TODO add your handling code here:
+        Connection connect = null;
+        try{
+            connect = Connection.getConnection();
+            Connection.rs = Connection.ps.executeQuery(
+                    "INSERT INTO habitat (nombreHabitat, clima, vegetacion,"
+                            + " continente) VALUES(?,?,?,?)");
+            Connection.ps.setString(1, habitatNameField.getText());
+            Connection.ps.setString(2, habitatWeatherField.getText());
+            Connection.ps.setString(3, habitatVegetationField.getText());
+            Connection.ps.setString(4, habitatContinentField.getText());
+            
+            int res = Connection.ps.executeUpdate();
+            if(res > 0 ){
+                JOptionPane.showMessageDialog(null, "Habitat guardado");
+                cleanField();
+            } else{
+                JOptionPane.showMessageDialog(null, "Error al guardar Habitat");
+                cleanField();
+            }
+            connect.ps.close();
+            
+        }catch(Exception e){
+            System.err.println(e);
+        }
     }//GEN-LAST:event_habitatSaveButtonActionPerformed
 
     private void habitatDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatDeleteButtonActionPerformed
@@ -380,12 +522,31 @@ public class JFHabitat extends javax.swing.JFrame {
     }//GEN-LAST:event_habitatChangeButtonActionPerformed
 
     private void habitatSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSearchButtonActionPerformed
-        // TODO add your handling code here:
+        
+        /*Connection connect = null;
+        try{
+            connect = Connection.getConnection();
+            connect.ps = connect.preprareStatement(
+                    "Select * FROM habitat WHERE habitatId=");
+            
+  
+        } catch(Exception e){
+            System.err.println(e);
+        }
+        */
     }//GEN-LAST:event_habitatSearchButtonActionPerformed
 
     private void habitatNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatNameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_habitatNameFieldActionPerformed
+
+    private void habitatWeatherFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatWeatherFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_habitatWeatherFieldActionPerformed
+
+    private void habitatVegetationFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatVegetationFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_habitatVegetationFieldActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -395,7 +556,7 @@ public class JFHabitat extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -411,14 +572,7 @@ public class JFHabitat extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFHabitat().setVisible(true);
@@ -431,7 +585,7 @@ public class JFHabitat extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_Buttons;
     private javax.swing.JPanel JPanel_inputVariables;
     private javax.swing.JButton habitatChangeButton;
-    private javax.swing.JTextField habitatContinentField1;
+    private javax.swing.JTextField habitatContinentField;
     private javax.swing.JLabel habitatContinentTxt1;
     private javax.swing.JButton habitatDeleteButton;
     private javax.swing.JButton habitatGoBackButton;
@@ -440,9 +594,11 @@ public class JFHabitat extends javax.swing.JFrame {
     private javax.swing.JButton habitatSaveButton;
     private javax.swing.JButton habitatSearchButton;
     private javax.swing.JLabel habitatTxt;
-    private javax.swing.JTextField habitatVegetationField1;
+    private javax.swing.JTextField habitatVegetationField;
     private javax.swing.JLabel habitatVegetationTxt;
+    private javax.swing.JTextField habitatWeatherField;
     private javax.swing.JLabel habitatWeatherTxt;
+<<<<<<< HEAD
     private javax.swing.JTable habitat_showTable;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JMenuItem jMenuItem1;
@@ -451,5 +607,7 @@ public class JFHabitat extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane_Matrix;
     private javax.swing.JTextField registerWeatherField1;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
+=======
+>>>>>>> 7b270606b646d0e26d7e8b982a36a77e8ec3e78e
     // End of variables declaration//GEN-END:variables
 }

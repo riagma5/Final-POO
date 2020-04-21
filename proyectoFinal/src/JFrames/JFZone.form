@@ -57,10 +57,10 @@
                               <Component id="zonaExtensionField" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                               <Component id="zonaExtensionTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="zonaSaveButton" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="zonaDeleteButton" min="-2" pref="94" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="zonaSaveButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Component id="zonaDeleteButton" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="zonaChangeButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="zonaNameTxt" alignment="0" min="-2" max="-2" attributes="0"/>

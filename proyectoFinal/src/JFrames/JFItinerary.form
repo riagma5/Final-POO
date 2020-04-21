@@ -55,17 +55,17 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="83" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="77" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="itinerarioDurationTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="itinerarioLongTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="itinerarioVisiterTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="itinerarioVisiterField" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="itinerarioSaveButton" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="itinerarioDeleteButton" min="-2" pref="94" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="itinerarioSaveButton" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="itinerarioDeleteButton" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="itinerarioChangeButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="itinerarioCodeTxt" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
                   <Component id="itinerarioVisiterTxt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="itinerarioVisiterField" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                  <EmptySpace pref="34" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="itinerarioSaveButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="itinerarioDeleteButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
