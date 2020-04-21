@@ -3,17 +3,16 @@ package JFrames;
 
 import java.util.ArrayList;
 import BackEnd.Carer;
-import BackEnd.Habitat;
+
 import static JFrames.JFLogin.getConection;
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 import javax.swing.*;
 
 public class JFCuidador extends javax.swing.JFrame {
@@ -270,7 +269,7 @@ public class JFCuidador extends javax.swing.JFrame {
         Connection con = null;
         try {
             con = getConection();
-            ps = con.prepareStatement("INSERT INTO cuidador (nombre, direccion, start_date, hora) VALUES(?,?,?,?) ");
+            ps = con.prepareStatement("INSERT INTO cuidador (nombre, direccionCuidador, inicioCuidador, horaCuidador) VALUES(?,?,?,?) ");
             ps.setString(1, carerNameField.getText());
             ps.setString(2, carerDirectionField.getText());
             ps.setDate(3, Date.valueOf(carerStartDateField.getText()));

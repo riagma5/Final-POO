@@ -4,13 +4,29 @@ package JFrames;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Habitat;
+import static JFrames.JFLogin.getConection;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Time;
 
 public class JFHabitat extends javax.swing.JFrame {
-
+    PreparedStatement ps;
+    ResultSet sr;
     protected JFMenu menu;
     private String searchHabitat;
     private int j;
 
+    
+    private void cleanBox() {
+        habitatNameField.setText(null);
+        registerWeatherField1.setText(null);
+        habitatVegetationField1.setText(null);
+        habitatContinentField1.setText(null);
+        
+    }
+    
     public JFHabitat(){
         initComponents();
     }
@@ -277,7 +293,33 @@ public class JFHabitat extends javax.swing.JFrame {
     }//GEN-LAST:event_habitatGoBackButtonActionPerformed
 
     private void habitatSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatSaveButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("INSERT INTO habitat (nombreHabitat, clima, vegetacion, continente) VALUES(?,?,?,?) ");
+            ps.setString(1, habitatNameField.getText());
+            ps.setString(2, registerWeatherField1.getText());
+            ps.setString(3, habitatVegetationField1.getText());
+            ps.setString(4, habitatContinentField1.getText());
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Habitat Guardada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar el Habitat");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    
     }//GEN-LAST:event_habitatSaveButtonActionPerformed
 
     private void habitatDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatDeleteButtonActionPerformed

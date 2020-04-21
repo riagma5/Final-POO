@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class JFLogin extends javax.swing.JFrame {
     //Data Base//
-    public static final String  URL ="jdbc:mysql://localhost:3306/Zoo";
+    public static final String  URL ="jdbc:mysql://localhost:3306/zoo";
     public static final String  USERNAME ="root";
     public static final String  PASSWORD ="root1234";
     private String usuario;

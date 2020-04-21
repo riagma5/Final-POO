@@ -4,12 +4,25 @@ package JFrames;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Zone;
+import static JFrames.JFLogin.getConection;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Time;
 
 public class JFZona extends javax.swing.JFrame {
-
+    PreparedStatement ps;
+    ResultSet sr;
+    
     protected JFMenu menu;
     private String searchZone;
     private int j;
+    
+    private void cleanBox() {
+        zoneNameField.setText(null);
+        zonaExtensionField.setText(null);
+    }
     
     public JFZona() {
         initComponents();
@@ -37,7 +50,7 @@ public class JFZona extends javax.swing.JFrame {
         zonaChangeButton = new javax.swing.JButton();
         zonaSearchButton = new javax.swing.JButton();
         zonaNameTxt = new javax.swing.JLabel();
-        habitatNameField = new javax.swing.JTextField();
+        zoneNameField = new javax.swing.JTextField();
         zonaExtensionField = new javax.swing.JTextField();
         zonaExtensionTxt = new javax.swing.JLabel();
 
@@ -104,12 +117,12 @@ public class JFZona extends javax.swing.JFrame {
         zonaNameTxt.setForeground(new java.awt.Color(255, 255, 255));
         zonaNameTxt.setText("Nombre");
 
-        habitatNameField.setBackground(new java.awt.Color(102, 153, 255));
-        habitatNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        habitatNameField.setForeground(new java.awt.Color(255, 255, 255));
-        habitatNameField.addActionListener(new java.awt.event.ActionListener() {
+        zoneNameField.setBackground(new java.awt.Color(102, 153, 255));
+        zoneNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        zoneNameField.setForeground(new java.awt.Color(255, 255, 255));
+        zoneNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                habitatNameFieldActionPerformed(evt);
+                zoneNameFieldActionPerformed(evt);
             }
         });
 
@@ -141,7 +154,7 @@ public class JFZona extends javax.swing.JFrame {
                             .addComponent(zonaNameTxt))
                         .addGap(105, 105, 105))
                     .addGroup(zonaPanelLayout.createSequentialGroup()
-                        .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(zoneNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(zonaSearchButton)
                         .addContainerGap())))
@@ -164,7 +177,7 @@ public class JFZona extends javax.swing.JFrame {
                 .addComponent(zonaNameTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(zonaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(habitatNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zoneNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(zonaSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
                 .addComponent(zonaExtensionTxt)
@@ -204,7 +217,30 @@ public class JFZona extends javax.swing.JFrame {
     }//GEN-LAST:event_zonaGoBackButtonActionPerformed
 
     private void zonaSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaSaveButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("INSERT INTO zona (nombreZona, extension) VALUES(?,?) ");
+            ps.setString(1, zoneNameField.getText());
+            ps.setDouble(2, Double.valueOf(zonaExtensionField.getText()));
+            
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Zona Guardada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar zona");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_zonaSaveButtonActionPerformed
 
     private void zonaDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaDeleteButtonActionPerformed
@@ -219,9 +255,9 @@ public class JFZona extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_zonaSearchButtonActionPerformed
 
-    private void habitatNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habitatNameFieldActionPerformed
+    private void zoneNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoneNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_habitatNameFieldActionPerformed
+    }//GEN-LAST:event_zoneNameFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,7 +295,6 @@ public class JFZona extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField habitatNameField;
     private javax.swing.JButton zonaChangeButton;
     private javax.swing.JButton zonaDeleteButton;
     private javax.swing.JTextField zonaExtensionField;
@@ -270,5 +305,6 @@ public class JFZona extends javax.swing.JFrame {
     private javax.swing.JButton zonaSaveButton;
     private javax.swing.JButton zonaSearchButton;
     private javax.swing.JLabel zonaTxt;
+    private javax.swing.JTextField zoneNameField;
     // End of variables declaration//GEN-END:variables
 }

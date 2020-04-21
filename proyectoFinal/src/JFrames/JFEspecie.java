@@ -4,12 +4,27 @@ package JFrames;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import BackEnd.Specie;
+import static JFrames.JFLogin.getConection;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Time;
 
 public class JFEspecie extends javax.swing.JFrame {
+    PreparedStatement ps;
+    ResultSet sr;
+    
     protected JFMenu menu;
     private String searchSpecie;
     private int j;
 
+    private void cleanBox() {
+        especieNameField.setText(null);
+        especieScientificNameField.setText(null);
+        especieDescriptionField.setText(null);
+        
+    }
    
     public JFEspecie() {
         initComponents();
@@ -220,7 +235,30 @@ public class JFEspecie extends javax.swing.JFrame {
     }//GEN-LAST:event_especieGoBackButtonActionPerformed
 
     private void especieSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieSaveButtonActionPerformed
-        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = getConection();
+            ps = con.prepareStatement("INSERT INTO especie (nombreEspanol, nombreCientifico, descripcion) VALUES(?,?,?) ");
+            ps.setString(1, especieNameField.getText());
+            ps.setString(2, especieScientificNameField.getText());
+            ps.setString(3, especieDescriptionField.getText());
+           
+
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Especie Guardada");
+                cleanBox();
+            } else {
+                 JOptionPane.showMessageDialog(null, "Error al Guardar especie");
+                 cleanBox();
+            }
+            
+            con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_especieSaveButtonActionPerformed
 
     private void especieDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieDeleteButtonActionPerformed
