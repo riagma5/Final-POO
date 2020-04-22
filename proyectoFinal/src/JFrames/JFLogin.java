@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.JOptionPane;
 
 /**
- * @author Ricardo Aguilera Martin & Armando Del Rio
+ * @author Ricardo Aguilera Martin, Armando Del Rio & Fernando Luna
  * Started on 2020/04/14
  * Finished on 2020/04/21*
  */
