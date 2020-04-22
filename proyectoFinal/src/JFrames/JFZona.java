@@ -53,6 +53,7 @@ public class JFZona extends javax.swing.JFrame {
         zoneNameField = new javax.swing.JTextField();
         zonaExtensionField = new javax.swing.JTextField();
         zonaExtensionTxt = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +135,13 @@ public class JFZona extends javax.swing.JFrame {
         zonaExtensionTxt.setForeground(new java.awt.Color(255, 255, 255));
         zonaExtensionTxt.setText("Extensión");
 
+        jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout zonaPanelLayout = new javax.swing.GroupLayout(zonaPanel);
         zonaPanel.setLayout(zonaPanelLayout);
         zonaPanelLayout.setHorizontalGroup(
@@ -145,13 +153,16 @@ public class JFZona extends javax.swing.JFrame {
                         .addGroup(zonaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(zonaExtensionField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(zonaExtensionTxt)
+                            .addComponent(zonaNameTxt)
                             .addGroup(zonaPanelLayout.createSequentialGroup()
                                 .addComponent(zonaSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(zonaDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(zonaChangeButton))
-                            .addComponent(zonaNameTxt))
+                                .addGroup(zonaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1)
+                                    .addGroup(zonaPanelLayout.createSequentialGroup()
+                                        .addComponent(zonaDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(zonaChangeButton)))))
                         .addGap(105, 105, 105))
                     .addGroup(zonaPanelLayout.createSequentialGroup()
                         .addComponent(zoneNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,7 +200,9 @@ public class JFZona extends javax.swing.JFrame {
                     .addComponent(zonaDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(zonaChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(zonaGoBackButton)
+                .addGroup(zonaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(zonaGoBackButton)
+                    .addComponent(jButton1))
                 .addGap(16, 16, 16))
         );
 
@@ -332,6 +345,13 @@ public class JFZona extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_zoneNameFieldActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFMostrarZona mostrarZona = new JFMostrarZona();
+        setLocationRelativeTo(null);        
+        mostrarZona.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -368,6 +388,7 @@ public class JFZona extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton zonaChangeButton;
     private javax.swing.JButton zonaDeleteButton;
     private javax.swing.JTextField zonaExtensionField;

@@ -65,6 +65,7 @@ public class JFCuidador extends javax.swing.JFrame {
         carerStartDateField = new javax.swing.JFormattedTextField();
         carerHourField = new javax.swing.JFormattedTextField();
         txtId = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,6 +174,13 @@ public class JFCuidador extends javax.swing.JFrame {
         txtId.setBackground(new java.awt.Color(102, 204, 255));
         txtId.setEnabled(false);
 
+        jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout carerPanelLayout = new javax.swing.GroupLayout(carerPanel);
         carerPanel.setLayout(carerPanelLayout);
         carerPanelLayout.setHorizontalGroup(
@@ -192,13 +200,16 @@ public class JFCuidador extends javax.swing.JFrame {
                             .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(carerDirectionField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(carerDirectionTxt)
+                                .addComponent(carerNameTxt)
                                 .addGroup(carerPanelLayout.createSequentialGroup()
-                                    .addComponent(carerSaveButton)
+                                    .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jButton1)
+                                        .addGroup(carerPanelLayout.createSequentialGroup()
+                                            .addComponent(carerSaveButton)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(carerDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(18, 18, 18)
-                                    .addComponent(carerDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(carerChangeButton))
-                                .addComponent(carerNameTxt))
+                                    .addComponent(carerChangeButton)))
                             .addGap(105, 105, 105))
                         .addGroup(carerPanelLayout.createSequentialGroup()
                             .addComponent(carerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,7 +255,9 @@ public class JFCuidador extends javax.swing.JFrame {
                     .addComponent(carerDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(carerChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(carerGoBackButton)
+                .addGroup(carerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(carerGoBackButton)
+                    .addComponent(jButton1))
                 .addGap(16, 16, 16))
         );
 
@@ -391,6 +404,12 @@ public class JFCuidador extends javax.swing.JFrame {
         
     }//GEN-LAST:event_carerNameFieldActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFMostrarCuidador mostrarCuidador = new JFMostrarCuidador();
+        setLocationRelativeTo(null);        
+        mostrarCuidador.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -442,6 +461,7 @@ public class JFCuidador extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField carerStartDateField;
     private javax.swing.JLabel carerStartDateTxt;
     private javax.swing.JLabel carerTxt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }

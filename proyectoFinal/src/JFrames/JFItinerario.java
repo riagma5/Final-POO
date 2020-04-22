@@ -61,6 +61,7 @@ public class JFItinerario extends javax.swing.JFrame {
         itirenarioDuratiionFormattedTextField = new javax.swing.JFormattedTextField();
         itinerarioSpeciesField = new javax.swing.JTextField();
         itinerarioVisiterTxt1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,6 +177,13 @@ public class JFItinerario extends javax.swing.JFrame {
         itinerarioVisiterTxt1.setForeground(new java.awt.Color(255, 255, 255));
         itinerarioVisiterTxt1.setText("Especies vistas");
 
+        jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout itinerarioPanelLayout = new javax.swing.GroupLayout(itinerarioPanel);
         itinerarioPanel.setLayout(itinerarioPanelLayout);
         itinerarioPanelLayout.setHorizontalGroup(
@@ -194,12 +202,6 @@ public class JFItinerario extends javax.swing.JFrame {
                             .addComponent(itinerarioLongTxt)
                             .addComponent(itinerarioVisiterTxt)
                             .addComponent(itinerarioVisiterField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(itinerarioPanelLayout.createSequentialGroup()
-                                .addComponent(itinerarioSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(itinerarioDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(itinerarioChangeButton))
                             .addComponent(itinerarioCodeTxt)
                             .addGroup(itinerarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(itirenarioDuratiionFormattedTextField, javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +211,16 @@ public class JFItinerario extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addComponent(itinerarioSearchButton))
                             .addComponent(itinerarioSpeciesField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(itinerarioVisiterTxt1)))
+                            .addComponent(itinerarioVisiterTxt1)
+                            .addGroup(itinerarioPanelLayout.createSequentialGroup()
+                                .addComponent(itinerarioSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(itinerarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1)
+                                    .addGroup(itinerarioPanelLayout.createSequentialGroup()
+                                        .addComponent(itinerarioDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(itinerarioChangeButton))))))
                     .addGroup(itinerarioPanelLayout.createSequentialGroup()
                         .addComponent(itinerarioGoBackButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -248,7 +259,9 @@ public class JFItinerario extends javax.swing.JFrame {
                     .addComponent(itinerarioDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(itinerarioChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(itinerarioGoBackButton)
+                .addGroup(itinerarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(itinerarioGoBackButton)
+                    .addComponent(jButton1))
                 .addGap(16, 16, 16))
         );
 
@@ -396,6 +409,12 @@ public class JFItinerario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_itirenarioDuratiionFormattedTextFieldActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFMostrarInt mostrarInt = new JFMostrarInt();
+        setLocationRelativeTo(null);        
+        mostrarInt.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -449,5 +468,6 @@ public class JFItinerario extends javax.swing.JFrame {
     private javax.swing.JLabel itinerarioVisiterTxt;
     private javax.swing.JLabel itinerarioVisiterTxt1;
     private javax.swing.JFormattedTextField itirenarioDuratiionFormattedTextField;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

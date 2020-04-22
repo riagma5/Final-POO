@@ -73,6 +73,7 @@ public class JFGuia extends javax.swing.JFrame {
         guiaStartDateFormattedTextField = new javax.swing.JFormattedTextField();
         guiaHourTxt = new javax.swing.JLabel();
         guiaHourFormattedTextField = new javax.swing.JFormattedTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,6 +197,13 @@ public class JFGuia extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout guiaPanelLayout = new javax.swing.GroupLayout(guiaPanel);
         guiaPanel.setLayout(guiaPanelLayout);
         guiaPanelLayout.setHorizontalGroup(
@@ -207,7 +215,9 @@ public class JFGuia extends javax.swing.JFrame {
                         .addComponent(habitatTxt))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, guiaPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(guideGoBackButton)))
+                        .addComponent(guideGoBackButton)
+                        .addGap(96, 96, 96)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guiaPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -274,7 +284,9 @@ public class JFGuia extends javax.swing.JFrame {
                     .addComponent(guideDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guideChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(guideGoBackButton)
+                .addGroup(guiaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guideGoBackButton)
+                    .addComponent(jButton1))
                 .addGap(16, 16, 16))
         );
 
@@ -426,6 +438,12 @@ public class JFGuia extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_guiaHourFormattedTextFieldActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFMostrarGuia mostrarGuia = new JFMostrarGuia();
+        setLocationRelativeTo(null);        
+        mostrarGuia.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -479,5 +497,6 @@ public class JFGuia extends javax.swing.JFrame {
     private javax.swing.JTextField guideNameField;
     private javax.swing.JButton guideSaveButton;
     private javax.swing.JLabel habitatTxt;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
